@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/androidTest/assets"/><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/build/generated/assets/shaders/androidTest/debugChannel/debug"/></dataSet><dataSet config="debugChannel"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/androidTestDebugChannel/assets"/></dataSet></merger>

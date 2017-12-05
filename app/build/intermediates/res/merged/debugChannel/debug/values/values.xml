@@ -218,7 +218,9 @@
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="transparent">#00000000</color>
+    <color name="transparent_0x40">#40000000</color>
     <color name="transparent_black">#7F000000</color>
+    <color name="transparent_white_20">#20ffffff</color>
     <color name="umeng_socialize_color_group">#2c3035</color>
     <color name="umeng_socialize_comments_bg">#F4F4F4</color>
     <color name="umeng_socialize_divider">#E6E6E6</color>
@@ -445,6 +447,7 @@
     <dimen name="margin_15">15dp</dimen>
     <dimen name="margin_20">20dp</dimen>
     <dimen name="margin_25">25dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_35">35dp</dimen>
     <dimen name="margin_40">40dp</dimen>
     <dimen name="margin_5">5dp</dimen>
@@ -542,6 +545,10 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="about_me">关于版本</string>
+    <string name="about_version_name_info">更新内容：</string>
+    <string name="about_version_name_new">最新版本：%1$s</string>
+    <string name="about_version_name_now">当前版本：%1$s</string>
     <string name="advice_btn">提交</string>
     <string name="advice_hint_1">您的每一个建议，都是我们产品进步的方向，十分感谢您的支持^^.</string>
     <string name="advice_hint_2">如果愿意，请留下您的联系方式，我们给予您及时的反馈。</string>
@@ -549,7 +556,7 @@
     <string name="advice_toast">将你的建议写下来吧～</string>
     <string name="alarm_item_tip">%1$s时间：%2$s</string>
     <item format="float" name="ampm_circle_radius_multiplier" type="string">0.19</item>
-    <string name="app_name">极简时差</string>
+    <string name="app_name">时差闹钟</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="beijing">北京</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
@@ -570,6 +577,9 @@
     <string name="item_is_selected"><ns1:g example="2013" id="item">%1$s</ns1:g> selected</string>
     <string name="left_drawer_tip_advice">意见反馈</string>
     <string name="left_drawer_tip_share">分享给好友</string>
+    <string name="left_drawer_tip_widget">使用插件须知</string>
+    <string name="left_drawer_tip_widget_1">使用须知</string>
+    <string name="left_drawer_tip_widget_2">因手机系统保护，彻底退出APP后桌面插件无法正常运转，可打开APP后，隐藏在后台，则可正常显示。</string>
     <string name="minute_picker_description">Minutes circular slider</string>
     <string name="modify_title">修改闹钟</string>
     <item format="float" name="numbers_radius_multiplier_inner" type="string">0.60</item>
@@ -653,8 +663,7 @@
     <string name="umeng_socialize_text_ydnote_key">有道云笔记</string>
     <string name="umeng_socialize_text_yixin_key">易信</string>
     <string name="umeng_socialize_text_yixincircle_key">易信朋友圈</string>
-    <string name="update_content">1.修正时间误差。\n2.新增搜索功能。</string>
-    <string name="update_title">本次更新内容</string>
+    <string name="update_title">检测到更新</string>
     <string name="year_picker_description">Year list</string>
     <style name="ACPLDialog">
         <item name="android:windowFrame">@null</item>

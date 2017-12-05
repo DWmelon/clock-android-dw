@@ -6,287 +6,287 @@
         jumboMode="false"
         revision="23.0.1"
         sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-support-core-ui-25.1.0_6377bf53fb98a547e308f86c2c7597bbf6b8035c.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-support-core-ui-25.1.0_6377bf53fb98a547e308f86c2c7597bbf6b8035c.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-animated-vector-drawable-25.1.0_5cb481fe6e7b3647d5fa320e56e7b0c9a3721685.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-animated-vector-drawable-25.1.0_5cb481fe6e7b3647d5fa320e56e7b0c9a3721685.jar" />
     </item>
     <item
         jar="/Users/melon/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/bolts-tasks-1.4.0_3fd6b282dffa743312b8f614336f86f22ce11d61.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/bolts-tasks-1.4.0_3fd6b282dffa743312b8f614336f86f22ce11d61.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/SocialSDK_Sina_Simplify.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="0599691958fe20298dc7079465ecd50e8905200c">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/SocialSDK_Sina_Simplify_74435684569d0ddf6fb389eb0726ae6497381488.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/SocialSDK_Sina_Simplify_74435684569d0ddf6fb389eb0726ae6497381488.jar" />
     </item>
     <item
         jar="/Users/melon/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/support-annotations-25.1.0_c556dcad9b0c87308797046ccb5016eecaf8a264.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/support-annotations-25.1.0_c556dcad9b0c87308797046ccb5016eecaf8a264.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/TimeDiffProject/PushSDK/unspecified/jars/libs/utdid4all-1.1.5_proguard.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="00aaae9ebbfdb89e69f7cfed26befc053244377b">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/utdid4all-1.1.5_proguard_2a7a8ac3f7ae22ad737e02367d90c0d221b18209.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/utdid4all-1.1.5_proguard_2a7a8ac3f7ae22ad737e02367d90c0d221b18209.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.12.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="a540784239c611ea490593e2053a5e2890675c68">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.facebook.fresco-fresco-0.12.0_942e03000fab88ff6b9aee9e5b29d8e1531e22b8.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.facebook.fresco-fresco-0.12.0_942e03000fab88ff6b9aee9e5b29d8e1531e22b8.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-support-v4-25.1.0_3bcbaf26686f3c1398c6e0704fa0d1a5f4abfe16.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-support-v4-25.1.0_3bcbaf26686f3c1398c6e0704fa0d1a5f4abfe16.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-support-vector-drawable-25.1.0_3e1dddbc167598f3092e2fb5fd740281f0ace952.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-support-vector-drawable-25.1.0_3e1dddbc167598f3092e2fb5fd740281f0ace952.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/mail.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="428e267abff0d10802ccde86b915da2c20471160">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/mail_b9421654fe07764cd66240991062d32b9d7ec5ac.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/mail_b9421654fe07764cd66240991062d32b9d7ec5ac.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/commons-email-1.4.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="3b3c527990f7f288a3a9b23a8c7307bbf7e75965">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/commons-email-1.4_8b19f7db600e939b7cf0bd00a582373e30067fda.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/commons-email-1.4_8b19f7db600e939b7cf0bd00a582373e30067fda.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/TimeDiffProject/PushSDK/unspecified/jars/libs/alicloud-android-sdk-httpdns-1.0.7.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="74f458654901e8861638bfb391a32673ddc02b59">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/alicloud-android-sdk-httpdns-1.0.7_143321fa8148e86ca2ad7c120e7cdddeb3bb07d4.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/alicloud-android-sdk-httpdns-1.0.7_143321fa8148e86ca2ad7c120e7cdddeb3bb07d4.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-support-compat-25.1.0_f47702841262b2375b669d74271f4843eb8edf35.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-support-compat-25.1.0_f47702841262b2375b669d74271f4843eb8edf35.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/activation .jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/activation _fb26026eb206bac612da7eee5b120cdc5550e5a0.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/activation _fb26026eb206bac612da7eee5b120cdc5550e5a0.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.12.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="c9a86e6bc8300fc00c191949ac61a2f7165e35c7">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.facebook.fresco-imagepipeline-base-0.12.0_76d905ac495095fbb7a2c76fc53047b0629eebbd.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.facebook.fresco-imagepipeline-base-0.12.0_76d905ac495095fbb7a2c76fc53047b0629eebbd.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/umeng_social_shareboard.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="56f81f05bd02f6513a0e431e8219926092ea770c">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/umeng_social_shareboard_577e830cf29c7e3d2cb7a9039228d6cad89d1c6b.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/umeng_social_shareboard_577e830cf29c7e3d2cb7a9039228d6cad89d1c6b.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/umeng_social_api.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="4b02d07785d6fa7c8a483ff779f4de5d53298374">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/umeng_social_api_a5a763fa08f45c63f8f96a69cd41dd153e7852f1.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/umeng_social_api_a5a763fa08f45c63f8f96a69cd41dd153e7852f1.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/umeng_social_shareview.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="a6a47eab6b1b59a813e106900f7fd0ac89635540">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/umeng_social_shareview_2e73d24da095db84bce33ea847a7d01a7b03cb9c.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/umeng_social_shareview_2e73d24da095db84bce33ea847a7d01a7b03cb9c.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.github.zcweng/switch-button/0.0.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="2edb96379079e3de24bc988c4f32bae6763a7a51">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.github.zcweng-switch-button-0.0.2_ff671c5be3f51dde0fa3d91ac02444c4b3bb938d.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.github.zcweng-switch-button-0.0.2_ff671c5be3f51dde0fa3d91ac02444c4b3bb938d.jar" />
     </item>
     <item
         jar="/Users/melon/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.23/be2508e9bac203c38f3f52fc8d33332c4e7ee6c5/fastjson-1.2.23.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="be2508e9bac203c38f3f52fc8d33332c4e7ee6c5">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/fastjson-1.2.23_23bf11898d6ddb10650afba8d1a468e416a4252f.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/fastjson-1.2.23_23bf11898d6ddb10650afba8d1a468e416a4252f.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/umeng_shareboard_widget.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="43648702178eb89dff2106e5b2191710077522e5">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/umeng_shareboard_widget_91c177fbda036d550f95f741d355b618b0d6fab5.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/umeng_shareboard_widget_91c177fbda036d550f95f741d355b618b0d6fab5.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-support-fragment-25.1.0_b62ffb1b747de7c15b6e037ca6da0e9881295118.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-support-fragment-25.1.0_b62ffb1b747de7c15b6e037ca6da0e9881295118.jar" />
     </item>
     <item
         jar="/Users/melon/.gradle/caches/modules-2/files-2.1/com.umeng.analytics/analytics/6.1.2/c3b60518ca618748430276191918f78ab36bc4b5/analytics-6.1.2.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="c3b60518ca618748430276191918f78ab36bc4b5">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/analytics-6.1.2_be50834df2293bf095e4426db48b6336d932bc35.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/analytics-6.1.2_be50834df2293bf095e4426db48b6336d932bc35.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/umeng_social_tool.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="125388705aa78d788b1728b477ea202bf7d7c58d">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/umeng_social_tool_1f96e710afa12a2cb53e5fc2674898b473688b02.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/umeng_social_tool_1f96e710afa12a2cb53e5fc2674898b473688b02.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-support-media-compat-25.1.0_6068818aaa975f41b47f5d14b759b6bf77db2edc.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-support-media-compat-25.1.0_6068818aaa975f41b47f5d14b759b6bf77db2edc.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-support-core-utils-25.1.0_288554261680c97b134cf72df2a71997e26ca13e.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-support-core-utils-25.1.0_288554261680c97b134cf72df2a71997e26ca13e.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-appcompat-v7-25.1.0_62c7afe63b3e3e345cda00822540d40ea844b27a.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-appcompat-v7-25.1.0_62c7afe63b3e3e345cda00822540d40ea844b27a.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-transition-25.1.0_e718ba36c815f53c3354e8e78c1265253a700014.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-transition-25.1.0_e718ba36c815f53c3354e8e78c1265253a700014.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/additionnal.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/additionnal_9a942ce3e5610212299e7cdb2d39ed2c6d3c08ba.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/additionnal_9a942ce3e5610212299e7cdb2d39ed2c6d3c08ba.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.12.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="1e346707e4770db216049a532ab3eb5e317cf82a">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.facebook.fresco-drawee-0.12.0_d505fe1479641057828969af3597012ccab9a862.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.facebook.fresco-drawee-0.12.0_d505fe1479641057828969af3597012ccab9a862.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/TimeDiffProject/PushSDK/unspecified/jars/libs/com.umeng.message_v3.0.6.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="c6c37655998653e818c7b3877f33f99ea0048b70">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.umeng.message_v3.0.6_3093e06e6b340d6dc1285c5c8b96f237f87e7b86.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.umeng.message_v3.0.6_3093e06e6b340d6dc1285c5c8b96f237f87e7b86.jar" />
     </item>
     <item
         jar="/Users/melon/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/library-2.4.0_a22af61bdde3e6a4c4ef22694434e3ce40e004c0.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/library-2.4.0_a22af61bdde3e6a4c4ef22694434e3ce40e004c0.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/umeng_social_net.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="f5b5e868b879e091d456e5b41a6751befb2667b4">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/umeng_social_net_1eb6449e3eb73f9492801aaed41f2ad1a393c5e3.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/umeng_social_net_1eb6449e3eb73f9492801aaed41f2ad1a393c5e3.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/TimeDiffProject/volley/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="7ca0bd6198eeea223fc03b4c91b0efb39b745865">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/TimeDiffProject-volley-unspecified_b8ed913e8244439a47f036e56ff09420d6788aae.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/TimeDiffProject-volley-unspecified_b8ed913e8244439a47f036e56ff09420d6788aae.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.12.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="40e5cb8708fc25fe57cb403cc82e9ef98376b648">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.facebook.fresco-fbcore-0.12.0_93f3991dec04c1191ac50e454181c07fffcbbf5d.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.facebook.fresco-fbcore-0.12.0_93f3991dec04c1191ac50e454181c07fffcbbf5d.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/TimeDiffProject/PushSDK/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="9717fa2df3616d1d0ed54b78980b95f8a1e17cc7">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/TimeDiffProject-PushSDK-unspecified_1bf5c4c6227c5236bd9b6a5b4852079550a9cd53.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/TimeDiffProject-PushSDK-unspecified_1bf5c4c6227c5236bd9b6a5b4852079550a9cd53.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/SocialSDK_QQ_Simplify.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="32068417e23bd96a6525e7c817965cda29f40092">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/SocialSDK_QQ_Simplify_a24be282a46ab2dd099b889146e8afb3a737c9cc.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/SocialSDK_QQ_Simplify_a24be282a46ab2dd099b889146e8afb3a737c9cc.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/libs/SocialSDK_WeChat_Simplify.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="7c66ef9671fbf0930c6a8282ff4e582971441ba7">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/SocialSDK_WeChat_Simplify_f57ef120ac261fe673a31c0428581e8fc868884d.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/SocialSDK_WeChat_Simplify_f57ef120ac261fe673a31c0428581e8fc868884d.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-design-25.1.0_0ab834ca03945391585ecccb14e9af37a3fdcc59.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-design-25.1.0_0ab834ca03945391585ecccb14e9af37a3fdcc59.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.android.support-recyclerview-v7-25.1.0_8396eee43f5d2567e8e80f45acaa97bbf5dd7d1e.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.android.support-recyclerview-v7-25.1.0_8396eee43f5d2567e8e80f45acaa97bbf5dd7d1e.jar" />
     </item>
     <item
         jar="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.12.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="145da27a459a63ea0c4e318930365cf0a8b8e891">
-        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/WanDouJia/debug/com.facebook.fresco-imagepipeline-0.12.0_135e27b698f3532b54df7e03785c9805041839b5.jar" />
+        <dex dex="/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/pre-dexed/debugChannel/debug/com.facebook.fresco-imagepipeline-0.12.0_135e27b698f3532b54df7e03785c9805041839b5.jar" />
     </item>
 
 </items>

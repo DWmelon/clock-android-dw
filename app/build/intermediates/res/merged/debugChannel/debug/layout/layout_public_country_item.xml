@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/country_list_item_height">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/country_list_item_height"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/country_list_item_margin_left"
         android:layout_marginRight="@dimen/country_list_item_margin_right">
 

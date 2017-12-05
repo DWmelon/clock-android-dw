@@ -62,17 +62,17 @@ android {
     }
     productFlavors {
 
-//        debugChannel {}
+        debugChannel {}
 //        Official {}
 //
 //
-        Store360 {}
-        QQ {}
-        BaiDu {}
-        xiaomi {}
-        huawei {}
-        meizu {}
-        WanDouJia {}
+//        Store360 {}
+//        QQ {}
+//        BaiDu {}
+//        xiaomi {}
+//        huawei {}
+//        meizu {}
+//        WanDouJia {}
 
 //        GooglePlay {}
 //        AnZhuo {}
