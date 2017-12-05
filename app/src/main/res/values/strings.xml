@@ -1,0 +1,111 @@
+<resources  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">时差闹钟</string>
+
+    <string name="progress_tip">正在加载...请稍等。</string>
+
+    <string name="toolbar_add">add</string>
+
+    <string name="title_select">选择城市</string>
+    <string name="title_search">搜索城市</string>
+
+    <string name="beijing">北京</string>
+
+    <string name="set_repeat_y">重复</string>
+    <string name="set_repeat_n">单次</string>
+
+    <string name="delete_success">删除成功</string>
+
+    <string name="update_title">检测到更新</string>
+
+    <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
+    <string name="done_label">Done</string>
+    <!--
+         Content description for the hour selector in the time picker, which displays
+         selectable hours of the day along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="hour_picker_description">Hours circular slider</string>
+    <!--
+         Content description for the minute selector in the time picker, which displays
+         selectable five-minute intervals along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="minute_picker_description">Minutes circular slider</string>
+    <!-- Accessibility announcement for hour circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_hours">Select hours</string>
+    <!-- Accessibility announcement for minute circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_minutes">Select minutes</string>
+
+    <!--
+        Content description for the month and day selector in the date picker, which displays
+        a selectable grid of days laid out by month.
+        [CHAR LIMIT=50]
+     -->
+    <string name="day_picker_description">Month grid of days</string>
+    <!--
+        Content description for the year selector in the date picker, which displays
+        a scrolling, vertical list of years.
+        [CHAR LIMIT=50]
+     -->
+    <string name="year_picker_description">Year list</string>
+    <!-- Accessibility announcement for the day picker [CHAR LIMIT=NONE] -->
+    <string name="select_day">Select month and day</string>
+    <!-- Accessibility announcement for the year picker [CHAR LIMIT=NONE] -->
+    <string name="select_year">Select year</string>
+    <!-- Accessibility description for the item that is currently selected. -->
+    <string name="item_is_selected"><xliff:g id="item" example="2013">%1$s</xliff:g> selected</string>
+    <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
+    <string name="deleted_key"><xliff:g id="key" example="4">%1$s</xliff:g> deleted</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_placeholder">--</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_separator">:</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="radial_numbers_typeface">sans-serif</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="sans_serif">sans-serif</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="day_of_week_label_typeface">sans-serif</string>
+
+
+    <!-- 默认对话框-->
+    <string name="dialog_title">提示</string>
+    <string name="dialog_ok">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_msg_home">是否删除该时区?\n与该城市相关的闹钟将一并删除</string>
+    <string name="dialog_msg_clock">是否删除该时钟</string>
+
+    <!-- alarm-->
+    <string name="alarm_item_tip">%1$s时间：%2$s</string>
+
+    <!-- set-->
+    <string name="set_title">设置闹钟</string>
+
+    <!-- left_drawer -->
+    <string name="left_drawer_tip_advice">意见反馈</string>
+    <string name="left_drawer_tip_widget">使用插件须知</string>
+    <string name="left_drawer_tip_widget_1">使用须知</string>
+    <string name="left_drawer_tip_widget_2">因手机系统保护，彻底退出APP后桌面插件无法正常运转，可打开APP后，隐藏在后台，则可正常显示。</string>
+    <string name="left_drawer_tip_share">分享给好友</string>
+
+
+    <!-- advice -->
+    <string name="advice_title">意见反馈</string>
+    <string name="advice_btn">提交</string>
+    <string name="advice_hint_1">您的每一个建议，都是我们产品进步的方向，十分感谢您的支持^^.</string>
+    <string name="advice_hint_2">如果愿意，请留下您的联系方式，我们给予您及时的反馈。</string>
+    <string name="advice_toast">将你的建议写下来吧～</string>
+
+    <!-- modify -->
+    <string name="modify_title">修改闹钟</string>
+
+    <!-- about -->
+    <string name="about_me">关于版本</string>
+    <string name="about_version_name_now">当前版本：%1$s</string>
+    <string name="about_version_name_new">最新版本：%1$s</string>
+    <string name="about_version_name_info">更新内容：</string>
+
+</resources>

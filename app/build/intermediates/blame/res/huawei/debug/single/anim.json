@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/slide_original_to_bottom.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/res/anim/slide_original_to_bottom.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/anim/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/dialog_in.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/res/anim/dialog_in.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/design_fab_in.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/anim/design_fab_in.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/design_snackbar_in.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/design_fab_out.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/anim/design_fab_out.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/design_snackbar_out.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/anim/design_snackbar_out.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/anim/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/slide_bottom_to_up.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/res/anim/slide_bottom_to_up.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/dialog_out.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/res/anim/dialog_out.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_fade_out.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_fade_in.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/huawei/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/anim/abc_slide_out_top.xml"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/QQ/debug/menu/menu_right.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/res/menu/menu_right.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/QQ/debug/menu/menu_toolbar.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/res/menu/menu_toolbar.xml"
+    }
+]

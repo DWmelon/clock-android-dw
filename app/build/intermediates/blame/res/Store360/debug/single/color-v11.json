@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/Store360/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/res/merged/Store360/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]

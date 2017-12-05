@@ -1,0 +1,135 @@
+apply plugin: "com.android.application"
+
+import com.android.build.OutputFile
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "23.0.1"
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+
+    defaultConfig {
+        applicationId "com.timediffproject"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 9
+        versionName "1.3.2"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+
+    signingConfigs {
+        myConfig {
+            storeFile file("keystore.jks")
+            storePassword "xiaowen520"
+            keyAlias "dw"
+            keyPassword "xiaowen520"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), "proguard-rules.pro"
+            signingConfig signingConfigs.myConfig
+        }
+
+    }
+
+
+
+    // applicationVariants are e.g. debug, release
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // For each separate APK per architecture, set a unique version code as described here:
+            // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
+            def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def abi = output.getFilter(OutputFile.ABI)
+            if (abi != null) {  // null for the universal-debug, universal-release variants
+                output.versionCodeOverride =
+                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+            }
+        }
+    }
+    productFlavors {
+
+//        debugChannel {}
+//        Official {}
+//
+//
+        Store360 {}
+        QQ {}
+        BaiDu {}
+        xiaomi {}
+        huawei {}
+        meizu {}
+        WanDouJia {}
+
+//        GooglePlay {}
+//        AnZhuo {}
+//        AnZhi {}
+//        GFeng {}
+//        AppChina {}
+//        Store91 {}
+//        NDuo {}
+//        lenovo {}
+//        oppo {}
+//        pp {}
+//        youyi {}
+//        vivo {}
+//
+//
+//        wechat_service {}
+//        wechat_subscribe {}
+//        wechat_1 {}
+//        wechat_2 {}
+//        baidudps1 {}
+//        baidusousuo1 {}
+//        toufang1 {}
+//        toufang2 {}
+//        PC {}
+//        H5 {}
+//        download1 {}
+//        download2 {}
+
+//        anzhuoyuan {}
+//        anzhuozhijia {}
+//        anfenwan {}
+//        anbei {}
+//        pc6 {}
+    }
+
+
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: "libs", include: ["*.jar"])
+    compile project(':PushSDK')
+    compile project(':volley')
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.alibaba:fastjson:1.2.23'
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.github.zcweng:switch-button:0.0.2@aar'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.facebook.fresco:fresco:0.12.0'
+}
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+    from configurations.compile
+    into 'libs'
+}

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/jniLibs"/></dataSet><dataSet config="QQ"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/QQ/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/debug/jniLibs"/></dataSet><dataSet config="QQDebug"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/QQDebug/jniLibs"/></dataSet></merger>

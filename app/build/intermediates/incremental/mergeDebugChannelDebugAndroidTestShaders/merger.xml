@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/androidTest/shaders"/></dataSet><dataSet config="debugChannel"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/androidTestDebugChannel/shaders"/></dataSet></merger>

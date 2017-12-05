@@ -1,0 +1,238 @@
+# view res/layout/design_bottom_navigation_item.xml #generated:26
+-keep class android.support.design.internal.BaselineLayout { <init>(...); }
+
+# view res/layout/design_navigation_item.xml #generated:17
+-keep class android.support.design.internal.NavigationMenuItemView { <init>(...); }
+
+# view res/layout/design_navigation_menu.xml #generated:17
+-keep class android.support.design.internal.NavigationMenuView { <init>(...); }
+
+# view res/layout/design_layout_snackbar_include.xml #generated:18
+-keep class android.support.design.internal.SnackbarContentLayout { <init>(...); }
+
+# view res/layout/design_text_input_password_icon.xml #generated:18
+-keep class android.support.design.widget.CheckableImageButton { <init>(...); }
+
+# view res/layout/design_bottom_sheet_dialog.xml #generated:17
+-keep class android.support.design.widget.CoordinatorLayout { <init>(...); }
+
+# view res/layout/activity_alarm.xml #generated:19
+# view res/layout/activity_my_main.xml #generated:38
+-keep class android.support.design.widget.FloatingActionButton { <init>(...); }
+
+# view res/layout/design_layout_snackbar.xml #generated:18
+# view sw600dp-v13/res/layout-sw600dp-v13/design_layout_snackbar.xml #generated:18
+-keep class android.support.design.widget.Snackbar$SnackbarLayout { <init>(...); }
+
+# view res/layout/layout_main_drawer.xml #generated:2
+-keep class android.support.v4.widget.DrawerLayout { <init>(...); }
+
+# view res/layout/abc_alert_dialog_material.xml #generated:41
+-keep class android.support.v4.widget.NestedScrollView { <init>(...); }
+
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:43
+# view res/layout/abc_alert_dialog_material.xml #generated:52
+# view res/layout/abc_alert_dialog_material.xml #generated:66
+# view res/layout/abc_alert_dialog_title_material.xml #generated:56
+-keep class android.support.v4.widget.Space { <init>(...); }
+
+# view res/layout/abc_select_dialog_material.xml #generated:23
+-keep class android.support.v7.app.AlertController$RecycleListView { <init>(...); }
+
+# view res/layout/abc_action_menu_item_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ActionMenuItemView { <init>(...); }
+
+# view res/layout/abc_expanded_menu_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ExpandedMenuView { <init>(...); }
+
+# view res/layout/abc_list_menu_item_layout.xml #generated:17
+# view res/layout/abc_popup_menu_item_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ListMenuItemView { <init>(...); }
+
+# view res/layout/abc_screen_toolbar.xml #generated:27
+-keep class android.support.v7.widget.ActionBarContainer { <init>(...); }
+
+# view res/layout/abc_action_mode_bar.xml #generated:19
+# view res/layout/abc_screen_toolbar.xml #generated:43
+-keep class android.support.v7.widget.ActionBarContextView { <init>(...); }
+
+# view res/layout/abc_screen_toolbar.xml #generated:17
+-keep class android.support.v7.widget.ActionBarOverlayLayout { <init>(...); }
+
+# view res/layout/abc_action_menu_layout.xml #generated:17
+-keep class android.support.v7.widget.ActionMenuView { <init>(...); }
+
+# view res/layout/abc_activity_chooser_view.xml #generated:19
+-keep class android.support.v7.widget.ActivityChooserView$InnerLayout { <init>(...); }
+
+# view res/layout/abc_alert_dialog_material.xml #generated:18
+-keep class android.support.v7.widget.AlertDialogLayout { <init>(...); }
+
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:26
+-keep class android.support.v7.widget.ButtonBarLayout { <init>(...); }
+
+# view res/layout/abc_screen_content_include.xml #generated:19
+-keep class android.support.v7.widget.ContentFrameLayout { <init>(...); }
+
+# view res/layout/abc_alert_dialog_title_material.xml #generated:45
+-keep class android.support.v7.widget.DialogTitle { <init>(...); }
+
+# view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:23
+-keep class android.support.v7.widget.FitWindowsFrameLayout { <init>(...); }
+
+# view res/layout/abc_dialog_title_material.xml #generated:22
+# view res/layout/abc_screen_simple.xml #generated:17
+-keep class android.support.v7.widget.FitWindowsLinearLayout { <init>(...); }
+
+# view res/layout/activity_alarm.xml #generated:12
+# view res/layout/activity_my_main.xml #generated:31
+# view res/layout/activity_select_country.xml #generated:67
+# view res/layout/dialog_set_city.xml #generated:36
+# view res/layout/layout_main_drawer.xml #generated:39
+-keep class android.support.v7.widget.RecyclerView { <init>(...); }
+
+# view res/layout/abc_search_view.xml #generated:75
+-keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# view res/layout/abc_screen_toolbar.xml #generated:36
+# view res/layout/activity_my_main.xml #generated:15
+# view res/layout/layout_toolbar.xml #generated:12
+-keep class android.support.v7.widget.Toolbar { <init>(...); }
+
+# view res/layout/abc_screen_simple.xml #generated:25
+# view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:32
+-keep class android.support.v7.widget.ViewStubCompat { <init>(...); }
+
+# view res/layout/activity_select_country.xml #generated:110
+# view res/layout/activity_select_country.xml #generated:147
+# view res/layout/activity_select_country.xml #generated:184
+# view res/layout/activity_select_country.xml #generated:221
+# view res/layout/activity_select_country.xml #generated:258
+-keep class com.facebook.drawee.view.SimpleDraweeView { <init>(...); }
+
+# view res/layout/activity_setting_time.xml #generated:50
+# view res/layout/layout_alarm_item.xml #generated:48
+-keep class com.suke.widget.SwitchButton { <init>(...); }
+
+# view AndroidManifest.xml #generated:135
+-keep class com.taobao.accs.ChannelService { <init>(...); }
+
+# view AndroidManifest.xml #generated:184
+-keep class com.taobao.accs.ChannelService$KernelService { <init>(...); }
+
+# view AndroidManifest.xml #generated:154
+-keep class com.taobao.accs.EventReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:172
+-keep class com.taobao.accs.ServiceReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:146
+-keep class com.taobao.accs.data.MsgDistributeService { <init>(...); }
+
+# view AndroidManifest.xml #generated:204
+-keep class com.taobao.agoo.AgooCommondReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:113
+-keep class com.timediffproject.TimeService { <init>(...); }
+
+# view AndroidManifest.xml #generated:69
+-keep class com.timediffproject.module.advice.AdviceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:62
+-keep class com.timediffproject.module.alarm.AlarmActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:119
+-keep class com.timediffproject.module.alarm.BootReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:53
+-keep class com.timediffproject.module.home.MyMainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:65
+-keep class com.timediffproject.module.ring.RingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:116
+-keep class com.timediffproject.module.ring.RingReceiver { <init>(...); }
+
+# view res/layout/activity_ring.xml #generated:7
+-keep class com.timediffproject.module.ring.RingRelativeLayout { <init>(...); }
+
+# view AndroidManifest.xml #generated:114
+-keep class com.timediffproject.module.ring.RingService { <init>(...); }
+
+# view AndroidManifest.xml #generated:72
+-keep class com.timediffproject.module.search.SearchCountryActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:59
+-keep class com.timediffproject.module.select.SelectActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:56
+-keep class com.timediffproject.module.set.SettingTimeActivity { <init>(...); }
+
+# view res/layout/activity_setting_time.xml #generated:192
+# view res/layout/activity_setting_time.xml #generated:215
+-keep class com.timediffproject.module.set.WheelView { <init>(...); }
+
+# view res/layout/time_header_label.xml #generated:49
+# view res/layout/time_header_label.xml #generated:90
+# view res/layout/time_header_label.xml #generated:99
+-keep class com.timediffproject.module.set.time.AccessibleTextView { <init>(...); }
+
+# view res/layout/time_picker_dialogs.xml #generated:35
+-keep class com.timediffproject.module.set.time.RadialPickerLayout { <init>(...); }
+
+# view AndroidManifest.xml #generated:39
+-keep class com.timediffproject.module.splash.SplashActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:50
+-keep class com.timediffproject.module.tempdata.TempDataActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:77
+-keep class com.timediffproject.open.BootCompleteReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:33
+-keep class com.timediffproject.origin.MainApplication { <init>(...); }
+
+# view AndroidManifest.xml #generated:84
+-keep class com.timediffproject.wxapi.WXEntryActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:216
+-keep class com.umeng.message.NotificationProxyBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:236
+-keep class com.umeng.message.UmengDownloadResourceService { <init>(...); }
+
+# view AndroidManifest.xml #generated:195
+-keep class com.umeng.message.UmengIntentService { <init>(...); }
+
+# view AndroidManifest.xml #generated:220
+-keep class com.umeng.message.UmengMessageCallbackHandlerService { <init>(...); }
+
+# view AndroidManifest.xml #generated:239
+-keep class com.umeng.message.UmengMessageIntentReceiverService { <init>(...); }
+
+# view AndroidManifest.xml #generated:248
+-keep class com.umeng.message.provider.MessageProvider { <init>(...); }
+
+# view AndroidManifest.xml #generated:103
+-keep class com.umeng.qq.tencent.AssistActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:90
+-keep class com.umeng.qq.tencent.AuthActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:108
+-keep class com.umeng.socialize.editorpage.ShareActivity { <init>(...); }
+
+# view res/layout/socialize_share_menu_item.xml #generated:8
+-keep class com.umeng.socialize.shareboard.SocializeImageView { <init>(...); }
+
+# view res/layout/year_label_text_view.xml #generated:16
+-keep class com.zenkun.datetimepicker.date.TextViewWithCircularIndicator { <init>(...); }
+
+# view AndroidManifest.xml #generated:188
+-keep class org.android.agoo.accs.AgooService { <init>(...); }
+
+# onClick res/layout/umeng_socialize_oauth_dialog.xml #generated:23
+# onClick res/layout/umeng_socialize_share.xml #generated:24
+# onClick sw550dp-large-v13/res/layout-sw550dp-large-v13/umeng_socialize_oauth_dialog.xml #generated:21
+-keepclassmembers class * { *** onCancel(...); }
+

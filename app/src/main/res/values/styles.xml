@@ -1,0 +1,57 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="time_label">
+        <item name="android:textSize">@dimen/time_label_size</item>
+        <item name="android:textColor">@color/numbers_text_color</item>
+    </style>
+
+    <style name="ampm_label">
+        <item name="android:textSize">@dimen/ampm_label_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/ampm_text_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="day_of_week_label_condensed" />
+
+    <style name="dialog_anim_style" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/dialog_in</item>
+        <item name="@android:windowExitAnimation">@anim/dialog_out</item>
+    </style>
+
+
+    <style name="set_circular_text" parent="android:Widget.TextView">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/selector_circular_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/selector_circular</item>
+    </style>
+
+    <style name="MutiDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:listPreferredItemPaddingLeft">0dip</item>
+        <item name="android:listPreferredItemPaddingRight">0dip</item>
+        <item name="android:listPreferredItemPaddingStart" tools:targetApi="jelly_bean_mr1">0dip
+        </item>
+        <item name="android:listPreferredItemPaddingEnd" tools:targetApi="jelly_bean_mr1">0dip
+        </item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="CustomDialog" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_bottom_to_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_original_to_bottom</item>
+    </style>
+
+    <style name="Widget.Material.ProgressBar" parent="Base.Widget.AppCompat.ProgressBar">
+
+    </style>
+
+</resources>

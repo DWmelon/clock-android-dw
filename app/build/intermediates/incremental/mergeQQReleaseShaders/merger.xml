@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/main/shaders"/></dataSet><dataSet config="QQ"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/QQ/shaders"/></dataSet><dataSet config="release"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/release/shaders"/></dataSet><dataSet config="QQRelease"><source path="/Users/melon/Documents/myproject/timeclock/app/android/app/src/QQRelease/shaders"/></dataSet></merger>

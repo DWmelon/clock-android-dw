@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_bg">#F5F5F5</color>
+
+    <!--37474f 373c42 2d3351-->
+
+    <color name="primary_color">#37474f</color>
+    <color name="primary_color_dark">#37474f</color>
+    <color name="primary_light_color">#ffffcc</color>
+    <color name="primary_gray">#878f94</color>
+
+    <color name="primary_line">#2c383f</color>
+    <color name="primary_line_gray">#aaaaaa</color>
+    <color name="primary_top_bar_line">#dadada</color>
+
+    <color name="primary_black">#000000</color>
+    <color name="primary_white">#ffffff</color>
+
+    <color name="primary_pink">#ff6091</color>
+
+    <color name="primary_selected_color">#F2F2F2</color>
+
+    <color name="progress_color">#ff359ff2</color>
+
+    <color name="sub_title">#3d3d3d</color>
+
+    <color name="circular_bg">#6091a3</color>
+    <color name="circular_bg_2">#97dbec</color>
+    <color name="circular_bg_3">#6091a3</color>
+
+    <color name="sub_title_color">#9E9EAE</color>
+    <color name="first_title_color">#39394A</color>
+    <color name="first_title_color_light">#5D5F5F</color>
+
+    <color name="transparent_white_20">#20ffffff</color>
+
+    <color name="transparent_0x40">#40000000</color>
+
+    <color name="white">#ffffff</color>
+    <color name="white_50">#88ffffff</color>
+    <color name="circle_background">#f2f2f2</color>
+    <color name="line_background">#cccccc</color>
+    <color name="ampm_text_color">#8c8c8c</color>
+    <color name="done_text_color_normal">#333333</color>
+    <color name="done_text_color_disabled">#CCCCCC</color>
+    <color name="numbers_text_color">#8c8c8c</color>
+
+    <color name="transparent_black">#7F000000</color>
+    <color name="blue">#33b5e5</color>
+    <color name="darker_blue">#0099CC</color>
+    <color name="date_picker_text_normal">#FF999999</color>
+
+    <color name="calendar_header">#999999</color>
+    <color name="date_picker_view_animator">#f2f2f2</color>
+    <color name="calendar_selected_date_text">#FFD1D2D4</color>
+
+    <color name="green">#00ff00</color>
+    <color name="red">#ffff0000</color>
+
+
+
+    <!-- material dialog-->
+    <color name="card_background">#ffffff</color>
+    <color name="card_shadow">#10000000</color>
+    <color name="lite_blue">#ff359ff2</color>
+    <color name="transparent">#00000000</color>
+    <color name="window_background">#00000000</color>
+    <color name="default_pressed_color">#33000000</color><!-- 40b4c7-->
+    <!-- ring -->
+    <color name="primary_ring">#009999</color>
+
+    <!-- left_drawer -->
+    <color name="left_drawer_text_color">#425159</color>
+
+    <!-- search -->
+    <color name="corner_line_gray2">#E7E7E7</color>
+
+
+</resources>
