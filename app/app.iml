@@ -39,6 +39,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannelDebug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannelDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannelDebug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debugChannel/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debugChannel/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannelDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannelDebug/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannelDebug/assets" type="java-test-resource" />
@@ -46,12 +52,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannelDebug/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannelDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannelDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/debugChannel/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debugChannel/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debugChannel/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannel/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannel/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannel/assets" type="java-resource" />
@@ -59,13 +59,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannel/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannel/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debugChannel/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannel/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannel/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannel/assets" type="java-test-resource" />
@@ -73,6 +66,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannel/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannel/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebugChannel/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebugChannel/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
@@ -139,7 +139,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-rules" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
@@ -188,8 +187,5 @@
     <orderEntry type="library" exported="" name="recyclerview-v7-25.1.0" level="project" />
     <orderEntry type="module" module-name="volley" exported="" />
     <orderEntry type="module" module-name="PushSDK" exported="" />
-    <orderEntry type="library" exported="" name="utdid4all-1.1.5_proguard" level="project" />
-    <orderEntry type="library" exported="" name="alicloud-android-sdk-httpdns-1.0.7" level="project" />
-    <orderEntry type="library" exported="" name="com.umeng.message_v3.0.6" level="project" />
   </component>
 </module>
