@@ -36,6 +36,10 @@
         "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/src/main/res/drawable-xhdpi/flag_of_iraq.png"
     },
     {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/res/merged/debugChannel/debug/drawable-xhdpi-v4/icon_voice_play.png",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/src/main/res/drawable-xhdpi/icon_voice_play.png"
+    },
+    {
         "merged": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/res/merged/debugChannel/debug/drawable-xhdpi-v4/icon_right_black.png",
         "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/src/main/res/drawable-xhdpi/icon_right_black.png"
     },

@@ -10,4 +10,6 @@ public class Constants {
 
     public static final String INTENT_KEY_CITY_ID = "city_id";
 
+    public static final String INTENT_KEY_VOICE = "alarm_voice";
+
 }

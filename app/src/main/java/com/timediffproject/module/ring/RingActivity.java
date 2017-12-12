@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.constants.Constant;
+import com.timediffproject.constants.Constants;
 import com.timediffproject.constants.ParamConstants;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.alarm.AlarmModel;
@@ -60,9 +62,11 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
         ringService = new RingService();
         bindServiceConnection();
 
-        if (ringService != null){
-            ringService.play();
+
+        if (ringService == null || model == null){
+            finish();
         }
+        ringService.play(model.getNoiseLevel());
 
     }
 
@@ -152,6 +156,7 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
     };
     private void bindServiceConnection() {
         Intent intent = new Intent(RingActivity.this, RingService.class);
+        intent.putExtra(Constants.INTENT_KEY_VOICE,model.getNoiseLevel());
         bindService(intent, serviceConnection, this.BIND_AUTO_CREATE);
     }
 

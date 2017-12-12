@@ -15,7 +15,9 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.timediffproject.R;
+import com.timediffproject.constants.Constants;
 import com.timediffproject.module.home.MyMainActivity;
+import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.origin.MainApplication;
 import com.timediffproject.storage.StorageManager;
 
@@ -40,6 +42,7 @@ public class RingService extends Service {
     private static int maxVolume;
 
 
+
     public RingService(){
 
     }
@@ -50,8 +53,8 @@ public class RingService extends Service {
             return RingService.this;
         }
 
-        void play(){
-            RingService.this.play();
+        void play(float vl){
+            RingService.this.play(vl);
         }
 
         void stop(){
@@ -86,7 +89,7 @@ public class RingService extends Service {
         return super.onUnbind(intent);
     }
 
-    public void play() {
+    public void play(float vl) {
 //        try {
 
             AudioManager audioManager = (AudioManager) MainApplication.getContext().getSystemService(Context.AUDIO_SERVICE);
@@ -94,7 +97,7 @@ public class RingService extends Service {
 
             originVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
             maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-            maxVolume = maxVolume/2;
+            maxVolume = (int) (maxVolume*vl);
             audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume,
                     AudioManager.FLAG_PLAY_SOUND);
 

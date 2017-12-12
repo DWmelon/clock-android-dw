@@ -210,11 +210,11 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/ll_set_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:gravity="center_vertical"
+        android:background="@color/transparent_0x40"
         android:orientation="vertical">
 
         <View
@@ -223,9 +223,9 @@
             android:background="@color/transparent_white_20"/>
 
         <LinearLayout
+            android:id="@+id/ll_set_city"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@color/transparent_0x40"
+            android:layout_height="40dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -248,6 +248,49 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_5"
                 android:text="城市"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_20"
+                android:src="@drawable/icon_arrow_gray_right"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_size"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginRight="@dimen/margin_20"
+            android:background="@color/transparent_white_20"/>
+
+        <LinearLayout
+            android:id="@+id/ll_alarm_voice"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:text="@string/voice_name"
+                android:textColor="@color/primary_white"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_5"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 />

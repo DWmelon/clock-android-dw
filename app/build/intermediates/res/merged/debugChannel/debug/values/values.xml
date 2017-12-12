@@ -97,6 +97,18 @@
         <item>58</item>
         <item>59</item>
     </string-array>
+    <string-array name="voice">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -664,6 +676,7 @@
     <string name="umeng_socialize_text_yixin_key">易信</string>
     <string name="umeng_socialize_text_yixincircle_key">易信朋友圈</string>
     <string name="update_title">检测到更新</string>
+    <string name="voice_name">铃声</string>
     <string name="year_picker_description">Year list</string>
     <style name="ACPLDialog">
         <item name="android:windowFrame">@null</item>

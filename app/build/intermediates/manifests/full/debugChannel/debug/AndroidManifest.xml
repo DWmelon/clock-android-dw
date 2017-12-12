@@ -75,6 +75,9 @@
         <activity
             android:name="com.timediffproject.module.about.AboutMeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.timediffproject.module.set.TimeVoiceActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- 开机监听 -->
         <receiver android:name="com.timediffproject.open.BootCompleteReceiver" >

@@ -284,6 +284,10 @@
         "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/res/layout/notification_template_part_time.xml"
     },
     {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/res/merged/debugChannel/debug/layout/activity_time_voice.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/src/main/res/layout/activity_time_voice.xml"
+    },
+    {
         "merged": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/res/merged/debugChannel/debug/layout/layout_progressbar.xml",
         "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/src/main/res/layout/layout_progressbar.xml"
     },
@@ -294,6 +298,10 @@
     {
         "merged": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/res/merged/debugChannel/debug/layout/design_menu_item_action_area.xml",
         "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/exploded-aar/com.android.support/design/25.1.0/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/res/merged/debugChannel/debug/layout/dialog_set_voice.xml",
+        "source": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/src/main/res/layout/dialog_set_voice.xml"
     },
     {
         "merged": "/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/app/build/intermediates/res/merged/debugChannel/debug/layout/abc_screen_content_include.xml",

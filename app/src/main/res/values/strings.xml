@@ -108,4 +108,7 @@
     <string name="about_version_name_new">最新版本：%1$s</string>
     <string name="about_version_name_info">更新内容：</string>
 
+    <!-- voice -->
+    <string name="voice_name">铃声</string>
+
 </resources>

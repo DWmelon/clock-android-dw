@@ -147,6 +147,8 @@ public class UrlConstantV2 {
     }
 
     public static class VALUE{
+        public static final float DEFAULT_VOICE = 0.4f;
+
         public static final String CONVERT_TO_SCORE = "to_score";
         public static final String CONVERT_TO_RANK = "to_rank";
         public static final String CONVERT_SCORE = "score";
@@ -194,11 +196,13 @@ public class UrlConstantV2 {
         public final static String IS_FROM_VIP_SHOP = "is_from_vip_shop";
         public final static String TARGET_VIP_INFO = "target_vip_info";
         public final static String TARGET_VIP_LEVEL = "target_vip_level";
+        public final static String VOICE_LEVEL = "voice_level";
+        public final static String VOICE_PATH = "voice_path";
 
     }
 
     public static class REQUEST{
-        public static final int SIGN_HAND_ZYB = 111;
+        public static final int ALARM_VOICE = 222;
     }
 
 

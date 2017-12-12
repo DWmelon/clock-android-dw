@@ -69,6 +69,8 @@
         <activity android:name=".module.about.AboutMeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
+        <activity android:name=".module.set.TimeVoiceActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <!-- 开机监听-->
         <receiver android:name=".open.BootCompleteReceiver">

@@ -31,6 +31,7 @@ import com.timediffproject.module.select.SelectActivity;
 import com.timediffproject.module.select.SelectManager;
 import com.timediffproject.module.set.time.RadialPickerLayout;
 import com.timediffproject.module.set.time.TimePickerDialog;
+import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.util.RandomUtil;
 import com.timediffproject.util.SlidingUpDialog;
 import com.umeng.analytics.MobclickAgent;
@@ -83,6 +84,8 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
     private int hour;
     private int min;
 
+    private float voiceLevel = UrlConstantV2.VALUE.DEFAULT_VOICE;
+
     private AlarmModel alarmModel;
     private CountryModel cityModel;
     private SelectManager selectManager;
@@ -123,6 +126,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
                 return;
             }
             alarmModel = alarmManager.getAlarmModelById(code);
+            voiceLevel = alarmModel.getNoiseLevel();
         }
 
     }
@@ -234,6 +238,8 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
 
     private void initListener(){
         findViewById(R.id.ll_set_city).setOnClickListener(this);
+        findViewById(R.id.ll_alarm_voice).setOnClickListener(this);
+
         findViewById(R.id.rl_set_1).setOnClickListener(new SetRepeatClickListener(1));
         setMap.put(1,findViewById(R.id.rl_set_1));
         findViewById(R.id.rl_set_2).setOnClickListener(new SetRepeatClickListener(2));
@@ -370,11 +376,18 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.ll_set_city:
-            if (dialog != null) {
-                dialog.show();
+            case R.id.ll_set_city:{
+                if (dialog != null) {
+                    dialog.show();
+                }
+                break;
             }
-            break;
+            case R.id.ll_alarm_voice:{
+                Intent intent = new Intent(this,TimeVoiceActivity.class);
+                intent.putExtra(UrlConstantV2.BUNDLE.VOICE_LEVEL,voiceLevel);
+                startActivityForResult(intent,UrlConstantV2.REQUEST.ALARM_VOICE);
+                break;
+            }
         }
     }
 
@@ -382,7 +395,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
 
         AlarmModel newAlarmModel = new AlarmModel();
 
-
+        newAlarmModel.setNoiseLevel(voiceLevel);
         newAlarmModel.setCity(cityModel.getCityName());
         newAlarmModel.setCityId(cityModel.getId());
         newAlarmModel.setRequestCode(RandomUtil.getRandomInt());
@@ -414,12 +427,11 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
 //        performIntentAlarm();
     }
 
-
-
-    private void performIntentAlarm(){
-        Intent intent = new Intent(this,AlarmActivity.class);
-        startActivity(intent);
-        finish();
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == UrlConstantV2.REQUEST.ALARM_VOICE && resultCode == RESULT_OK){
+            voiceLevel = data.getFloatExtra(UrlConstantV2.BUNDLE.VOICE_LEVEL,UrlConstantV2.VALUE.DEFAULT_VOICE);
+        }
     }
-
 }
