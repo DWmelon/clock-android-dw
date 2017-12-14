@@ -70,7 +70,7 @@ public class SelectManager {
 
     private List<CountryModel> userCountry = new ArrayList<>();
 
-    private boolean isDataChange = false;
+    private boolean isCountryDataChange = false;
 
     private boolean isLoadUserInfoFinish = false;
     private OnNotifyUserDataFinishListener listener;
@@ -484,12 +484,12 @@ public class SelectManager {
         return false;
     }
 
-    public boolean isDataChange() {
-        return isDataChange;
+    public boolean isCountryDataChange() {
+        return isCountryDataChange;
     }
 
-    public void setDataChange(boolean dataChange) {
-        isDataChange = dataChange;
+    public void setCountryDataChange(boolean countryDataChange) {
+        isCountryDataChange = countryDataChange;
     }
 
     public boolean isLoadUserInfoFinish(){

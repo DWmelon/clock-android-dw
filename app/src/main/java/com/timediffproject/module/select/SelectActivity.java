@@ -240,7 +240,7 @@ public class SelectActivity extends BaseActivity implements View.OnClickListener
             }
         }
 
-        MyClient.getMyClient().getSelectManager().setDataChange(true);
+        MyClient.getMyClient().getSelectManager().setCountryDataChange(true);
     }
 
     @Override
@@ -284,11 +284,7 @@ public class SelectActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == UrlConstantV2.REQUEST.SEARCH_COUNTRY && resultCode == UrlConstantV2.REQUEST.SEARCH_RESULT_HOME){
-            finish();
-        }
-        if (requestCode == UrlConstantV2.REQUEST.SEARCH_COUNTRY && resultCode == UrlConstantV2.REQUEST.SEARCH_RESULT_SELECT){
-            setResult(RESULT_OK);
+        if (requestCode == UrlConstantV2.REQUEST.SEARCH_COUNTRY && resultCode == RESULT_OK){
             finish();
         }
     }

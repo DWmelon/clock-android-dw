@@ -54,28 +54,4 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="60dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="客服扣扣号：3303847677"/>
-
-        <TextView
-            android:id="@+id/tv_advice_connect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_5"
-            android:text="欢迎来撩-.-"/>
-    </LinearLayout>
-
-
-
 </RelativeLayout>

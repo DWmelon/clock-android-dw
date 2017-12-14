@@ -206,8 +206,7 @@ public class UrlConstantV2 {
         public static final int CHANGE_CITY = 333;
         public static final int SEARCH_COUNTRY = 444;
 
-        public static final int SEARCH_RESULT_HOME = 100;
-        public static final int SEARCH_RESULT_SELECT = 101;
+        public static final int SELECT_COUNTRY = 555;
     }
 
 

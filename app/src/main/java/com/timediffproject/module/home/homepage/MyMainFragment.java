@@ -31,6 +31,7 @@ import com.timediffproject.module.home.MyMainActivity;
 import com.timediffproject.module.money.OnGetEMoneyListener;
 import com.timediffproject.module.select.OnGetCountryByIdsListener;
 import com.timediffproject.module.select.SelectActivity;
+import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.util.V2ArrayUtil;
 
 import java.util.ArrayList;
@@ -120,7 +121,7 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
             case R.id.action_add:
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
                 intent.putExtra("type","normal");
-                startActivity(intent);
+                startActivityForResult(intent, UrlConstantV2.REQUEST.SELECT_COUNTRY);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -210,6 +211,17 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
         if (isSuccess){
             adapter.updateEMoneyMap();
             updateAdapter();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == UrlConstantV2.REQUEST.SELECT_COUNTRY){
+            if (MyClient.getMyClient().getSelectManager().isCountryDataChange()){
+                MyClient.getMyClient().getMoneyManager().requestEMoney();
+                MyClient.getMyClient().getSelectManager().setCountryDataChange(false);
+            }
         }
     }
 }

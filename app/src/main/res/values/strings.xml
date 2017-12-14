@@ -112,7 +112,7 @@
     <string name="voice_name">铃声</string>
 
     <!-- money -->
-    <string name="money_coin_name">1%1$s = ></string>
+    <string name="money_coin_name">%1$s%2$s = ></string>
 
     <!-- home -->
     <string name="home_city_action_tip_move">第一个城市为所在城市，不能够移动</string>

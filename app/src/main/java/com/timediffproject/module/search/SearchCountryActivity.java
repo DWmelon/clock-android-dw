@@ -13,7 +13,6 @@ import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.select.SelectManager;
-import com.timediffproject.network.UrlConstantV2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +91,7 @@ public class SearchCountryActivity extends BaseActivity implements View.OnClickL
                 break;
             }
             case R.id.iv_return_home:{
-                setResult(UrlConstantV2.REQUEST.SEARCH_RESULT_HOME);
+                setResult(RESULT_OK);
                 finish();
                 break;
             }
@@ -122,11 +121,10 @@ public class SearchCountryActivity extends BaseActivity implements View.OnClickL
             }else{
                 if (index != -1){
                     selectManager.replaceUserSelect(model,index);
-                    setResult(UrlConstantV2.REQUEST.SEARCH_RESULT_SELECT);
                 }
                 finish();
             }
         }
-
+        MyClient.getMyClient().getSelectManager().setCountryDataChange(true);
     }
 }

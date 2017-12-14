@@ -111,10 +111,28 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         }else{
             if (mEMoneyMap.containsKey(model.getNationName()) && !TextUtils.isEmpty(mSCoin)){
                 holder.mLlSubContent.setVisibility(View.VISIBLE);
-                holder.mTvSCoinName.setText(mContext.getString(R.string.money_coin_name,mSCoin));
 
                 EMoneyMapModel mapModel = mEMoneyMap.get(model.getNationName());
-                holder.mTvCoinValue.setText(String.valueOf(mapModel.getValue()));
+
+                float sourceValue = 1f;
+                float targetValue = mapModel.getValue();
+                String sourceValueStr;
+                String targetValueStr;
+                if (targetValue < 1f){
+                    sourceValue = 1f/targetValue;
+                    sourceValue = Math.round(sourceValue*100)/100f;
+
+                    sourceValueStr = String.valueOf(sourceValue);
+                    targetValueStr = "1";
+                }else{
+                    sourceValueStr = "1";
+                    targetValueStr = String.valueOf(Math.round(targetValue*100)/100f);
+                }
+
+                holder.mTvSCoinName.setText(mSCoin);
+                holder.mTvSCoinValue.setText(sourceValueStr);
+
+                holder.mTvTCoinValue.setText(targetValueStr);
                 holder.mTvTCoinName.setText(mapModel.getCoinName());
             }else {
                 holder.mLlSubContent.setVisibility(View.GONE);
@@ -181,7 +199,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         Intent intent = new Intent(mContext, SelectActivity.class);
         intent.putExtra("type","change");
         intent.putExtra("index",position);
-        ((BaseActivity)mContext).startActivityForResult(intent, UrlConstantV2.REQUEST.CHANGE_CITY);
+        ((BaseActivity)mContext).startActivityForResult(intent, UrlConstantV2.REQUEST.SELECT_COUNTRY);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -195,7 +213,9 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
         LinearLayout mLlSubContent;
         TextView mTvSCoinName;
-        TextView mTvCoinValue;
+        TextView mTvSCoinValue;
+
+        TextView mTvTCoinValue;
         TextView mTvTCoinName;
 //        LinearLayout mLeft;
 //        RelativeLayout mCenter;
@@ -211,9 +231,12 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
             smallTime = (TextView)itemView.findViewById(R.id.tv_home_list_country_time_small);
 
             mLlSubContent = (LinearLayout)itemView.findViewById(R.id.ll_home_list_item_sub);
-            mTvSCoinName = (TextView)itemView.findViewById(R.id.tv_home_list_item_coin_name);
+
+            mTvSCoinName = (TextView)itemView.findViewById(R.id.tv_home_list_item_coin_name_s);
+            mTvSCoinValue = (TextView)itemView.findViewById(R.id.tv_home_list_item_coin_value_s);
+
             mTvTCoinName = (TextView) itemView.findViewById(R.id.tv_home_list_item_coin_name2);
-            mTvCoinValue = (TextView)itemView.findViewById(R.id.tv_home_list_item_coin_ratio);
+            mTvTCoinValue = (TextView)itemView.findViewById(R.id.tv_home_list_item_coin_ratio);
 //            mLeft = (LinearLayout)itemView.findViewById(R.id.ll_left);
 //            mCenter = (RelativeLayout)itemView.findViewById(R.id.ll_center);
 //            mRight = (LinearLayout)itemView.findViewById(R.id.ll_right);

@@ -30,7 +30,7 @@ public class MoneyManager {
 
     public void requestEMoney(){
         List<CountryModel> countryModelList = MyClient.getMyClient().getSelectManager().getUserCountry();
-        if (countryModelList == null || countryModelList.size()<1){
+        if (countryModelList == null || countryModelList.size()<=1){
             return;
         }
         List<String> tList = new ArrayList<>();
