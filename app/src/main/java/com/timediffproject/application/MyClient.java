@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.timediffproject.module.alarm.MyAlarmManager;
 import com.timediffproject.module.misc.MiscManager;
+import com.timediffproject.module.money.MoneyManager;
 import com.timediffproject.module.search.SearchManager;
 import com.timediffproject.module.select.SelectManager;
 import com.timediffproject.module.tempdata.DataManager;
@@ -79,6 +80,7 @@ public class MyClient {
     private SearchManager searchManager;
     private WidgetManager widgetManager;
     private MiscManager miscManager;
+    private MoneyManager moneyManager;
 
     public synchronized SelectManager getSelectManager(){
         if (selectManager == null){
@@ -127,6 +129,13 @@ public class MyClient {
             miscManager = new MiscManager();
         }
         return miscManager;
+    }
+
+    public synchronized MoneyManager getMoneyManager(){
+        if (moneyManager == null){
+            moneyManager = new MoneyManager();
+        }
+        return moneyManager;
     }
 
 }

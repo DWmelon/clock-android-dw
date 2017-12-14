@@ -28,17 +28,19 @@ import com.timediffproject.listener.OnUpdateTimeCallback;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.alarm.AlarmActivity;
 import com.timediffproject.module.home.MyMainActivity;
+import com.timediffproject.module.money.OnGetEMoneyListener;
 import com.timediffproject.module.select.OnGetCountryByIdsListener;
 import com.timediffproject.module.select.SelectActivity;
 import com.timediffproject.util.V2ArrayUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by melon on 2017/1/3.
  */
 
-public class MyMainFragment extends BaseFragment implements View.OnClickListener,OnUpdateTimeCallback,OnNotifyUserDataFinishListener,OnGetCountryByIdsListener {
+public class MyMainFragment extends BaseFragment implements View.OnClickListener,OnUpdateTimeCallback,OnNotifyUserDataFinishListener,OnGetCountryByIdsListener,OnGetEMoneyListener {
 
     private Toolbar mToolbar;
 
@@ -187,18 +189,27 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
 
         MyClient.getMyClient().getSelectManager().setUserSelectCountry(countryModelList);
         updateAdapter();
+
+        //获取汇率
+        MyClient.getMyClient().getMoneyManager().setOnGetEMoneyListener(this);
+        MyClient.getMyClient().getMoneyManager().requestEMoney();
+
     }
 
     private void updateAdapter(){
-        if (adapter != null){
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    adapter.notifyDataSetChanged();
-                }
-            });
-
-        }
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
+    @Override
+    public void onGetEMoneyFinish(boolean isSuccess) {
+        if (isSuccess){
+            adapter.updateEMoneyMap();
+            updateAdapter();
+        }
+    }
 }

@@ -25,7 +25,8 @@
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_35">35dp</dimen>
     <dimen name="margin_40">40dp</dimen>
-    <dimen name="home_list_item_height">80dp</dimen>
+    <dimen name="home_list_sub_height">40dp</dimen>
+    <dimen name="home_list_main_height">80dp</dimen>
 
 
     <item name="circle_radius_multiplier" format="float" type="string">0.82</item>

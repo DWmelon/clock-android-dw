@@ -83,7 +83,7 @@ public class TabFragment extends BaseFragment implements View.OnClickListener{
     }
 
     //切换Fragment的方式（FragmentB、FragmentC）
-    //tab为Fragment的类名（如：FragmentB.class.getName()）
+    //tab为Fragment的类名（如：FragmentB.class.getname()）
     //R.id.fl_container是在Activity的布局里，不是在FragmentA的布局里
     private void switchTo(String tab, Bundle bundle){
 

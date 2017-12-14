@@ -13,10 +13,15 @@ import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.misc.OnUpdateCheckListener;
+import com.timediffproject.network.UrlConstantV2;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by melon on 2017/1/3.
@@ -66,7 +71,9 @@ public class MyMainActivity extends BaseActivity implements UMShareListener,OnUp
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
-
+        if (requestCode == UrlConstantV2.REQUEST.CHANGE_CITY && resultCode == RESULT_OK){
+            MyClient.getMyClient().getMoneyManager().requestEMoney();
+        }
     }
 
     @Override
@@ -121,4 +128,5 @@ public class MyMainActivity extends BaseActivity implements UMShareListener,OnUp
         handleVersion(model);
 
     }
+
 }

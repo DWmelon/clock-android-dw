@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="@dimen/home_list_item_height"
+    android:layout_height="@dimen/home_list_main_height"
     android:paddingLeft="@dimen/margin_10"
     android:paddingRight="@dimen/margin_10"
     xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -19,6 +19,7 @@ import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.search.SearchCountryActivity;
+import com.timediffproject.network.UrlConstantV2;
 
 /**
  * Created by melon on 2017/1/6.
@@ -186,7 +187,9 @@ public class SelectActivity extends BaseActivity implements View.OnClickListener
 
     private void handleToSearch(){
         Intent intent = new Intent(this,SearchCountryActivity.class);
-        startActivityForResult(intent,0);
+        intent.putExtra("type",type);
+        intent.putExtra("index",index);
+        startActivityForResult(intent, UrlConstantV2.REQUEST.SEARCH_COUNTRY);
     }
 
     private void onBackHandle(){
@@ -231,6 +234,7 @@ public class SelectActivity extends BaseActivity implements View.OnClickListener
             }else{
                 if (index != -1){
                     selectManager.replaceUserSelect(model,index);
+                    setResult(RESULT_OK);
                 }
                 finish();
             }
@@ -280,7 +284,11 @@ public class SelectActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK){
+        if (requestCode == UrlConstantV2.REQUEST.SEARCH_COUNTRY && resultCode == UrlConstantV2.REQUEST.SEARCH_RESULT_HOME){
+            finish();
+        }
+        if (requestCode == UrlConstantV2.REQUEST.SEARCH_COUNTRY && resultCode == UrlConstantV2.REQUEST.SEARCH_RESULT_SELECT){
+            setResult(RESULT_OK);
             finish();
         }
     }

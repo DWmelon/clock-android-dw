@@ -6,11 +6,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
+import com.timediffproject.module.select.SelectManager;
+import com.timediffproject.network.UrlConstantV2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +22,7 @@ import java.util.List;
  * Created by melon on 2017/10/2.
  */
 
-public class SearchCountryActivity extends BaseActivity implements View.OnClickListener,OnSearchCountryListener {
+public class SearchCountryActivity extends BaseActivity implements View.OnClickListener,OnSearchCountryListener,OnSearchClickListener {
 
     private EditText mEtSearch;
 
@@ -28,11 +31,17 @@ public class SearchCountryActivity extends BaseActivity implements View.OnClickL
     private ListView mLvSearch;
     private SearchCountryAdapter adapter;
 
+    private String type;
+    private int index;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         umengPage = "搜索地区页";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_country);
+
+        type = getIntent().getStringExtra("type");
+        index = getIntent().getIntExtra("index",-1);
 
         initView();
         initData();
@@ -49,6 +58,7 @@ public class SearchCountryActivity extends BaseActivity implements View.OnClickL
 
     private void initData(){
         adapter = new SearchCountryAdapter(this);
+        adapter.setListener(this);
         mLvSearch.setAdapter(adapter);
 
     }
@@ -82,7 +92,7 @@ public class SearchCountryActivity extends BaseActivity implements View.OnClickL
                 break;
             }
             case R.id.iv_return_home:{
-                setResult(RESULT_OK);
+                setResult(UrlConstantV2.REQUEST.SEARCH_RESULT_HOME);
                 finish();
                 break;
             }
@@ -93,5 +103,30 @@ public class SearchCountryActivity extends BaseActivity implements View.OnClickL
     @Override
     public void onSearchCountryFinish(List<CountryModel> countryModelList) {
         adapter.setData(countryModelList);
+    }
+
+    @Override
+    public void onSelectItem(View view, CountryModel model) {
+        SelectManager selectManager = MyClient.getMyClient().getSelectManager();
+        if (type.equals("normal")){
+            if (selectManager.isUserSelected(model)){
+                selectManager.removeUserSelect(model);
+                view.setSelected(false);
+            }else{
+                selectManager.addUserSelect(model);
+                view.setSelected(true);
+            }
+        }else{
+            if (selectManager.isUserSelected(model)){
+                Toast.makeText(this,"已存在该时区",Toast.LENGTH_SHORT).show();
+            }else{
+                if (index != -1){
+                    selectManager.replaceUserSelect(model,index);
+                    setResult(UrlConstantV2.REQUEST.SEARCH_RESULT_SELECT);
+                }
+                finish();
+            }
+        }
+
     }
 }

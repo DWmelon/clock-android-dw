@@ -28,6 +28,12 @@ public class SearchCountryAdapter extends BaseAdapter {
 
     private SelectManager selectManager;
 
+    private OnSearchClickListener listener;
+
+    public void setListener(OnSearchClickListener listener){
+        this.listener = listener;
+    }
+
     public SearchCountryAdapter(Context context){
         this.mContext = context;
         selectManager = MyClient.getMyClient().getSelectManager();
@@ -88,12 +94,8 @@ public class SearchCountryAdapter extends BaseAdapter {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (selectManager.isUserSelected(model)){
-                    selectManager.removeUserSelect(model);
-                    holder.mVSelectIcon.setSelected(false);
-                }else{
-                    selectManager.addUserSelect(model);
-                    holder.mVSelectIcon.setSelected(true);
+                if (listener != null){
+                    listener.onSelectItem(holder.mVSelectIcon,model);
                 }
             }
         });

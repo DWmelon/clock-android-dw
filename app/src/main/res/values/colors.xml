@@ -33,6 +33,7 @@
     <color name="first_title_color_light">#5D5F5F</color>
 
     <color name="transparent_white_20">#20ffffff</color>
+    <color name="transparent_white_10">#10ffffff</color>
 
     <color name="transparent_0x40">#40000000</color>
 
