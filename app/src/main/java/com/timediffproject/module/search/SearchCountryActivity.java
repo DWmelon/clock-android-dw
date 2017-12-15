@@ -122,6 +122,7 @@ public class SearchCountryActivity extends BaseActivity implements View.OnClickL
                 if (index != -1){
                     selectManager.replaceUserSelect(model,index);
                 }
+                setResult(RESULT_OK);
                 finish();
             }
         }

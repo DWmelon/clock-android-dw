@@ -22,6 +22,8 @@ public class GlobalPreferenceManager {
 
     private static final String KEY_APP_WIDGET_INDEXS = "app_widget_index";
 
+    private static final String KEY_IS_NEED_SHOW_UPDAET_POINT = "is_need_show_update_point";
+
     public static void saveUserSelect(Context context, String id) {
         context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putString(KEY_USER_SELECT_CITY, id).apply();
     }
@@ -68,6 +70,14 @@ public class GlobalPreferenceManager {
 
     public static String getAppWidgetIndexs(Context context) {
         return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getString(KEY_APP_WIDGET_INDEXS,"");
+    }
+
+    public static void setUpdatePointShow(Context context, boolean isNeed) {
+        context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putBoolean(KEY_IS_NEED_SHOW_UPDAET_POINT, isNeed).apply();
+    }
+
+    public static boolean isUpdatePointShow(Context context) {
+        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(KEY_IS_NEED_SHOW_UPDAET_POINT,false);
     }
 
 }

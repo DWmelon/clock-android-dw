@@ -23,6 +23,9 @@ public class TimeService extends Service {
 
     private long count = 0;
 
+    private int ratioFlag;
+    private final int RATIO_UPDATE_MINUTE = 120;//默认120分钟
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -70,6 +73,13 @@ public class TimeService extends Service {
             if (count%60==0){
                 MyClient.getMyClient().getTimeManager().dispathUpdateTimeCallBack();
                 count = 0;
+
+                //120分钟更新一次汇率
+                ratioFlag ++;
+                if (ratioFlag == RATIO_UPDATE_MINUTE){
+                    MyClient.getMyClient().getMoneyManager().requestEMoney();
+                    ratioFlag = 0;
+                }
             }
             count++;
             postTime();

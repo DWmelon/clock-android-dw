@@ -67,6 +67,12 @@ public class MyMainActivity extends BaseActivity implements UMShareListener,OnUp
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+        if (requestCode == UrlConstantV2.REQUEST.SELECT_COUNTRY){
+            if (MyClient.getMyClient().getSelectManager().isCountryDataChange()){
+                MyClient.getMyClient().getMoneyManager().requestEMoney();
+                MyClient.getMyClient().getSelectManager().setCountryDataChange(false);
+            }
+        }
     }
 
     @Override
@@ -96,12 +102,16 @@ public class MyMainActivity extends BaseActivity implements UMShareListener,OnUp
         try {
             int versionCode = getPackageManager().getPackageInfo(
                     pkName, 0).versionCode;
+
+            GlobalPreferenceManager.saveVersionCode(this,code);
+            GlobalPreferenceManager.saveVersionName(this,model.getvName());
+            GlobalPreferenceManager.saveVersionInfo(this,model.getvInfo());
+
             if (code > versionCode && code != vCode){
-                GlobalPreferenceManager.saveVersionCode(this,code);
-                GlobalPreferenceManager.saveVersionName(this,model.getvName());
-                GlobalPreferenceManager.saveVersionInfo(this,model.getvInfo());
+
+                GlobalPreferenceManager.setUpdatePointShow(this,true);
                 showCommonAlert(getString(R.string.update_title),model.getvInfo());
-                //兼容老版本
+//                兼容老版本
                 if (code<=4){
                     GlobalPreferenceManager.setRefreshAlarm(this,true);
                 }
