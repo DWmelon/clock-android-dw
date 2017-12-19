@@ -262,7 +262,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
         dialog.setContentView(contentView);
         RecyclerView mRvCity = (RecyclerView)contentView.findViewById(R.id.rv_dialog_city);
         mRvCity.setLayoutManager(new LinearLayoutManager(this));
-        SetCityDialogAdapter adapter = new SetCityDialogAdapter(this);
+        SetCityDialogAdapter adapter = new SetCityDialogAdapter(this,MyClient.getMyClient().getSelectManager().getUserCountry());
         adapter.setListener(this);
         mRvCity.setAdapter(adapter);
     }
@@ -294,8 +294,8 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onChangeCity(int position) {
-        cityModel = MyClient.getMyClient().getSelectManager().getUserCountry().get(position);
+    public void onChangeCity(CountryModel model) {
+        cityModel = model;
         mTvCity.setText(cityModel.getCityName());
         initAddData();
         if (dialog != null){

@@ -1,9 +1,12 @@
 package com.timediffproject.module.money;
 
+import android.text.TextUtils;
+
 import com.alibaba.fastjson.JSONObject;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.constants.Constant;
 import com.timediffproject.model.CountryModel;
+import com.timediffproject.module.emoney.OnGetExchangeMoneyListener;
 import com.timediffproject.network.IRequest;
 import com.timediffproject.network.IRequestCallback;
 import com.timediffproject.util.V2ArrayUtil;
@@ -40,7 +43,20 @@ public class MoneyManager {
         requestEMoney(countryModelList.get(0).getNationName(),tList);
     }
 
-    public void requestEMoney(String sourceNation, List<String> targetNationList) {
+    public void requestEMoney(String nationS,String nationT,OnGetExchangeMoneyListener listener){
+        if (TextUtils.isEmpty(nationS) || TextUtils.isEmpty(nationT) || listener == null){
+            return;
+        }
+        List<String> targetNationList = new ArrayList<>();
+        targetNationList.add(nationT);
+        requestEMoney(nationS,targetNationList,listener);
+    }
+
+    public void requestEMoney(String sourceNation, List<String> targetNationList){
+        requestEMoney(sourceNation,targetNationList,null);
+    }
+
+    public void requestEMoney(String sourceNation, List<String> targetNationList, final OnGetExchangeMoneyListener listener) {
 
         final IRequest request = (IRequest) MyClient.getMyClient().getService(MyClient.SERVICE_HTTP_REQUEST);
         if (request == null) {
@@ -53,14 +69,26 @@ public class MoneyManager {
         map.put("targetNationList", V2ArrayUtil.getJsonArrData(targetNationList));
 
         request.sendRequestForPostWithJson(URL_GET_EMONEY_BY_CITYS, map, new IRequestCallback() {
+
+            private void dispatch(boolean isSuccess,EMoneyResultModel model){
+                if (listener == null && onGetEMoneyListener == null){
+                    return;
+                }
+                if (listener == null){
+                    onGetEMoneyListener.onGetEMoneyFinish(isSuccess);
+                }else{
+                    listener.onGetExchangeMoneyFinish(isSuccess,model);
+                }
+            }
+
             @Override
             public void onResponseSuccess(JSONObject jsonObject) {
-                if (onGetEMoneyListener == null) {
+                if (onGetEMoneyListener == null && listener == null) {
                     return;
                 }
 
                 if (jsonObject == null) {
-                    onGetEMoneyListener.onGetEMoneyFinish(false);
+                    dispatch(false,null);
                     return;
                 }
 
@@ -68,12 +96,10 @@ public class MoneyManager {
                 model.decode(jsonObject);
                 if (model.getCode() == 0){
                     mEMoneyResultModel = model;
-                    onGetEMoneyListener.onGetEMoneyFinish(true);
+                    dispatch(true,model);
                 }else{
-                    onGetEMoneyListener.onGetEMoneyFinish(false);
+                    dispatch(false,null);
                 }
-
-
 
             }
 
@@ -84,9 +110,7 @@ public class MoneyManager {
 
             @Override
             public void onResponseError(int code) {
-                if (onGetEMoneyListener != null) {
-                    onGetEMoneyListener.onGetEMoneyFinish(false);
-                }
+                dispatch(false,null);
             }
         });
 

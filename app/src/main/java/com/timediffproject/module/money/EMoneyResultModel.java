@@ -16,10 +16,12 @@ public class EMoneyResultModel extends BaseModel {
     private final String KEY_MONEY_LIST = "moneyRatioList";
     private final String KEY_SOURCE_NAME = "sourceNation";
     private final String KEY_SOURCE_COIN = "sourceCoin";
+    private final String KEY_UPDATE_TIME = "updateTime";
 
     private List<EMoneyMapModel> modelList = new ArrayList<>();
     private String sourceNation;
     private String sourceCoin;
+    private String updateTime;
 
     public void decode(JSONObject object){
         super.decode(object);
@@ -34,6 +36,7 @@ public class EMoneyResultModel extends BaseModel {
 
         sourceNation = object.getString(KEY_SOURCE_NAME);
         sourceCoin = object.getString(KEY_SOURCE_COIN);
+        updateTime = object.getString(KEY_UPDATE_TIME);
 
         JSONArray array = object.getJSONArray(KEY_MONEY_LIST);
         if (array != null){
@@ -45,6 +48,14 @@ public class EMoneyResultModel extends BaseModel {
             }
         }
 
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getSourceCoin() {

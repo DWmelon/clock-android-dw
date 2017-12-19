@@ -27,6 +27,7 @@ import com.timediffproject.application.MyClient;
 import com.timediffproject.listener.OnUpdateTimeCallback;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.alarm.AlarmActivity;
+import com.timediffproject.module.emoney.ExchangeMoneyActivity;
 import com.timediffproject.module.home.MyMainActivity;
 import com.timediffproject.module.money.OnGetEMoneyListener;
 import com.timediffproject.module.select.OnGetCountryByIdsListener;

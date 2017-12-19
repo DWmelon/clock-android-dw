@@ -13,6 +13,17 @@
         android:textColor="@color/primary_white"
         android:textSize="16sp"/>
 
+    <TextView
+        android:id="@+id/tv_dialog_nation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_dialog_city"
+        android:layout_alignBaseline="@+id/tv_dialog_city"
+        android:layout_marginLeft="@dimen/margin_5"
+        android:text="北京"
+        android:textColor="@color/primary_white"
+        android:textSize="14sp"/>
+
     <ImageView
         android:id="@+id/iv_local_icon"
         android:layout_width="@dimen/margin_15"

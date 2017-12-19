@@ -72,6 +72,9 @@
         <activity android:name=".module.set.TimeVoiceActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
+        <activity android:name=".module.emoney.ExchangeMoneyActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
         <!-- 开机监听-->
         <receiver android:name=".open.BootCompleteReceiver">
             <intent-filter>

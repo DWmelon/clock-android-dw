@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_color">
+
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/ll_default_toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_exchange_source"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/iv_exchange_nation_action"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_exchange_nation_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exchange_ratio_choose"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/tv_exchange_coin_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="CNY"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_exchange_nation_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/margin_10"
+            android:src="@drawable/icon_money_type_exchange"/>
+
+        <LinearLayout
+            android:id="@+id/ll_exchange_target"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/iv_exchange_nation_action"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_exchange_nation_t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exchange_ratio_choose"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/tv_exchange_coin_t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_40"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前汇率："
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_exchange_ratio_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_15"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新时间："
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_exchange_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_exchange_tip_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exchange_ratio_tip_source_d"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/et_exchange_ratio_source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_exchange_tip_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exchange_ratio_tip_target_d"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_exchange_value_target"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_10"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

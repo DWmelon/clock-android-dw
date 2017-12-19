@@ -13,6 +13,9 @@ import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.select.SelectManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by melon on 2017/2/28.
  */
@@ -25,9 +28,16 @@ public class SetCityDialogAdapter extends RecyclerView.Adapter<SetCityDialogAdap
 
     private OnSetCityChangeListener listener;
 
-    public SetCityDialogAdapter(Context context){
+    private List<CountryModel> dataList = new ArrayList<>();
+
+    public SetCityDialogAdapter(Context context,List<CountryModel> modelList){
         this.mContext = context;
         manager = MyClient.getMyClient().getSelectManager();
+        dataList = modelList;
+    }
+
+    public void setData(List<CountryModel> modelList){
+        dataList = modelList;
     }
 
     public void setListener(OnSetCityChangeListener listener){
@@ -41,17 +51,15 @@ public class SetCityDialogAdapter extends RecyclerView.Adapter<SetCityDialogAdap
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        CountryModel model = manager.getUserCountry().get(position);
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        CountryModel model = dataList.get(position);
         holder.mTvCity.setText(model.getCityName());
-//        if (position == 0){
-//            holder.mIvLocal.setVisibility(View.VISIBLE);
-//        }
+        holder.mTvNation.setText(mContext.getString(R.string.city_dialog_nation,model.getNationName()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (listener != null){
-                    listener.onChangeCity(position);
+                    listener.onChangeCity(dataList.get(holder.getAdapterPosition()));
                 }
             }
         });
@@ -59,20 +67,18 @@ public class SetCityDialogAdapter extends RecyclerView.Adapter<SetCityDialogAdap
 
     @Override
     public int getItemCount() {
-        return manager.getUserCountry().size();
+        return dataList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView mTvCity;
-        private ImageView mIvLocal;
-        private ImageView mIvRight;
+        TextView mTvCity;
+        TextView mTvNation;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             mTvCity = (TextView)itemView.findViewById(R.id.tv_dialog_city);
-            mIvLocal = (ImageView)itemView.findViewById(R.id.iv_local_icon);
-            mIvRight = (ImageView)itemView.findViewById(R.id.iv_right);
+            mTvNation = (TextView)itemView.findViewById(R.id.tv_dialog_nation);
         }
     }
 

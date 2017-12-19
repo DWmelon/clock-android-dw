@@ -84,8 +84,11 @@
     <!-- set-->
     <string name="set_title">设置闹钟</string>
 
+    <string name="city_dialog_nation">&#160;-&#160;%1$s</string>
+
     <!-- left_drawer -->
     <string name="left_drawer_tip_advice">意见反馈</string>
+    <string name="left_drawer_tip_exchange">汇率转换</string>
     <string name="left_drawer_tip_widget">使用插件须知</string>
     <string name="left_drawer_tip_widget_1">使用须知</string>
     <string name="left_drawer_tip_widget_2">因手机系统保护，彻底退出APP后桌面插件无法正常运转，可打开APP后，隐藏在后台，则可正常显示。</string>
@@ -117,5 +120,14 @@
     <!-- home -->
     <string name="home_city_action_tip_move">第一个城市为所在城市，不能够移动</string>
     <string name="home_city_action_tip_remove">第一个城市为所在城市，不能够删除</string>
+
+    <!-- ratio -->
+    <string name="exchange_ratio_title">汇率转换</string>
+    <string name="exchange_ratio_tip_source_d">输入转换数额：</string>
+    <string name="exchange_ratio_tip_target_d">转换后数额：</string>
+    <string name="exchange_ratio_tip_source">输入转换数额：（%1$s）</string>
+    <string name="exchange_ratio_tip_target">转换后数额：（%1$s）</string>
+    <string name="exchange_ratio_choose">选择</string>
+    <string name="exchange_ratio_request_fail">获取汇率失败，请稍后再试</string>
 
 </resources>

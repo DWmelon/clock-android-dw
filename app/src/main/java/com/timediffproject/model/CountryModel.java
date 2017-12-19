@@ -32,7 +32,9 @@ public class CountryModel implements Serializable {
 
     private static final String SAVE_TIME_AROUND = "saveTimeAround";
 
-    private static final String ZONE_NUM = "zone_num";
+    private static final String ZONE_NUM = "zoneNum";
+
+    private static final String COIN_NAME = "coinName";
 
     private Long id;
 
@@ -61,6 +63,16 @@ public class CountryModel implements Serializable {
     private String saveTimeAround;
 
     private String zoneNum;
+
+    private String coinName;
+
+    public String getCoinName() {
+        return coinName;
+    }
+
+    public void setCoinName(String coinName) {
+        this.coinName = coinName;
+    }
 
     public String getZoneNum() {
         return zoneNum;
@@ -187,6 +199,8 @@ public class CountryModel implements Serializable {
         logo = object.getString(LOGO);
         state = object.getString(STATE);
         extra = object.getString(SAVE_TIME_AROUND);
+        zoneNum = object.getString(ZONE_NUM);
+        coinName = object.getString(COIN_NAME);
     }
 
     @Override
@@ -204,6 +218,9 @@ public class CountryModel implements Serializable {
                 ", nowDate=" + nowDate +
                 ", state='" + state + '\'' +
                 ", extra='" + extra + '\'' +
+                ", saveTimeAround='" + saveTimeAround + '\'' +
+                ", zoneNum='" + zoneNum + '\'' +
+                ", coinName='" + coinName + '\'' +
                 '}';
     }
 
@@ -221,6 +238,8 @@ public class CountryModel implements Serializable {
         model.setLogo(logo);
         model.setNowDate(nowDate);
         model.setState(state);
+        model.setZoneNum(zoneNum);
+        model.setCoinName(coinName);
         return model;
     }
 }

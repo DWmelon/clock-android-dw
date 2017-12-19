@@ -67,7 +67,7 @@ public class SetCityDialog extends Dialog{
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,h);
         mRvCity.setLayoutParams(params);
 
-        adapter = new SetCityDialogAdapter(getContext());
+        adapter = new SetCityDialogAdapter(getContext(),MyClient.getMyClient().getSelectManager().getUserCountry());
         mRvCity.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvCity.setAdapter(adapter);
 

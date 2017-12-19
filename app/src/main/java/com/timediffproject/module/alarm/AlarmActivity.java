@@ -12,7 +12,6 @@ import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.module.ring.RingActivity;
-import com.timediffproject.module.set.SetCityDialog;
 import com.timediffproject.module.set.SettingTimeActivity;
 import com.timediffproject.module.set.time.RadialPickerLayout;
 import com.timediffproject.module.set.time.TimePickerDialog;

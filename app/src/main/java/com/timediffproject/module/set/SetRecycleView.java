@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.timediffproject.R;
+import com.timediffproject.application.MyClient;
 
 /**
  * Created by melon on 2017/2/13.
@@ -69,7 +70,7 @@ public class SetRecycleView extends RecyclerView {
                 firstPosition += 1;
             }
             this.scrollToPosition(firstPosition);
-            listener.onChangeCity(firstPosition);
+            listener.onChangeCity(MyClient.getMyClient().getSelectManager().getUserCountry().get(firstPosition));
         }
         super.onScrollStateChanged(state);
     }
