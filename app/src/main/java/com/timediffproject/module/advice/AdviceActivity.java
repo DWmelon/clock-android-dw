@@ -2,6 +2,7 @@ package com.timediffproject.module.advice;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
+import com.timediffproject.util.DeviceInfoManager;
 import com.timediffproject.util.EmailUtil;
 import com.umeng.analytics.MobclickAgent;
 
@@ -83,7 +85,13 @@ public class AdviceActivity extends BaseActivity implements View.OnClickListener
         String[] toArr = {"3303847677@qq.com"};
         m.setTo(toArr);
         m.setFrom("3303847677@qq.com");
-        m.setSubject(mEtContact.getText().toString().trim()+"的反馈");
+        String contact = mEtContact.getText().toString().trim();
+        if (TextUtils.isEmpty(contact)){
+            DeviceInfoManager.getInstance().init(this);
+            contact = DeviceInfoManager.mDeviceUid+"_"+DeviceInfoManager.MODEL;
+        }
+
+        m.setSubject(contact+"的反馈");
         m.setBody(mEtContent.getText().toString().trim());
         try {
             if(m.send()) {
