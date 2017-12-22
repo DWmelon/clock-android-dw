@@ -199,9 +199,15 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
     }
 
     private void updateAdapter(){
+        if (getActivity() == null){
+            return;
+        }
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                if (adapter == null){
+                    return;
+                }
                 adapter.notifyDataSetChanged();
             }
         });

@@ -155,8 +155,8 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
         }
     };
     private void bindServiceConnection() {
+
         Intent intent = new Intent(RingActivity.this, RingService.class);
-        intent.putExtra(Constants.INTENT_KEY_VOICE,model.getNoiseLevel());
         bindService(intent, serviceConnection, this.BIND_AUTO_CREATE);
     }
 
