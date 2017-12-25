@@ -11,6 +11,11 @@ Fork & Star，都无尽感谢。
 * 选择目标城市设置单次闹钟
 * 提供各国法币汇率查询功能
 
+## Framework
+* 网络框架：volley
+* 图片框架：fresco
+* View框架：butterknife
+
 ## License
 该应用已经发布到各大安卓市场，可以搜索“时差闹钟”，直接下载体验功能。  
 
