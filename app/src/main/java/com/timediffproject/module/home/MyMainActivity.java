@@ -15,15 +15,12 @@ import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.module.misc.OnUpdateCheckListener;
 import com.timediffproject.network.UrlConstantV2;
-import com.umeng.socialize.UMShareAPI;
-import com.umeng.socialize.UMShareListener;
-import com.umeng.socialize.bean.SHARE_MEDIA;
 
 /**
  * Created by melon on 2017/1/3.
  */
 
-public class MyMainActivity extends BaseActivity implements UMShareListener,OnUpdateCheckListener{
+public class MyMainActivity extends BaseActivity implements OnUpdateCheckListener{
 
     DrawerLayout drawerLayout;
 
@@ -66,33 +63,12 @@ public class MyMainActivity extends BaseActivity implements UMShareListener,OnUp
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
         if (requestCode == UrlConstantV2.REQUEST.SELECT_COUNTRY){
             if (MyClient.getMyClient().getSelectManager().isCountryDataChange()){
                 MyClient.getMyClient().getMoneyManager().requestEMoney();
                 MyClient.getMyClient().getSelectManager().setCountryDataChange(false);
             }
         }
-    }
-
-    @Override
-    public void onStart(SHARE_MEDIA share_media) {
-
-    }
-
-    @Override
-    public void onResult(SHARE_MEDIA share_media) {
-
-    }
-
-    @Override
-    public void onError(SHARE_MEDIA share_media, Throwable throwable) {
-
-    }
-
-    @Override
-    public void onCancel(SHARE_MEDIA share_media) {
-
     }
 
     private void handleVersion(AppUpdateCheckModel model){

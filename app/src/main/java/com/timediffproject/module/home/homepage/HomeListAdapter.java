@@ -25,6 +25,8 @@ import com.timediffproject.module.select.SelectActivity;
 import com.timediffproject.module.select.SelectManager;
 import com.timediffproject.module.set.SettingTimeActivity;
 import com.timediffproject.network.UrlConstantV2;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
 import com.timediffproject.util.DateUtil;
 import com.timediffproject.util.ImageUtil;
 
@@ -116,6 +118,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                 Intent intent = new Intent(mContext, SettingTimeActivity.class);
                 intent.putExtra(Constants.INTENT_KEY_CITY_ID,model.getId());
                 mContext.startActivity(intent);
+                StatManager.statEventNum(mContext, StatCMConstant.HOME_ENTER_CONTRY);
             }
         });
 
@@ -207,6 +210,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                 manager.removeUserSelect(manager.getUserCountry().get(position));
                 //删除RecyclerView列表对应item
                 notifyItemRemoved(position);
+                StatManager.statEventNum(mContext, StatCMConstant.HOME_DELETE);
             }
         }, new View.OnClickListener() {
             @Override
@@ -222,6 +226,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         intent.putExtra("type","change");
         intent.putExtra("index",position);
         ((BaseActivity)mContext).startActivityForResult(intent, UrlConstantV2.REQUEST.SELECT_COUNTRY);
+        StatManager.statEventNum(mContext, StatCMConstant.HOME_EXCHANGE);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

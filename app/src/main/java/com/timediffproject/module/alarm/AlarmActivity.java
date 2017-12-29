@@ -15,6 +15,8 @@ import com.timediffproject.module.ring.RingActivity;
 import com.timediffproject.module.set.SettingTimeActivity;
 import com.timediffproject.module.set.time.RadialPickerLayout;
 import com.timediffproject.module.set.time.TimePickerDialog;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.Calendar;
@@ -69,6 +71,7 @@ public class AlarmActivity extends BaseActivity implements View.OnClickListener,
     private void addAlarm(){
         Intent intent = new Intent(this,SettingTimeActivity.class);
         startActivity(intent);
+        StatManager.statEventNum(this, StatCMConstant.PAGE_IN_SET_ALARM);
     }
 
     @Override

@@ -20,6 +20,11 @@ import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.search.SearchCountryActivity;
 import com.timediffproject.network.UrlConstantV2;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by melon on 2017/1/6.
@@ -150,22 +155,27 @@ public class SelectActivity extends BaseActivity implements View.OnClickListener
             }
             case R.id.rl_europe:{
                 MyClient.getMyClient().getSelectManager().requestCountryByState(SelectActivity.this,SelectManager.STATE_EUROPE_E,this);
+                handleStateUm("europe");
                 break;
             }
             case R.id.rl_asia:{
                 MyClient.getMyClient().getSelectManager().requestCountryByState(SelectActivity.this,SelectManager.STATE_ASIA_E,this);
+                handleStateUm("asia");
                 break;
             }
             case R.id.rl_africa:{
                 MyClient.getMyClient().getSelectManager().requestCountryByState(SelectActivity.this,SelectManager.STATE_AFRICA_E,this);
+                handleStateUm("africa");
                 break;
             }
             case R.id.rl_america:{
                 MyClient.getMyClient().getSelectManager().requestCountryByState(SelectActivity.this,SelectManager.STATE_AMERICA_E,this);
+                handleStateUm("america");
                 break;
             }
             case R.id.rl_oceania:{
                 MyClient.getMyClient().getSelectManager().requestCountryByState(SelectActivity.this,SelectManager.STATE_OCEANIA_E,this);
+                handleStateUm("oceania");
                 break;
             }
             case R.id.rl_select_search:{
@@ -177,6 +187,12 @@ public class SelectActivity extends BaseActivity implements View.OnClickListener
                 break;
             }
         }
+    }
+
+    private void handleStateUm(String state){
+        List<String> list = new ArrayList<>();
+        list.add(state);
+        StatManager.statEventNum(this, StatCMConstant.SELECT_STATE_CITY,list);
     }
 
     private void handleStateClick(int state){

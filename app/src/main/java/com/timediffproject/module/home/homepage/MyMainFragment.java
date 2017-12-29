@@ -34,6 +34,8 @@ import com.timediffproject.module.money.OnGetEMoneyListener;
 import com.timediffproject.module.select.OnGetCountryByIdsListener;
 import com.timediffproject.module.select.SelectActivity;
 import com.timediffproject.network.UrlConstantV2;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
 import com.timediffproject.util.V2ArrayUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -128,6 +130,7 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
                 Intent intent = new Intent(getActivity(), SelectActivity.class);
                 intent.putExtra("type","normal");
                 startActivityForResult(intent, UrlConstantV2.REQUEST.SELECT_COUNTRY);
+                StatManager.statEventNum(getActivity(),StatCMConstant.PAGE_IN_SELECT_CITY);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -140,6 +143,7 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
             case R.id.fab_home_to_alarm:{
                 Intent intent = new Intent(getActivity(), AlarmActivity.class);
                 startActivity(intent);
+                StatManager.statEventNum(getActivity(), StatCMConstant.PAGE_IN_LOOK_ALARM);
                 break;
             }
         }

@@ -20,6 +20,8 @@ import com.timediffproject.constants.ParamConstants;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.alarm.AlarmModel;
 import com.timediffproject.module.set.SetAlarmUtil;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
 import com.umeng.analytics.MobclickAgent;
 
 import java.text.SimpleDateFormat;
@@ -67,7 +69,7 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
             finish();
         }
         ringService.play(model.getNoiseLevel());
-
+        StatManager.statEventNum(this, StatCMConstant.PAGE_IN_RING_ALARM);
     }
 
     private void handleIntent(){

@@ -32,6 +32,8 @@ import com.timediffproject.module.select.SelectManager;
 import com.timediffproject.module.set.time.RadialPickerLayout;
 import com.timediffproject.module.set.time.TimePickerDialog;
 import com.timediffproject.network.UrlConstantV2;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
 import com.timediffproject.util.RandomUtil;
 import com.timediffproject.util.SlidingUpDialog;
 import com.umeng.analytics.MobclickAgent;
@@ -386,6 +388,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
                 Intent intent = new Intent(this,TimeVoiceActivity.class);
                 intent.putExtra(UrlConstantV2.BUNDLE.VOICE_LEVEL,voiceLevel);
                 startActivityForResult(intent,UrlConstantV2.REQUEST.ALARM_VOICE);
+                StatManager.statEventNum(this, StatCMConstant.PAGE_IN_SET_RING);
                 break;
             }
         }

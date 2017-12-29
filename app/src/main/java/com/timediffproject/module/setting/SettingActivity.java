@@ -11,8 +11,13 @@ import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.eventbus.HomeEB;
 import com.timediffproject.module.home.MyMainActivity;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,6 +74,19 @@ public class SettingActivity extends BaseActivity {
             GlobalPreferenceManager.setUse24Hours(this,mSbUse24.isChecked());
             GlobalPreferenceManager.setUseRatio(this,mSbUseRatio.isChecked());
             EventBus.getDefault().post(new HomeEB());
+
+            if (mSbUse24.isChecked() != isUse24){
+                List<String> list = new ArrayList<>();
+                list.add(String.valueOf(mSbUse24.isChecked()));
+                StatManager.statEventNum(this, StatCMConstant.SET_USE_24,list);
+            }
+
+            if (mSbUseRatio.isChecked() != isUseRatio){
+                List<String> list = new ArrayList<>();
+                list.add(String.valueOf(mSbUseRatio.isChecked()));
+                StatManager.statEventNum(this, StatCMConstant.SET_USE_RATIO,list);
+            }
+
         }
         super.onDestroy();
     }

@@ -17,6 +17,7 @@ import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.umeng.analytics.AnalyticsConfig;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.MsgConstant;
 import com.umeng.message.PushAgent;
@@ -25,8 +26,6 @@ import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.common.UmLog;
 import com.umeng.message.entity.UMessage;
-import com.umeng.socialize.PlatformConfig;
-import com.umeng.socialize.UMShareAPI;
 
 public class MainApplication extends Application{
 
@@ -43,10 +42,7 @@ public class MainApplication extends Application{
     context = this.getApplicationContext();
 
     Fresco.initialize(this);
-    UMShareAPI.get(this);
-    PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
-    PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
-    PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
+
     umengEvent();
 //    umengPush();
     MobclickAgent.openActivityDurationTrack(false);
@@ -56,13 +52,13 @@ public class MainApplication extends Application{
   }
 
   private void umengEvent(){
-    if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
-      AnalyticsConfig.sEncrypt=true;//6.0.0版本以前
-    }else{
-      MobclickAgent.enableEncrypt(true);//6.0.0版本及以后
-    }
-
-    MobclickAgent.setCatchUncaughtExceptions(true);
+    /**
+     * 初始化common库
+     * 参数1:上下文，不能为空
+     * 参数2:设备类型，UMConfigure.DEVICE_TYPE_PHONE为手机、UMConfigure.DEVICE_TYPE_BOX为盒子，默认为手机
+     * 参数3:Push推送业务的secret
+     */
+    UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "8fd1559878e9c978f37121d89abfb0b0");
   }
 
   private void umengPush(){

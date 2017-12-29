@@ -16,6 +16,8 @@ import com.timediffproject.module.advice.AdviceActivity;
 import com.timediffproject.module.emoney.ExchangeMoneyActivity;
 import com.timediffproject.module.setting.SettingActivity;
 import com.timediffproject.module.tempdata.TempDataActivity;
+import com.timediffproject.stat.StatCMConstant;
+import com.timediffproject.stat.StatManager;
 
 /**
  * Created by melon on 2017/2/26.
@@ -57,6 +59,7 @@ public class LeftDrawerAdapter extends RecyclerView.Adapter<LeftDrawerAdapter.Vi
                 public void onClick(View view) {
                     Intent intent = new Intent(mContext, ExchangeMoneyActivity.class);
                     mContext.startActivity(intent);
+                    StatManager.statEventNum(mContext, StatCMConstant.PAGE_IN_RATIO);
                 }
             });
         } else if (position == 2){
