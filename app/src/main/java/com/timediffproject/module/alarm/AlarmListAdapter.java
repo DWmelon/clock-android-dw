@@ -16,11 +16,13 @@ import android.widget.Toast;
 import com.suke.widget.SwitchButton;
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
+import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.constants.Constants;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.set.SetAlarmUtil;
 import com.timediffproject.module.set.SettingTimeActivity;
+import com.timediffproject.util.DateUtil;
 import com.timediffproject.util.RandomUtil;
 import com.timediffproject.util.SpanUtil;
 
@@ -88,20 +90,31 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
             }
         });
 
-
-        SimpleDateFormat dff = new SimpleDateFormat("HH: mm");
-        String time = dff.format(SetAlarmUtil.getModifyTime(countryModel.getDiffTime(),model.getAlarmTime()));
-        holder.mTvAlarmTime.setText(time);
+        Date date = SetAlarmUtil.getModifyTime(countryModel.getDiffTime(),model.getAlarmTime());
+        holder.mTvAlarmTime.setText(DateUtil.getHourFormat(mContext,date));
+        if (GlobalPreferenceManager.isUse24Hours(mContext)){
+            holder.mTvAlarmTimeAP.setVisibility(View.GONE);
+        }else{
+            holder.mTvAlarmTimeAP.setText(DateUtil.getTimeAP(date));
+            holder.mTvAlarmTimeAP.setVisibility(View.VISIBLE);
+        }
 
         holder.mTvAlarmCity.setText(model.getCity());
 
-
-        SpannableString localTime = culLocalTime(model);
+        Date localTimeDate = culLocalTime(model);
+        SpannableString localTime = handleLocalTime(localTimeDate);
         if (localTime == null || model.getCity().equals(mContext.getString(R.string.beijing))){
             holder.mLlExchange.setVisibility(View.GONE);
         }else{
             holder.mLlExchange.setVisibility(View.VISIBLE);
             holder.mTvAlarmLocal.setText(localTime);
+            if (GlobalPreferenceManager.isUse24Hours(mContext)){
+                holder.mTvAlarmLocalAP.setVisibility(View.GONE);
+            }else{
+                holder.mTvAlarmLocalAP.setText(DateUtil.getTimeAP(localTimeDate));
+                holder.mTvAlarmLocalAP.setVisibility(View.VISIBLE);
+            }
+
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -139,7 +152,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         });
     }
 
-    private SpannableString culLocalTime(AlarmModel alarmModel){
+    private Date culLocalTime(AlarmModel alarmModel){
         List<CountryModel> countryModelList = MyClient.getMyClient().getSelectManager().getUserCountry();
         if (countryModelList == null || countryModelList.isEmpty()){
             return null;
@@ -178,14 +191,17 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
 //            }
 //        }
 
-        SimpleDateFormat dff = new SimpleDateFormat("HH: mm");
-        String time = dff.format(calendarNow.getTime());
+        return calendarNow.getTime();
+
+    }
+
+    private SpannableString handleLocalTime(Date date){
+        String time = DateUtil.getHourFormat(mContext,date);
         String localTime = mContext.getString(R.string.alarm_item_tip,mContext.getString(R.string.beijing),time);
         SpannableString span = SpanUtil.getSpannableString(localTime,
                 new ForegroundColorSpan(mContext.getResources().getColor(R.color.white)),localTime.length()-6,localTime.length());
         span = SpanUtil.getSpannableString(span,new RelativeSizeSpan(1.2f),localTime.length()-6,localTime.length());
         return span;
-
     }
 
     @Override
@@ -198,20 +214,24 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView mTvAlarmTime;
+        TextView mTvAlarmTimeAP;
         TextView mTvAlarmCity;
 
         LinearLayout mLlExchange;
         TextView mTvAlarmLocal;
+        TextView mTvAlarmLocalAP;
         SwitchButton mSbAlarmSet;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             mTvAlarmTime = (TextView)itemView.findViewById(R.id.tv_alarm_time);
+            mTvAlarmTimeAP = (TextView)itemView.findViewById(R.id.tv_alarm_time_ap);
             mTvAlarmCity = (TextView)itemView.findViewById(R.id.tv_alarm_city);
 
             mLlExchange = (LinearLayout)itemView.findViewById(R.id.ll_exchange_time);
             mTvAlarmLocal = (TextView)itemView.findViewById(R.id.tv_alarm_local_time);
+            mTvAlarmLocalAP = (TextView)itemView.findViewById(R.id.tv_alarm_local_time_ap);
             mSbAlarmSet = (SwitchButton)itemView.findViewById(R.id.sb_alarm_btn);
         }
 

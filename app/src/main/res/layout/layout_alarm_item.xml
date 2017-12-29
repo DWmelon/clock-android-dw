@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true">
 
+
     <TextView
         android:id="@+id/tv_alarm_time"
         android:layout_width="wrap_content"
@@ -23,12 +24,23 @@
         android:textColor="@color/primary_white"
         />
 
+        <TextView
+            android:id="@+id/tv_alarm_time_ap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_toRightOf="@+id/tv_alarm_time"
+            android:layout_alignBaseline="@+id/tv_alarm_time"
+            android:visibility="gone"
+            android:textColor="@color/primary_gray"
+            android:textSize="12sp"/>
+
     <TextView
         android:id="@+id/tv_alarm_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_alarm_time"
-        android:layout_alignBaseline="@+id/tv_alarm_time"
+        android:layout_toRightOf="@+id/tv_alarm_time_ap"
+        android:layout_alignBaseline="@+id/tv_alarm_time_ap"
         android:layout_marginLeft="10dp"
         android:text="北京"
         android:textSize="14sp"
@@ -57,7 +69,17 @@
                 android:layout_marginLeft="@dimen/margin_10"
                 android:text="@string/alarm_item_tip"
                 android:textColor="#ccffffff"
+                android:textSize="14sp"
                 />
+
+            <TextView
+                android:id="@+id/tv_alarm_local_time_ap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_gravity="bottom"
+                android:textColor="@color/primary_gray"
+                android:textSize="12sp"/>
 
         </LinearLayout>
 

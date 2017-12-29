@@ -14,6 +14,7 @@ import com.timediffproject.application.BaseActivity;
 import com.timediffproject.module.about.AboutMeActivity;
 import com.timediffproject.module.advice.AdviceActivity;
 import com.timediffproject.module.emoney.ExchangeMoneyActivity;
+import com.timediffproject.module.setting.SettingActivity;
 import com.timediffproject.module.tempdata.TempDataActivity;
 
 /**
@@ -69,15 +70,6 @@ public class LeftDrawerAdapter extends RecyclerView.Adapter<LeftDrawerAdapter.Vi
                 }
             });
         }else if (position == 3){
-            holder.mIvIcon.setImageResource(R.drawable.icon_widget_know);
-            holder.mTvContext.setText(R.string.left_drawer_tip_widget);
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ((BaseActivity)mContext).showCommonAlert(R.string.left_drawer_tip_widget_1,R.string.left_drawer_tip_widget_2);
-                }
-            });
-        } else if (position == 4){
             holder.mIvIcon.setImageResource(R.drawable.icon_about_me);
             holder.mTvContext.setText(R.string.about_me);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +79,26 @@ public class LeftDrawerAdapter extends RecyclerView.Adapter<LeftDrawerAdapter.Vi
                     mContext.startActivity(intent);
                 }
             });
+        } else if (position == 4){
+            holder.mIvIcon.setImageResource(R.drawable.icon_setting);
+            holder.mTvContext.setText(R.string.left_drawer_tip_setting);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, SettingActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
         } else if (position == 5){
+            holder.mIvIcon.setImageResource(R.drawable.icon_widget_know);
+            holder.mTvContext.setText(R.string.left_drawer_tip_widget);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((BaseActivity)mContext).showCommonAlert(R.string.left_drawer_tip_widget_1,R.string.left_drawer_tip_widget_2);
+                }
+            });
+        } else if (position == 6){
             holder.mIvIcon.setImageResource(R.drawable.icon_share);
             holder.mTvContext.setText(R.string.left_drawer_tip_share);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +123,7 @@ public class LeftDrawerAdapter extends RecyclerView.Adapter<LeftDrawerAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 6;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

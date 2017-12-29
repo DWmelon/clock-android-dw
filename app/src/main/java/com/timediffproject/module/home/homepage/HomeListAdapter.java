@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
+import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.constants.Constants;
 import com.timediffproject.model.CountryModel;
@@ -24,12 +25,14 @@ import com.timediffproject.module.select.SelectActivity;
 import com.timediffproject.module.select.SelectManager;
 import com.timediffproject.module.set.SettingTimeActivity;
 import com.timediffproject.network.UrlConstantV2;
+import com.timediffproject.util.DateUtil;
 import com.timediffproject.util.ImageUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * Created by melon on 2017/1/8.
@@ -48,6 +51,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
     private HashMap<String,EMoneyMapModel> mEMoneyMap = new HashMap<>();
     private String mSCoin = "";
 
+    private Boolean isUseRatio = null;
+
     public HomeListAdapter(Context context, SelectManager manager){
         this.mContext = context;
         this.manager = manager;
@@ -63,6 +68,10 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         mEMoneyMap = MyClient.getMyClient().getMoneyManager().getEMoneyMap();
     }
 
+    public void updateEMoneyFlag(){
+        isUseRatio = GlobalPreferenceManager.isUseRatio(mContext);
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.layout_home_country_item,parent,false);
@@ -75,25 +84,30 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         final CountryModel model = manager.getUserCountry().get(position);
 
-
         holder.countryIcon.setImageResource(ImageUtil.getResource(mContext,model.getLogo()));
 
         holder.cityName.setText(model.getCityName());
         holder.nationName.setText(model.getNationName());
+
         Date date = MyClient.getMyClient().getTimeManager().getTime(model.getDiffTime());
         model.setNowDate(date);
-        SimpleDateFormat dff = new SimpleDateFormat("HH: mm");
-        String str = dff.format(date);
-        holder.smallTime.setText(str);
 
+        //小时，分
+        if (GlobalPreferenceManager.isUse24Hours(mContext)){
+            holder.mTvTimeAP.setVisibility(View.GONE);
+        }else{
+            holder.mTvTimeAP.setText(DateUtil.getTimeAP(date));
+            holder.mTvTimeAP.setVisibility(View.VISIBLE);
+        }
+        holder.smallTime.setText(DateUtil.getHourFormat(mContext,date));
+
+        //年，月，日
         SimpleDateFormat myFmt2=new SimpleDateFormat("yyyy-MM-dd");
         String strTime1 = myFmt2.format(date);
         String month = strTime1.split("-")[1];
         String day = strTime1.split("-")[2];
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-
         holder.bigTime.setText(month+"月"+day+"日"+"-"+weekDays[calendar.get(Calendar.DAY_OF_WEEK)-1]);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +119,15 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
             }
         });
 
-        if (position == 0){
+        if (position == getItemCount()-1){
+            holder.mVLine.setVisibility(View.GONE);
+        }
+
+        //汇率
+        if (isUseRatio == null){
+            isUseRatio = GlobalPreferenceManager.isUseRatio(mContext);
+        }
+        if (position == 0 || !isUseRatio){
             holder.mLlSubContent.setVisibility(View.GONE);
             holder.locIcon.setVisibility(View.VISIBLE);
         }else{
@@ -136,8 +158,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
                 holder.mTvTCoinName.setText(mapModel.getCoinName());
             }else {
                 holder.mLlSubContent.setVisibility(View.GONE);
-                holder.locIcon.setVisibility(View.VISIBLE);
             }
+            holder.locIcon.setVisibility(View.GONE);
         }
 
 
@@ -209,6 +231,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         ImageView locIcon;
         TextView bigTime;
         TextView smallTime;
+        TextView mTvTimeAP;
         ImageView countryIcon;
 
         LinearLayout mLlSubContent;
@@ -217,6 +240,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
         TextView mTvTCoinValue;
         TextView mTvTCoinName;
+
+        View mVLine;
 //        LinearLayout mLeft;
 //        RelativeLayout mCenter;
 //        LinearLayout mRight;
@@ -229,6 +254,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
             locIcon = (ImageView)itemView.findViewById(R.id.iv_home_list_country_flag);
             bigTime = (TextView)itemView.findViewById(R.id.tv_home_list_country_time_big);
             smallTime = (TextView)itemView.findViewById(R.id.tv_home_list_country_time_small);
+            mTvTimeAP = (TextView)itemView.findViewById(R.id.tv_home_list_country_time_am_pm);
 
             mLlSubContent = (LinearLayout)itemView.findViewById(R.id.ll_home_list_item_sub);
 
@@ -237,6 +263,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
             mTvTCoinName = (TextView) itemView.findViewById(R.id.tv_home_list_item_coin_name2);
             mTvTCoinValue = (TextView)itemView.findViewById(R.id.tv_home_list_item_coin_ratio);
+
+            mVLine = itemView.findViewById(R.id.v_home_list_line);
 //            mLeft = (LinearLayout)itemView.findViewById(R.id.ll_left);
 //            mCenter = (RelativeLayout)itemView.findViewById(R.id.ll_center);
 //            mRight = (LinearLayout)itemView.findViewById(R.id.ll_right);

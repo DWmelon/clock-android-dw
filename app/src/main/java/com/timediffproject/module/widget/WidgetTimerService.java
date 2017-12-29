@@ -13,9 +13,12 @@ import android.support.annotation.Nullable;
 import android.widget.RemoteViews;
 
 import com.timediffproject.R;
+import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.select.SelectManager;
+import com.timediffproject.origin.MainApplication;
+import com.timediffproject.util.DateUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -137,9 +140,15 @@ public class WidgetTimerService extends Service {
     private void updateContent(Context context,int appWidgetId,RemoteViews rv,CountryModel model){
         Date date = MyClient.getMyClient().getTimeManager().getTime(model.getDiffTime());
         model.setNowDate(date);
-        SimpleDateFormat dff = new SimpleDateFormat("HH: mm");
-        String str = dff.format(date);
-        rv.setTextViewText(R.id.tv_app_widget_time_small, str);
+
+        boolean isUse24 = GlobalPreferenceManager.isUse24Hours(context);
+        if (isUse24){
+            rv.setTextViewText(R.id.tv_app_widget_time_small_ap, "");
+        }else{
+            rv.setTextViewText(R.id.tv_app_widget_time_small_ap, DateUtil.getTimeAP(date));
+        }
+        rv.setTextViewText(R.id.tv_app_widget_time_small, DateUtil.getHourFormat(context,date));
+
 
         SimpleDateFormat myFmt2=new SimpleDateFormat("yyyy-MM-dd");
         String strTime1 = myFmt2.format(date);

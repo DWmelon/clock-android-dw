@@ -24,6 +24,10 @@ public class GlobalPreferenceManager {
 
     private static final String KEY_IS_NEED_SHOW_UPDAET_POINT = "is_need_show_update_point";
 
+    private static final String KEY_IS_USE_24 = "is_use_24_hours";
+
+    private static final String KEY_IS_USE_RATIO = "is_use_ratio";
+
     public static void saveUserSelect(Context context, String id) {
         context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putString(KEY_USER_SELECT_CITY, id).apply();
     }
@@ -78,6 +82,22 @@ public class GlobalPreferenceManager {
 
     public static boolean isUpdatePointShow(Context context) {
         return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(KEY_IS_NEED_SHOW_UPDAET_POINT,false);
+    }
+
+    public static void setUse24Hours(Context context, boolean isUse) {
+        context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putBoolean(KEY_IS_USE_24, isUse).apply();
+    }
+
+    public static boolean isUse24Hours(Context context) {
+        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(KEY_IS_USE_24,true);
+    }
+
+    public static void setUseRatio(Context context, boolean isUse) {
+        context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putBoolean(KEY_IS_USE_RATIO, isUse).apply();
+    }
+
+    public static boolean isUseRatio(Context context) {
+        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(KEY_IS_USE_RATIO,true);
     }
 
 }

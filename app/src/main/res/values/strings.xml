@@ -92,8 +92,8 @@
     <string name="left_drawer_tip_widget">使用插件须知</string>
     <string name="left_drawer_tip_widget_1">使用须知</string>
     <string name="left_drawer_tip_widget_2">因手机系统保护，彻底退出APP后桌面插件无法正常运转，可打开APP后，隐藏在后台，则可正常显示。</string>
-    <string name="left_drawer_tip_share">分享给好友</string>
-
+    <string name="left_drawer_tip_share">分享</string>
+    <string name="left_drawer_tip_setting">我的设置</string>
 
     <!-- advice -->
     <string name="advice_title">意见反馈</string>
@@ -129,5 +129,9 @@
     <string name="exchange_ratio_tip_target">转换后数额：（%1$s）</string>
     <string name="exchange_ratio_choose">选择</string>
     <string name="exchange_ratio_request_fail">获取汇率失败，请稍后再试</string>
+
+    <!-- setting -->
+    <string name="setting_is_use_24">启用24小时显示</string>
+    <string name="setting_is_use_ratio">汇率信息显示</string>
 
 </resources>

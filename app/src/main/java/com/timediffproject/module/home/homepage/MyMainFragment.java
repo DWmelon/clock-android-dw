@@ -24,6 +24,7 @@ import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.BaseFragment;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.eventbus.HomeEB;
 import com.timediffproject.listener.OnUpdateTimeCallback;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.alarm.AlarmActivity;
@@ -34,6 +35,10 @@ import com.timediffproject.module.select.OnGetCountryByIdsListener;
 import com.timediffproject.module.select.SelectActivity;
 import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.util.V2ArrayUtil;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,27 +135,6 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        Log.i("main","pause");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i("main","resume");
-        if (adapter != null){
-            adapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        MyClient.getMyClient().getTimeManager().unregisterUpdateTimeCallBack(this);
-    }
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fab_home_to_alarm:{
@@ -231,4 +215,40 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
             }
         }
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onHomeEB(HomeEB event){
+        if (adapter != null){
+            adapter.updateEMoneyFlag();
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i("main","resume");
+        if (adapter != null){
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MyClient.getMyClient().getTimeManager().unregisterUpdateTimeCallBack(this);
+    }
+
 }
