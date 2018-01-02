@@ -1,5 +1,7 @@
 package com.timediffproject.util;
 
+import android.text.TextUtils;
+
 import com.alibaba.fastjson.JSONArray;
 
 import java.util.ArrayList;
@@ -42,6 +44,19 @@ public class V2ArrayUtil {
             list.addAll(jsonArr2);
         }
         return getJsonArrData(list);
+    }
+
+    public static List<String> getListByJson(String json){
+        List<String> list = new ArrayList<>();
+        if (TextUtils.isEmpty(json)){
+            return list;
+        }
+
+        JSONArray array = JSONArray.parseArray(json);
+        for (int i = 0; i<array.size();i++){
+            list.add(array.getString(i));
+        }
+        return list;
     }
 
 }

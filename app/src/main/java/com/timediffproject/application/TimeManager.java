@@ -2,22 +2,13 @@ package com.timediffproject.application;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.widget.Toast;
 
-import com.timediffproject.R;
 import com.timediffproject.TimeService;
 import com.timediffproject.listener.OnGetTimeCallback;
 import com.timediffproject.listener.OnUpdateTimeCallback;
 import com.timediffproject.model.CountryModel;
-import com.timediffproject.module.alarm.AlarmModel;
-import com.timediffproject.util.SpanUtil;
+import com.timediffproject.database.AlarmModel;
 
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;

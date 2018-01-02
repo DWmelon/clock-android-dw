@@ -3,6 +3,7 @@ package com.timediffproject.application;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.timediffproject.database.DatabaseManager;
 import com.timediffproject.module.alarm.MyAlarmManager;
 import com.timediffproject.module.misc.MiscManager;
 import com.timediffproject.module.money.MoneyManager;
@@ -81,6 +82,7 @@ public class MyClient {
     private WidgetManager widgetManager;
     private MiscManager miscManager;
     private MoneyManager moneyManager;
+    private DatabaseManager databaseManager;
 
     public synchronized SelectManager getSelectManager(){
         if (selectManager == null){
@@ -136,6 +138,13 @@ public class MyClient {
             moneyManager = new MoneyManager();
         }
         return moneyManager;
+    }
+
+    public synchronized DatabaseManager getDatabaseManager(){
+        if (databaseManager == null){
+            databaseManager = new DatabaseManager(context);
+        }
+        return databaseManager;
     }
 
 }

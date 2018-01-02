@@ -19,6 +19,7 @@ import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.constants.Constants;
+import com.timediffproject.database.AlarmModel;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.set.SetAlarmUtil;
 import com.timediffproject.module.set.SettingTimeActivity;
@@ -26,12 +27,10 @@ import com.timediffproject.util.DateUtil;
 import com.timediffproject.util.RandomUtil;
 import com.timediffproject.util.SpanUtil;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by melon on 2017/1/8.
@@ -48,7 +47,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
     public AlarmListAdapter(Context context, MyAlarmManager manager){
         this.mContext = context;
         this.manager = manager;
-        alarmModelList = manager.getAlarmStructModel().getAlarmModelList();
+        alarmModelList = manager.getAlarmModelList();
     }
 
     @Override
@@ -64,7 +63,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         final AlarmModel model = alarmModelList.get(position);
         CountryModel countryModel = MyClient.getMyClient().getSelectManager().getNationById(model.getCityId());
 
-        holder.mSbAlarmSet.setChecked(model.isUsing());
+        holder.mSbAlarmSet.setChecked(model.getUsing());
         holder.mSbAlarmSet.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
@@ -79,7 +78,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
                     SetAlarmUtil.culRestartAlarm(model);
 
                     //重新设置id
-                    model.setRequestCode(RandomUtil.getRandomInt());
+                    model.setRequestCode((long) RandomUtil.getRandomInt());
 
                     //添加新闹钟
                     manager.addOnceAlarm(mContext,model,-1);

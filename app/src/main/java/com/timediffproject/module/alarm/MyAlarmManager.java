@@ -9,6 +9,8 @@ import android.util.Log;
 
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.database.AlarmDaoUtil;
+import com.timediffproject.database.AlarmModel;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.ring.RingReceiver;
 import com.timediffproject.module.set.SetAlarmUtil;
@@ -23,7 +25,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+
+import database.com.timediffproject.AlarmModelDao;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -33,9 +38,9 @@ import static android.content.Context.ALARM_SERVICE;
 
 public class MyAlarmManager {
 
-    private AlarmStructModel alarmStructModel = new AlarmStructModel();
+    private List<AlarmModel> alarmModelList = new ArrayList<>();
 
-    private HashMap<Integer,AlarmModel> alarmModelHashMap = new HashMap<>();
+    private HashMap<Long,AlarmModel> alarmModelHashMap = new HashMap<>();
 
     private List<OnLoadAlarmFinishListener> listenerList = new ArrayList<>();
 
@@ -49,54 +54,51 @@ public class MyAlarmManager {
 
         if (GlobalPreferenceManager.isRefreshAlarm(context)){
             GlobalPreferenceManager.setRefreshAlarm(context,false);
-            saveAlarmDataToFile();
+            AlarmDaoUtil.removeAllAlarm();
         }else{
             getAlarmDataFromFile();
         }
     }
 
-    /**
-     * 保存闹钟设置信息到文件
-     */
-    public synchronized void saveAlarmDataToFile(){
-        TaskExecutor.getInstance().post(new Runnable() {
-            @Override
-            public void run() {
-                if (alarmStructModel != null) {
-                    String path = StorageManager.getInstance().getPackageFiles() + "alarm";
-                    FileUtil.writeObjectToPath(alarmStructModel, path);
+    public List<AlarmModel> getAlarmModelList() {
+        if (alarmModelList.isEmpty()){
+            return alarmModelList;
+        }
+
+        List<CountryModel> countryModelList = MyClient.getMyClient().getSelectManager().getUserCountry();
+        if (countryModelList == null || countryModelList.isEmpty()){
+            alarmModelList.clear();
+            AlarmDaoUtil.removeAllAlarm();
+            return alarmModelList;
+        }
+
+        Iterator iterator = alarmModelList.iterator();
+        while (iterator.hasNext()){
+            AlarmModel model = (AlarmModel) iterator.next();
+            Long cityId = model.getCityId();
+            boolean isHasCity = false;
+            for (CountryModel countryModel : countryModelList){
+                if (countryModel.getId().equals(cityId)){
+                    isHasCity = true;
                 }
             }
-        });
+            if (!isHasCity){
+                alarmModelList.remove(model);
+                AlarmDaoUtil.removeAlarm(model.getRequestCode());
+            }
+        }
+
+        return alarmModelList;
     }
 
-    /**
-     * 从文件中读取闹钟设置信息
-     */
     public void getAlarmDataFromFile(){
-        TaskExecutor.getInstance().post(new Runnable() {
-            @Override
-            public void run() {
-                synchronized (MyAlarmManager.class) {
+        alarmModelList = AlarmDaoUtil.loadAllAlarm();
+        for (AlarmModel model : alarmModelList){
+            alarmModelHashMap.put(model.getRequestCode(),model);
+        }
+        isLoadSuccess = true;
+        dispatLoadAlarmListener();
 
-                    String path = StorageManager.getInstance().getPackageFiles() + "alarm";
-                        Object object = FileUtil.readObjectFromPath(path);
-
-                        if (object != null && object instanceof AlarmStructModel) {
-                            try{
-                                alarmStructModel = (AlarmStructModel) object;
-                                for (AlarmModel model : alarmStructModel.getAlarmModelList()){
-                                    alarmModelHashMap.put(model.getRequestCode(),model);
-                                }
-                            }catch (Exception e){
-
-                            }
-                        }
-                    isLoadSuccess = true;
-                    dispatLoadAlarmListener();
-                }
-            }
-        });
     }
 
 
@@ -116,14 +118,18 @@ public class MyAlarmManager {
         }
     }
 
+    public Integer getRequestCodeInt(AlarmModel model) {
+        return Integer.parseInt(model.getRequestCode()+"");
+    }
+
     public void addAlarm(AlarmModel model,int index){
         if (model != null){
             model.setUsing(true);
             if (index >= 0){
-                alarmStructModel.getAlarmModelList().add(index,model);
+                alarmModelList.add(index,model);
             }
             alarmModelHashMap.put(model.getRequestCode(),model);
-            saveAlarmDataToFile();
+            AlarmDaoUtil.insertAlarm(model);
         }
     }
 
@@ -135,31 +141,22 @@ public class MyAlarmManager {
     private boolean closeAlarm(AlarmModel model){
         boolean flag = false;
         if (model != null){
-            List<AlarmModel> alarmModelList = alarmStructModel.getAlarmModelList();
             for (AlarmModel mo : alarmModelList){
-                if (mo.getRequestCode() == model.getRequestCode()){
+                if (mo.getRequestCode().equals(model.getRequestCode())){
                     flag = true;
                     alarmModelHashMap.remove(mo.getRequestCode());
                     mo.setUsing(false);
+                    AlarmDaoUtil.updateAlarm(mo);
                 }
-            }
-            //删除了闹钟 保存信息
-            if (flag){
-                saveAlarmDataToFile();
             }
         }
         return flag;
     }
 
     public boolean removeAlarm(Context context,AlarmModel model){
-        return removeAlarm(context,model,true);
-    }
-
-    public boolean removeAlarm(Context context,AlarmModel model,boolean isSaveData){
         cancelAlarm(context,model);
         boolean flag = false;
         if (model != null){
-            List<AlarmModel> alarmModelList = alarmStructModel.getAlarmModelList();
             AlarmModel removeMo = null;
             for (AlarmModel mo : alarmModelList){
                 if (mo.getRequestCode() == model.getRequestCode()){
@@ -172,9 +169,7 @@ public class MyAlarmManager {
             if (flag){
                 alarmModelList.remove(removeMo);
                 alarmModelHashMap.remove(removeMo.getRequestCode());
-                if (isSaveData){
-                    saveAlarmDataToFile();
-                }
+                AlarmDaoUtil.removeAlarm(removeMo.getRequestCode());
             }
         }
         return flag;
@@ -186,7 +181,7 @@ public class MyAlarmManager {
      */
 
     public void addOnceAlarm(Context context, AlarmModel model){
-        int index = getAlarmStructModel().getAlarmModelList().size();
+        int index = alarmModelList.size();
         addOnceAlarm(context,model,index);
     }
 
@@ -197,7 +192,7 @@ public class MyAlarmManager {
         Intent intent = new Intent(context, RingReceiver.class);
         intent.putExtra("id",model.getRequestCode());
         PendingIntent sender = PendingIntent.getBroadcast(
-                context, model.getRequestCode(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, getRequestCodeInt(model), intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(model.getAlarmTime());
@@ -252,7 +247,7 @@ public class MyAlarmManager {
                 RingReceiver.class);
         intent.putExtra("id",model.getRequestCode());
         PendingIntent sender = PendingIntent.getBroadcast(
-                context, model.getRequestCode(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, getRequestCodeInt(model), intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // We want the alarm to go off 10 seconds from now.
         Calendar calendar = Calendar.getInstance();
@@ -263,7 +258,7 @@ public class MyAlarmManager {
         am.setRepeating(AlarmManager.RTC_WAKEUP,
                 5 * 1000, 60 * 1000, sender);
 
-        addAlarm(model,getAlarmStructModel().getAlarmModelList().size());
+        addAlarm(model,alarmModelHashMap.size());
     }
 
     /**
@@ -279,7 +274,7 @@ public class MyAlarmManager {
         Intent intent = new Intent(context, RingReceiver.class);
 
         PendingIntent sender = PendingIntent.getBroadcast(
-                context, model==null?0:model.getRequestCode(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, model==null?0:getRequestCodeInt(model), intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // And cancel the alarm.
         AlarmManager am = (AlarmManager) context.getSystemService(ALARM_SERVICE);
@@ -294,33 +289,28 @@ public class MyAlarmManager {
      * 开机重新设置全部闹钟
      */
     public void recoverAlarm(){
-        AlarmStructModel modelM = getAlarmStructModel();
-        if (modelM == null || modelM.getAlarmModelList().isEmpty()){
-            return;
+        if (alarmModelList == null || alarmModelList.isEmpty()){
+            alarmModelList = AlarmDaoUtil.loadAllAlarm();
         }
-        List<AlarmModel> alarmModelList = modelM.getAlarmModelList();
-        boolean flag = false;
         long nowTime = new Date().getTime();
         for (AlarmModel model : alarmModelList){
             //正在使用中的闹钟重新设置
-            if (model.isUsing()){
+            if (model.getUsing()){
                 //如果闹钟时间已经超过设置时间
                 //1.重复闹钟则计算下一次响铃时间，设置闹钟
                 //2.单次闹钟则更改使用状态，不设置闹钟
                 if (model.getAlarmTime()<=nowTime){
-                    flag = true;
-                    if (model.isRepeatAlarm()){
+                    if (model.getRepeatAlarm()){
                         SetAlarmUtil.culNextAlarmTime(model);
+                        AlarmDaoUtil.updateAlarm(model);
                     }else{
                         model.setUsing(false);
+                        AlarmDaoUtil.updateAlarm(model);
                         continue;
                     }
                 }
                 addOnceAlarm(MainApplication.getContext(),model,-1);
             }
-        }
-        if (flag){
-            saveAlarmDataToFile();
         }
     }
 
@@ -332,7 +322,7 @@ public class MyAlarmManager {
         }
 
         HashSet<AlarmModel> removeList = new HashSet<>();
-        for (AlarmModel model : alarmStructModel.getAlarmModelList()){
+        for (AlarmModel model : alarmModelList){
             if (!ids.contains(model.getCityId())){
                 removeList.add(model);
             }
@@ -340,27 +330,14 @@ public class MyAlarmManager {
 
         if (!removeList.isEmpty()){
             for (AlarmModel model : removeList){
-                removeAlarm(context,model,false);
+                removeAlarm(context,model);
             }
-            saveAlarmDataToFile();
         }
 
     }
 
     public AlarmModel getAlarmModelById(Integer id){
         return alarmModelHashMap.get(id);
-    }
-
-    public AlarmStructModel getAlarmStructModel() {
-        if (alarmStructModel == null){
-            getAlarmDataFromFile();
-            return alarmStructModel;
-        }
-        return alarmStructModel;
-    }
-
-    public void setAlarmStructModel(AlarmStructModel alarmStructModel) {
-        this.alarmStructModel = alarmStructModel;
     }
 
     public boolean isLoadSuccess() {

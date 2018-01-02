@@ -4,8 +4,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.timediffproject.application.MyClient;
-import com.timediffproject.model.CountryModel;
-import com.timediffproject.module.alarm.AlarmModel;
+import com.timediffproject.database.AlarmModel;
 import com.timediffproject.origin.MainApplication;
 
 import java.text.SimpleDateFormat;
@@ -20,7 +19,7 @@ public class SetAlarmUtil {
 
     public static AlarmModel culAlarmTime(AlarmModel model,float diffTime,int hour,int min){
         AlarmModel result;
-        if (!model.isRepeatAlarm()){
+        if (!model.getRepeatAlarm()){
             result = culAlarmTimeOnce(model,diffTime,hour,min);
         }else{
             result = culAlarmTimeRecycle(model,diffTime,hour,min);
@@ -163,7 +162,7 @@ public class SetAlarmUtil {
         targetCalender.set(Calendar.MILLISECOND,0);
 
         //根据是否是重复闹钟进行不同的设置
-        if (model.isRepeatAlarm()){
+        if (model.getRepeatAlarm()){
             int day = calendar.get(Calendar.DAY_OF_WEEK);
             boolean flag = false;
             int index = 0;

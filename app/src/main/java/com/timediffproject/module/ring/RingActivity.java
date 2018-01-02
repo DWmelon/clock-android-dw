@@ -1,7 +1,6 @@
 package com.timediffproject.module.ring;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
@@ -14,15 +13,12 @@ import android.widget.TextView;
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
-import com.timediffproject.constants.Constant;
-import com.timediffproject.constants.Constants;
 import com.timediffproject.constants.ParamConstants;
 import com.timediffproject.model.CountryModel;
-import com.timediffproject.module.alarm.AlarmModel;
+import com.timediffproject.database.AlarmModel;
 import com.timediffproject.module.set.SetAlarmUtil;
 import com.timediffproject.stat.StatCMConstant;
 import com.timediffproject.stat.StatManager;
-import com.umeng.analytics.MobclickAgent;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -89,7 +85,7 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
         MyClient.getMyClient().getMyAlarmManager().cancelAlarm(this,model);
         if (type.equals(ParamConstants.VALUE_ALARM_TYPE_RING)){
             if (model!=null){
-                if (model.isRepeatAlarm()){
+                if (model.getRepeatAlarm()){
                     model = SetAlarmUtil.culNextAlarmTime(model);
                     MyClient.getMyClient().getMyAlarmManager().addOnceAlarm(this,model);
                 }

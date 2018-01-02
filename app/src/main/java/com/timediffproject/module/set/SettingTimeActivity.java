@@ -1,19 +1,14 @@
 package com.timediffproject.module.set;
 
-import android.app.AlarmManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,22 +18,15 @@ import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.constants.Constants;
 import com.timediffproject.model.CountryModel;
-import com.timediffproject.module.alarm.AlarmActivity;
-import com.timediffproject.module.alarm.AlarmModel;
+import com.timediffproject.database.AlarmModel;
 import com.timediffproject.module.alarm.MyAlarmManager;
-import com.timediffproject.module.home.MyMainActivity;
-import com.timediffproject.module.select.SelectActivity;
 import com.timediffproject.module.select.SelectManager;
-import com.timediffproject.module.set.time.RadialPickerLayout;
-import com.timediffproject.module.set.time.TimePickerDialog;
 import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.stat.StatCMConstant;
 import com.timediffproject.stat.StatManager;
 import com.timediffproject.util.RandomUtil;
 import com.timediffproject.util.SlidingUpDialog;
-import com.umeng.analytics.MobclickAgent;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -48,7 +36,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by melon on 2017/1/20.
@@ -219,14 +206,14 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
         }
         mToolbar.setTitle(R.string.modify_title);
 
-        if (alarmModel.isRepeatAlarm()){
+        if (alarmModel.getRepeatAlarm()){
             findViewById(R.id.ll_set_day).setVisibility(View.VISIBLE);
             List<Integer> days = alarmModel.getRepeatDays();
             for (Integer day : days){
                 setMap.get(day).callOnClick();
             }
         }
-        mSbRepeat.setChecked(alarmModel.isRepeatAlarm());
+        mSbRepeat.setChecked(alarmModel.getRepeatAlarm());
 
         Date date = new Date(alarmModel.getAlarmTime());
         Calendar calendar = Calendar.getInstance();
@@ -401,7 +388,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
         newAlarmModel.setNoiseLevel(voiceLevel);
         newAlarmModel.setCity(cityModel.getCityName());
         newAlarmModel.setCityId(cityModel.getId());
-        newAlarmModel.setRequestCode(RandomUtil.getRandomInt());
+        newAlarmModel.setRequestCode((long) RandomUtil.getRandomInt());
         if (repeatMap.isEmpty()){
             newAlarmModel.setRepeatAlarm(false);
         }else{
@@ -421,7 +408,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
         if (pageType.equals(PAGE_TYPE_ADD)){
             alarmManager.addOnceAlarm(this,newAlarmModel);
         }else{
-            int index = alarmManager.getAlarmStructModel().getAlarmModelList().indexOf(alarmModel);
+            int index = alarmManager.getAlarmModelList().indexOf(alarmModel);
             alarmManager.removeAlarm(this,alarmModel);
             alarmManager.addOnceAlarm(this,newAlarmModel,index);
         }

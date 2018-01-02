@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +13,6 @@ import android.widget.TextView;
 
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
-import com.timediffproject.module.alarm.AlarmModel;
 import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.origin.MainApplication;
 import com.timediffproject.util.SlidingUpDialog;
