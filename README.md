@@ -6,6 +6,8 @@
 
 Fork & Star，都无尽感谢。
 
+![Sample 2](art/Screenshot_3_150.png) ![Sample 1](art/Screenshot_1_150.png) ![Sample 2](art/Screenshot_4_150.png) ![Sample 2](art/Screenshot_5_150.png) ![Sample 2](art/Screenshot_2_150.png) ![Sample 2](art/Screenshot_6_150.png)
+
 ## Features
 * **桌面插件**显示各国时间
 * 选择目标城市**设置闹钟**
