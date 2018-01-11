@@ -19,6 +19,7 @@ Fork & Star，都无尽感谢。
 * View框架：butterknife
 * 数据库框架：greendao
 * 异步框架：rxjava
+* 事件框架：eventbus
 
 ## License
 该应用已经发布到各大安卓市场，可以搜索“时差闹钟”，直接下载体验功能。  
