@@ -4,7 +4,7 @@
 ## About
 一个学习性的应用，针对`出差、旅游、留学的人群`，提供一款高效`设置外国时间闹钟`（不用自己换算本地时间），目前并附带`汇率查询功能`。  
 
-Fork & Star，都无尽感谢。
+Fork & Star，都无尽感谢。[apk下载地址](http://app.hicloud.com/app/C10888736)
 
 ![Sample 2](art/Screenshot_5_160.png) ![Sample 1](art/Screenshot_1_160.png) ![Sample 2](art/Screenshot_4_160.png) ![Sample 2](art/Screenshot_2_160.png) ![Sample 2](art/Screenshot_3_160.png) ![Sample 2](art/Screenshot_6_160.png) ![Sample 2](art/Screenshot_7_160.png) 
 
