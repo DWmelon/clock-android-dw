@@ -4,23 +4,29 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.suke.widget.SwitchButton;
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
+import com.timediffproject.constants.Constant;
 import com.timediffproject.eventbus.HomeEB;
 import com.timediffproject.module.home.MyMainActivity;
 import com.timediffproject.stat.StatCMConstant;
 import com.timediffproject.stat.StatManager;
+import com.timediffproject.util.CommonUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by melon on 2017/12/28.
@@ -39,6 +45,14 @@ public class SettingActivity extends BaseActivity {
     SwitchButton mSbUseRatio;
     boolean isUseRatio;
 
+    @BindView(R.id.cb_language_china)
+    CheckBox mCbChina;
+    boolean isUseChina = true;
+
+    @BindView(R.id.cb_language_english)
+    CheckBox mCbEnglish;
+    boolean isUseEnglish;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +63,7 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void initToolbar(){
-        mToolbar.setTitle("设置");
+        mToolbar.setTitle(R.string.setting_title);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.icon_back_white);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -66,6 +80,10 @@ public class SettingActivity extends BaseActivity {
 
         isUseRatio = GlobalPreferenceManager.isUseRatio(this);
         mSbUseRatio.setChecked(isUseRatio);
+
+        mCbChina.setChecked(CommonUtil.judgeLanguage(Constant.LANGUAGE_CHINA));
+        mCbEnglish.setChecked(CommonUtil.judgeLanguage(Constant.LANGUAGE_ENGLISH));
+
     }
 
     @Override
@@ -90,4 +108,23 @@ public class SettingActivity extends BaseActivity {
         }
         super.onDestroy();
     }
+
+    @OnClick(R.id.cb_language_china)
+    void selectLanguageChina(){
+        mCbChina.setChecked(true);
+        mCbEnglish.setChecked(false);
+        Toast.makeText(this,R.string.setting_restart,Toast.LENGTH_SHORT).show();
+        GlobalPreferenceManager.setString(this,GlobalPreferenceManager.KEY_LANGUAGE,Constant.LANGUAGE_CHINA);
+        CommonUtil.changeAppLanguage(this, Locale.SIMPLIFIED_CHINESE);
+    }
+
+    @OnClick(R.id.cb_language_english)
+    void selectLanguageEnglish(){
+        mCbEnglish.setChecked(true);
+        mCbChina.setChecked(false);
+        Toast.makeText(this,R.string.setting_restart,Toast.LENGTH_SHORT).show();
+        GlobalPreferenceManager.setString(this,GlobalPreferenceManager.KEY_LANGUAGE,Constant.LANGUAGE_ENGLISH);
+        CommonUtil.changeAppLanguage(this, Locale.US);
+    }
+
 }

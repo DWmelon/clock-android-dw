@@ -15,6 +15,7 @@ import com.timediffproject.R;
 import com.timediffproject.application.DebugConfig;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.util.CommonUtil;
 import com.umeng.analytics.AnalyticsConfig;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -38,8 +39,8 @@ public class MainApplication extends Application{
   public void onCreate() {
     super.onCreate();
 
-    MyClient.getMyClient().init(this);
     context = this.getApplicationContext();
+    MyClient.getMyClient().init(this);
 
     Fresco.initialize(this);
 
@@ -47,7 +48,7 @@ public class MainApplication extends Application{
 //    umengPush();
     MobclickAgent.openActivityDurationTrack(false);
 
-
+    CommonUtil.resetAppLanguage(this);
 
   }
 

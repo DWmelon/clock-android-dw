@@ -15,7 +15,7 @@ import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.origin.MainApplication;
-import com.timediffproject.util.SlidingUpDialog;
+import com.timediffproject.widgets.SlidingUpDialog;
 
 import java.util.Arrays;
 

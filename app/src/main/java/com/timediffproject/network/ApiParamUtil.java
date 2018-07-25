@@ -303,24 +303,8 @@ public class ApiParamUtil {
         }
     }
 
+    public static void getBaseParam(Map<String,String> mDaemonMap) {
 
-    //TODO 未确定具体参数
-    private static HashMap<String, String> getParamMap(int flag) {
-
-        HashMap<String, String> ret = new HashMap<String, String>();
-        if ((flag & FLAG_BASE) != 0) {
-            ret.putAll(getBaseParam());
-        }
-
-        if ((flag & FLAG_STAT) != 0) {
-            ret.putAll(getStatParam());
-        }
-
-        return ret;
-    }
-
-    public static HashMap<String, String> getBaseParam() {
-        HashMap<String, String> mDaemonMap = new HashMap<>();
         mDaemonMap.put(UrlConstant.PARAM_KEY_APP_ID, DeviceInfoManager.APP_ID);
         mDaemonMap.put(UrlConstant.PARAM_KEY_PLATFORM, DeviceInfoManager.APP_PLATFORM);
         mDaemonMap.put(UrlConstant.PARAM_KEY_INTERFACE_VERSION, DeviceInfoManager.INTERFACE_VERSION);
@@ -333,7 +317,7 @@ public class ApiParamUtil {
         mDaemonMap.put(UrlConstant.PARAM_KEY_BRAND, String.valueOf(DeviceInfoManager.BRAND + " " + DeviceInfoManager.MODEL));
         mDaemonMap.put(UrlConstant.PARAM_KEY_NET_TYPE, NetworkUtils.getMobileNetWrokTypeName(MainApplication.getContext()));
         mDaemonMap.put(UrlConstant.PARAM_KEY_SYS_VERSION, DeviceInfoManager.SYS_VERSION);
-        return mDaemonMap;
+
     }
 
     public static HashMap<String, String> getBaseParamWithoutLocation() {
@@ -345,20 +329,9 @@ public class ApiParamUtil {
         return mDaemonMap;
     }
 
-    public static HashMap<String, String> getWebParam() {
-        HashMap<String, String> map = getBaseParam();
-        map.put(UrlConstant.PARAM_KEY_CLEAR_VISIT_HISIORY, "true");
-        return map;
-    }
-
-
     private static HashMap<String, String> getStatParam() {
         HashMap<String, String> mDaemonMap = new HashMap<>();
         return mDaemonMap;
-    }
-
-    public static HashMap<String, String> getUpdateParam() {
-        return getBaseParam();
     }
 
     /**

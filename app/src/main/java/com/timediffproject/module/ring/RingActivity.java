@@ -63,6 +63,7 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
 
         if (ringService == null || model == null){
             finish();
+            return;
         }
         ringService.play(model.getNoiseLevel());
         StatManager.statEventNum(this, StatCMConstant.PAGE_IN_RING_ALARM);

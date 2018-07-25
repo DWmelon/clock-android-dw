@@ -9,12 +9,13 @@ import android.widget.TextView;
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
+import com.timediffproject.application.UpdateActivity;
 
 /**
  * Created by melon on 2017/10/27.
  */
 
-public class AboutMeActivity extends BaseActivity {
+public class AboutMeActivity extends UpdateActivity {
 
     private TextView mTvNow;
     private TextView mTvNew;
@@ -22,6 +23,8 @@ public class AboutMeActivity extends BaseActivity {
     private TextView mTvInfo;
 
     private Toolbar mToolbar;
+
+    private TextView mTvUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class AboutMeActivity extends BaseActivity {
         mTvNew = (TextView)findViewById(R.id.tv_about_version_new);
         mTvInfo = (TextView)findViewById(R.id.tv_about_version_info);
 
+        mTvUpdate = (TextView)findViewById(R.id.tv_update_btn);
 
         initToolbar();
         initData();
@@ -40,10 +44,15 @@ public class AboutMeActivity extends BaseActivity {
 
     private void initData(){
 
+        int newlyCode = GlobalPreferenceManager.getVersionCode(this);
+        int nowCode = 0;
+
         String pkName = this.getPackageName();
         try {
             String versionName = getPackageManager().getPackageInfo(
                     pkName, 0).versionName;
+            nowCode = getPackageManager().getPackageInfo(
+                    pkName, 0).versionCode;
             mTvNow.setText(getString(R.string.about_version_name_now, versionName));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -52,6 +61,23 @@ public class AboutMeActivity extends BaseActivity {
         mTvNew.setText(getString(R.string.about_version_name_new, GlobalPreferenceManager.getVersionName(this)));
 
         mTvInfo.setText(GlobalPreferenceManager.getVersionInfo(this));
+
+        if (newlyCode > nowCode && nowCode != 0){
+            mTvUpdate.setText(R.string.update_now);
+            mTvUpdate.setSelected(true);
+            mTvUpdate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showProgress();
+                    setShow(true);
+                    checkUpdate();
+                }
+            });
+        }else{
+            mTvUpdate.setText(R.string.update_already);
+            mTvUpdate.setSelected(false);
+        }
+
 
     }
 

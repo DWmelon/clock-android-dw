@@ -17,7 +17,9 @@ import java.util.HashMap;
 
 public class MiscManager {
 
+//    private static final String URL_UPDATE_CHECK = Constant.MAIN_URL + "/update/check";
     private static final String URL_UPDATE_CHECK = Constant.MAIN_URL + "/update/check";
+
 
     public void updateCheck(final OnUpdateCheckListener listener) {
 

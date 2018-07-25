@@ -1,6 +1,8 @@
 <resources  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">时差闹钟</string>
 
+    <string name="cancel">取消</string>
+
     <string name="progress_tip">正在加载...请稍等。</string>
 
     <string name="toolbar_add">add</string>
@@ -15,7 +17,11 @@
 
     <string name="delete_success">删除成功</string>
 
-    <string name="update_title">检测到更新</string>
+    <string name="update_title">应用更新</string>
+    <string name="update_ok">更新</string>
+    <string name="update_permission_fail">缺少写文件权限，请前往手机设置允许应用写文件</string>
+    <string name="update_now">立即更新</string>
+    <string name="update_already">已是最新版本</string>
 
     <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
     <string name="done_label">Done</string>
@@ -102,6 +108,11 @@
     <string name="advice_hint_2">如果愿意，请留下您的联系方式，我们给予您及时的反馈。</string>
     <string name="advice_toast">将你的建议写下来吧～</string>
 
+
+    <string name="advice_ques_tip">本期求解:</string>
+    <string name="advice_ques_1">1.你还想要什么功能？</string>
+    <string name="advice_ques_2">2.现在有哪些不满意的地方？</string>
+
     <!-- modify -->
     <string name="modify_title">修改闹钟</string>
 
@@ -130,8 +141,20 @@
     <string name="exchange_ratio_choose">选择</string>
     <string name="exchange_ratio_request_fail">获取汇率失败，请稍后再试</string>
 
+    <string name="exchange_ratio_now">当前汇率：</string>
+    <string name="exchange_ratio_update_time">更新时间：</string>
+
     <!-- setting -->
+    <string name="setting_title">设置</string>
+
+    <string name="setting_block_show">显示相关</string>
     <string name="setting_is_use_24">启用24小时显示</string>
     <string name="setting_is_use_ratio">汇率信息显示</string>
+
+    <string name="setting_block_language">语言切换</string>
+    <string name="setting_language_china">中文</string>
+    <string name="setting_language_english">英文</string>
+
+    <string name="setting_restart">重启后生效</string>
 
 </resources>

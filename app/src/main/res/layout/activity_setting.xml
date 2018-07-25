@@ -10,65 +10,184 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="@dimen/margin_20"
-        android:gravity="center_vertical"
-        android:background="@color/transparent_0x40"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_20">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_20"
-            android:text="@string/setting_is_use_24"
-            android:textColor="@color/primary_white"
-            android:textSize="16sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@color/transparent_0x40"
+            android:orientation="horizontal">
 
-        <View
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            <View
+                android:layout_width="6dp"
+                android:layout_height="16dp"
+                android:background="@color/blue"/>
 
-        <com.suke.widget.SwitchButton
-            android:id="@+id/sb_use_24"
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="@dimen/margin_20"
-            app:sb_checked_color="@color/circular_bg_2"
-            app:sb_show_indicator="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:text="@string/setting_block_show"
+                android:textColor="@color/primary_white"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:text="@string/setting_is_use_24"
+                android:textColor="@color/primary_white"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.suke.widget.SwitchButton
+                android:id="@+id/sb_use_24"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_20"
+                app:sb_checked_color="@color/circular_bg_2"
+                app:sb_show_indicator="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/margin_5"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:text="@string/setting_is_use_ratio"
+                android:textColor="@color/primary_white"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.suke.widget.SwitchButton
+                android:id="@+id/sb_use_ratio"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_20"
+                app:sb_checked_color="@color/circular_bg_2"
+                app:sb_show_indicator="false" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="@dimen/margin_5"
-        android:gravity="center_vertical"
-        android:background="@color/transparent_0x40"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_20">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_20"
-            android:text="@string/setting_is_use_ratio"
-            android:textColor="@color/primary_white"
-            android:textSize="16sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@color/transparent_0x40"
+            android:orientation="horizontal">
 
-        <View
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            <View
+                android:layout_width="6dp"
+                android:layout_height="16dp"
+                android:background="@color/blue"/>
 
-        <com.suke.widget.SwitchButton
-            android:id="@+id/sb_use_ratio"
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="@dimen/margin_20"
-            app:sb_checked_color="@color/circular_bg_2"
-            app:sb_show_indicator="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:text="@string/setting_block_language"
+                android:textColor="@color/primary_white"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:text="@string/setting_language_china"
+                android:textColor="@color/primary_white"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <CheckBox
+                android:id="@+id/cb_language_china"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/margin_30"
+                android:button="@null"
+                android:background="@drawable/selector_checkbox"
+                android:checked="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/margin_5"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:text="@string/setting_language_english"
+                android:textColor="@color/primary_white"
+                android:textSize="16sp"/>
+
+            <View
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <CheckBox
+                android:id="@+id/cb_language_english"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/margin_30"
+                android:button="@null"
+                android:background="@drawable/selector_checkbox"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

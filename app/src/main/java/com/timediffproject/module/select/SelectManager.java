@@ -223,7 +223,7 @@ public class SelectManager {
                 if (userCountry != null){
                     list.setCountryModelList(userCountry);
                 }
-                String path = StorageManager.getInstance().getPackageFiles() + "userselect";
+                String path = MyClient.getMyClient().getStorageManager().getPackageFiles() + "userselect";
                 FileUtil.writeObjectToPath(list, path);
             }
         });
@@ -240,7 +240,7 @@ public class SelectManager {
             public void run() {
                 synchronized (SelectManager.class) {
 
-                    String path = StorageManager.getInstance().getPackageFiles() + "userselect";
+                    String path = MyClient.getMyClient().getStorageManager().getPackageFiles() + "userselect";
                     Object object = FileUtil.readObjectFromPath(path);
 
                     if (object != null && object instanceof CountryModelList) {

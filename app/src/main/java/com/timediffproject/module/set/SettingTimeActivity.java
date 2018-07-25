@@ -25,7 +25,7 @@ import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.stat.StatCMConstant;
 import com.timediffproject.stat.StatManager;
 import com.timediffproject.util.RandomUtil;
-import com.timediffproject.util.SlidingUpDialog;
+import com.timediffproject.widgets.SlidingUpDialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;

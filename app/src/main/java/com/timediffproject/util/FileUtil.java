@@ -1,6 +1,7 @@
 package com.timediffproject.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,6 +17,8 @@ import java.nio.channels.FileChannel;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import anet.channel.util.StringUtils;
 
 /**
  * Created by melon on 2017/1/4.
@@ -232,6 +235,37 @@ public class FileUtil {
         }
 
         return allPath;
+    }
+
+    public static boolean writeStreamToFile(InputStream inStream,String newPath){
+        if (StringUtils.isBlank(newPath)){
+            return false;
+        }
+
+        try{
+            File file = new File(newPath);
+            if (!file.exists()){
+                file.createNewFile();
+            }
+            long byteSum = 0;
+            int byteRead = 0;
+            Log.d("oss", "file io start");
+            FileOutputStream fs = new FileOutputStream(newPath);
+            byte[] buffer = new byte[1444];
+            while ( (byteRead = inStream.read(buffer)) != -1) {
+                byteSum += byteRead;
+                fs.write(buffer, 0, byteRead);
+            }
+            inStream.close();
+
+            Log.d("oss", "file io success");
+            return true;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            Log.d("oss", "file io fail");
+        }
+        return false;
     }
 
 

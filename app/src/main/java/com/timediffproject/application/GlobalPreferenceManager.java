@@ -28,6 +28,12 @@ public class GlobalPreferenceManager {
 
     private static final String KEY_IS_USE_RATIO = "is_use_ratio";
 
+    public static final String KEY_ACCESS_KEY_ID = "access_key_id";
+    public static final String KEY_SECRET_KEY_ID = "secret_key_id";
+    public static final String KEY_SECURITY_TOKEN = "security_token";
+
+    public static final String KEY_LANGUAGE = "use_language";
+
     public static void saveUserSelect(Context context, String id) {
         context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putString(KEY_USER_SELECT_CITY, id).apply();
     }
@@ -98,6 +104,22 @@ public class GlobalPreferenceManager {
 
     public static boolean isUseRatio(Context context) {
         return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(KEY_IS_USE_RATIO,true);
+    }
+
+    public static String getString(Context context,String key){
+        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getString(key,"");
+    }
+
+    public static void setString(Context context,String key,String value){
+        context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putString(key, value).apply();
+    }
+
+    public static boolean getBoolean(Context context,String key){
+        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(key,false);
+    }
+
+    public static void setBoolean(Context context,String key,boolean value){
+        context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putBoolean(key, value).apply();
     }
 
 }

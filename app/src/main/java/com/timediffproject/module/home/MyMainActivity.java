@@ -8,19 +8,24 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
+import android.view.View;
 
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.application.UpdateActivity;
 import com.timediffproject.module.misc.OnUpdateCheckListener;
 import com.timediffproject.network.UrlConstantV2;
+import com.timediffproject.storage.StorageManager;
+
+import java.io.File;
 
 /**
  * Created by melon on 2017/1/3.
  */
 
-public class MyMainActivity extends BaseActivity implements OnUpdateCheckListener{
+public class MyMainActivity extends UpdateActivity{
 
     DrawerLayout drawerLayout;
 
@@ -48,7 +53,7 @@ public class MyMainActivity extends BaseActivity implements OnUpdateCheckListene
         mRvLeftLayout.setAdapter(adapter);
         mRvLeftLayout.setLayoutManager(new LinearLayoutManager(this));
 
-        MyClient.getMyClient().getMiscManager().updateCheck(this);
+        checkUpdate();
     }
 
     public void openDrawerLayout(){
@@ -71,41 +76,8 @@ public class MyMainActivity extends BaseActivity implements OnUpdateCheckListene
         }
     }
 
-    private void handleVersion(AppUpdateCheckModel model){
-        int code = Integer.parseInt(model.getvCode());
-        String pkName = this.getPackageName();
-        int vCode = GlobalPreferenceManager.getVersionCode(this);
-        try {
-            int versionCode = getPackageManager().getPackageInfo(
-                    pkName, 0).versionCode;
 
-            GlobalPreferenceManager.saveVersionCode(this,code);
-            GlobalPreferenceManager.saveVersionName(this,model.getvName());
-            GlobalPreferenceManager.saveVersionInfo(this,model.getvInfo());
 
-            if (code > versionCode && code != vCode){
 
-                GlobalPreferenceManager.setUpdatePointShow(this,true);
-                showCommonAlert(getString(R.string.update_title),model.getvInfo());
-//                兼容老版本
-                if (code<=4){
-                    GlobalPreferenceManager.setRefreshAlarm(this,true);
-                }
-
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void onUpdateCheck(AppUpdateCheckModel model) {
-        if (model == null || model.getvCode().isEmpty()){
-            return;
-        }
-
-        handleVersion(model);
-
-    }
 
 }

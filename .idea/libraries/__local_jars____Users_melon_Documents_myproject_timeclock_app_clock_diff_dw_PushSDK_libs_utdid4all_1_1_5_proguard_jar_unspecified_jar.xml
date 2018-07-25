@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="__local_jars__:/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/PushSDK/libs/utdid4all-1.1.5_proguard.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PushSDK/libs/utdid4all-1.1.5_proguard.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

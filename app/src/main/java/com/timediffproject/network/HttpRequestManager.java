@@ -299,7 +299,8 @@ public class HttpRequestManager implements IRequest {
 
         final String finalUrl = url;
 
-//        final Map wrappMap = ApiParamUtil.wrappeBaseParam(param);
+        final Map wrappMap = ApiParamUtil.wrappeBaseParam(param);
+        ApiParamUtil.getBaseParam(wrappMap);
 
         StringRequestJsonResult request = new StringRequestJsonResult(1,url, new Response.Listener<JSONObject>() {
             public void onResponse(JSONObject response) {
@@ -340,7 +341,7 @@ public class HttpRequestManager implements IRequest {
             }
         }) {
             protected Map<String, String> getParams() throws AuthFailureError {
-                return param;
+                return wrappMap;
             }
         };
         request.setShouldCache(false);

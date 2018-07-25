@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.timediffproject.R;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.model.CountryModel;
+import com.timediffproject.util.CommonUtil;
 
 import org.w3c.dom.Text;
 
@@ -40,10 +41,13 @@ public class SelectRecycleAdapter extends RecyclerView.Adapter<SelectRecycleAdap
     private HashMap<Integer,Integer> indexMap = new HashMap<>();
     private List<Integer> barIndex = new ArrayList<>();
 
+    private String language;
+
     public SelectRecycleAdapter(Context context,SelectManager manager,OnCountrySelectListener listener){
         this.mContext = context;
         this.manager = manager;
         this.listener = listener;
+        language = GlobalPreferenceManager.getString(mContext,GlobalPreferenceManager.KEY_LANGUAGE);
     }
 
     @Override
@@ -68,7 +72,7 @@ public class SelectRecycleAdapter extends RecyclerView.Adapter<SelectRecycleAdap
         }else{
             holder.itemView.setTag(position);
 
-            holder.cityName.setText(model.getCityName());
+            holder.cityName.setText(CommonUtil.getCityNameByLanguage(language,model));
             holder.nationName.setText(model.getNationName());
 
             if (manager.isUserSelected(model)){

@@ -39,12 +39,12 @@ public class TimeManager {
 
     private void initTime(){
         Date date = getBeijingTime();
-        isLoadFinish = true;
         Date nowDate = new Date();
         diffTime = date.getTime() - nowDate.getTime();
         startTimeService(date);
-        dispathGetTimeCallBack();
 
+        isLoadFinish = true;
+        dispathGetTimeCallBack();
 
     }
 

@@ -87,7 +87,6 @@ public class AdviceActivity extends BaseActivity implements View.OnClickListener
         m.setFrom("3303847677@qq.com");
         String contact = mEtContact.getText().toString().trim();
         if (TextUtils.isEmpty(contact)){
-            DeviceInfoManager.getInstance().init(this);
             contact = DeviceInfoManager.mDeviceUid+"_"+DeviceInfoManager.MODEL;
         }
 

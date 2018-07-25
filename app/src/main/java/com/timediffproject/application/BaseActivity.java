@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.timediffproject.R;
+import com.timediffproject.origin.MainApplication;
 import com.timediffproject.util.ProgressBarUtil;
 import com.timediffproject.widgets.MaterialDialog;
 import com.umeng.analytics.MobclickAgent;
@@ -47,7 +48,11 @@ public class BaseActivity extends AppCompatActivity {
         showCommonAlert(R.string.dialog_title,msgResId,R.string.dialog_ok,R.string.dialog_cancel,l,r);
     }
 
-    public void showCommonAlert(int titleResId, int msgResId, int posTxtResId, int nagTxtResId, final View.OnClickListener l, final View.OnClickListener listener) {
+    public void showCommonAlert(int titleResId, int msgResId, int posTxtResId, int nagTxtResId, final View.OnClickListener l, final View.OnClickListener listener){
+        showCommonAlert(titleResId, getString(msgResId),posTxtResId,nagTxtResId,l,listener);
+    }
+
+    public void showCommonAlert(int titleResId, String msgResStr, int posTxtResId, int nagTxtResId, final View.OnClickListener l, final View.OnClickListener listener) {
 
         if (mMaterialDialog != null) {
             if (mMaterialDialog.isShowing()) {
@@ -57,7 +62,7 @@ public class BaseActivity extends AppCompatActivity {
         }
         mMaterialDialog = new MaterialDialog(this);
         mMaterialDialog.setTitle(titleResId);
-        mMaterialDialog.setMessage(msgResId);
+        mMaterialDialog.setMessage(msgResStr);
         mMaterialDialog.setCancelable(true);
         mMaterialDialog.setCanceledOnTouchOutside(true);
         mMaterialDialog.setPositiveButton(posTxtResId, new View.OnClickListener() {
@@ -82,7 +87,9 @@ public class BaseActivity extends AppCompatActivity {
         mMaterialDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
-                listener.onClick(new View(BaseActivity.this));
+                if (listener != null) {
+                    listener.onClick(null);
+                }
             }
         });
         mMaterialDialog.show();

@@ -1,12 +1,17 @@
 package com.timediffproject.util;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+
+import com.timediffproject.origin.MainApplication;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,10 +28,10 @@ public class DeviceInfoManager {
 
     public static final String APP_PLATFORM = "android";
     public static final String APP_ID = "gaokao";
-    public static String mDeviceUid;//设备唯一识别码
+    public static String mDeviceUid = "";//设备唯一识别码
     public static int SCREEN_WIDTH;
     public static int SCREEN_HEIGHT;
-    public static String MODEL;
+    public static String MODEL = "";
     public static String BRAND;
     public static int SDK_INT;
     public static String CHANNEL;//渠道号
@@ -51,8 +56,8 @@ public class DeviceInfoManager {
         return mInstance;
     }
 
-    public void init(Context context) {
-        this.mContext = context.getApplicationContext();
+    public void init() {
+        this.mContext = MainApplication.getContext();
         initInfo();
     }
 
@@ -63,6 +68,7 @@ public class DeviceInfoManager {
     private void initInfo() {
 
         DisplayMetrics metrics = this.mContext.getResources().getDisplayMetrics();
+
         if (this.mContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             SCREEN_HEIGHT = metrics.heightPixels;
             SCREEN_WIDTH = metrics.widthPixels;
@@ -80,7 +86,15 @@ public class DeviceInfoManager {
         VERSION_CODE = PackageUtil.getAppVersionCode(mContext);
         VERSION_NAME = PackageUtil.getPackageVersionName(mContext);
 
+        int result = ActivityCompat.checkSelfPermission(MainApplication.getContext(), Manifest.permission.READ_PHONE_STATE);
+        if (result != PackageManager.PERMISSION_GRANTED){
+            return;
+        }
+
         TelephonyManager tm = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+
+        //需要android.permission.READ_PHONE_STATE权限
+
         String uid = tm.getDeviceId();
         if (!TextUtils.isEmpty(uid)) {
 //            Log.d(Log.TAG_DEVICE,"getDeviceId:"+uid);

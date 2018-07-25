@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.application.PermissionActivity;
 import com.timediffproject.listener.OnGetTimeCallback;
 import com.timediffproject.module.home.MyMainActivity;
 import com.timediffproject.widgets.flowtext.Typefaces;
@@ -17,11 +18,16 @@ import com.timediffproject.widgets.flowtext.Typefaces;
  * Created by melon on 2017/1/3.
  */
 
-public class SplashActivity extends BaseActivity implements OnGetTimeCallback {
+public class SplashActivity extends PermissionActivity implements OnGetTimeCallback {
+
+    //闪屏展示时间
+    private final int SPLASH_SHOW_TIME = 2000;
+
+    private boolean isCountDownFinish;
+    private boolean isTimeCheckFinish;
 
     private TextView tv;
 
-    private boolean isReady = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         umengPage = "欢迎页";
@@ -32,27 +38,33 @@ public class SplashActivity extends BaseActivity implements OnGetTimeCallback {
 
         tv.setTypeface(Typefaces.get(this, "Satisfy-Regular.ttf"));
 
-        MyClient.getMyClient().getTimeManager().registerGetTimeCallBack(this);
-        new Handler(getMainLooper()).postDelayed(new Runnable() {
+
+        boolean isLoadFinish = MyClient.getMyClient().getTimeManager().isLoadFinish();
+        if (isLoadFinish){
+            isTimeCheckFinish = true;
+        }else{
+            MyClient.getMyClient().getTimeManager().registerGetTimeCallBack(this);
+        }
+
+        startSplash();
+    }
+
+    private void startSplash(){
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                isReady = true;
-                if (MyClient.getMyClient().getTimeManager().isLoadFinish()){
-                    judgeResult();
-                }
-
+                isCountDownFinish = true;
+                handleIntentNext();
             }
-        },2000);
+        },SPLASH_SHOW_TIME);
     }
 
-    @Override
-    public void onGetTimeFinish() {
-        if (isReady){
-            judgeResult();
+
+    protected void handleIntentNext(){
+        if (!isCountDownFinish || !isTimeCheckFinish || !isPermissionCheck){
+            return;
         }
-    }
-
-    private void judgeResult(){
         if (!MyClient.getMyClient().getTimeManager().getDateStr().isEmpty()){
             alarmWidget();
 
@@ -62,6 +74,12 @@ public class SplashActivity extends BaseActivity implements OnGetTimeCallback {
         }else{
             Toast.makeText(SplashActivity.this,"不能获得时间",Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onGetTimeFinish() {
+        isTimeCheckFinish = true;
+        handleIntentNext();
     }
 
     private void alarmWidget(){

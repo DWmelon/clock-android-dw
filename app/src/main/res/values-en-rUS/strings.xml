@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">DiffTime</string>
+
+    <string name="cancel">Cancel</string>
+
+    <string name="progress_tip">Loading...</string>
+
+    <string name="toolbar_add">add</string>
+
+    <string name="title_select">City Selection</string>
+    <string name="title_search">City Search</string>
+
+    <string name="beijing">Beijing</string>
+
+    <string name="set_repeat_y">重复</string>
+    <string name="set_repeat_n">单次</string>
+
+    <string name="delete_success">Delete Success</string>
+
+    <string name="update_title">App Update</string>
+    <string name="update_ok">Update</string>
+    <string name="update_permission_fail">Missing write file permission, please go to the phone settings to allow the app to write files</string>
+    <string name="update_now">Update Immediately</string>
+    <string name="update_already">Already The Latest Version</string>
+
+    <!-- Label for button to confirm chosen date or time [CHAR LIMIT=30] -->
+    <string name="done_label">Done</string>
+    <!--
+         Content description for the hour selector in the time picker, which displays
+         selectable hours of the day along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="hour_picker_description">Hours circular slider</string>
+    <!--
+         Content description for the minute selector in the time picker, which displays
+         selectable five-minute intervals along the inside edge of a circle, as in an analog clock.
+         [CHAR LIMIT=50]
+    -->
+    <string name="minute_picker_description">Minutes circular slider</string>
+    <!-- Accessibility announcement for hour circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_hours">Select hours</string>
+    <!-- Accessibility announcement for minute circular picker [CHAR LIMIT=NONE] -->
+    <string name="select_minutes">Select minutes</string>
+
+    <!--
+        Content description for the month and day selector in the date picker, which displays
+        a selectable grid of days laid out by month.
+        [CHAR LIMIT=50]
+     -->
+    <string name="day_picker_description">Month grid of days</string>
+    <!--
+        Content description for the year selector in the date picker, which displays
+        a scrolling, vertical list of years.
+        [CHAR LIMIT=50]
+     -->
+    <string name="year_picker_description">Year list</string>
+    <!-- Accessibility announcement for the day picker [CHAR LIMIT=NONE] -->
+    <string name="select_day">Select month and day</string>
+    <!-- Accessibility announcement for the year picker [CHAR LIMIT=NONE] -->
+    <string name="select_year">Select year</string>
+    <!-- Accessibility description for the item that is currently selected. -->
+    <string name="item_is_selected"><xliff:g id="item" example="2013">%1$s</xliff:g> selected</string>
+    <!-- Accessibility announcement when a number that had been typed in is deleted [CHAR_LIMIT=NONE] -->
+    <string name="deleted_key"><xliff:g id="key" example="4">%1$s</xliff:g> deleted</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_placeholder">--</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="time_separator">:</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="radial_numbers_typeface">sans-serif</string>
+    <!-- DO NOT TRANSLATE -->
+    <string name="sans_serif">sans-serif</string>
+
+    <!-- DO NOT TRANSLATE -->
+    <string name="day_of_week_label_typeface">sans-serif</string>
+
+
+    <!-- 默认对话框-->
+    <string name="dialog_title">Tip</string>
+    <string name="dialog_ok">Confirm</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_msg_home">Whether to delete the time zone?\nThe alarm clock associated with the city will be deleted</string>
+    <string name="dialog_msg_clock">Whether to delete the clock</string>
+
+    <!-- alarm-->
+    <string name="alarm_item_tip">%1$s time %2$s</string>
+
+    <!-- set-->
+    <string name="set_title">Add Alarm</string>
+
+    <string name="city_dialog_nation">&#160;-&#160;%1$s</string>
+
+    <!-- left_drawer -->
+    <string name="left_drawer_tip_advice">Feedback</string>
+    <string name="left_drawer_tip_exchange">Conversion Rate</string>
+    <string name="left_drawer_tip_widget">Instructions For Plugins</string>
+    <string name="left_drawer_tip_widget_1">Attention</string>
+    <string name="left_drawer_tip_widget_2">Due to the protection of the mobile phone system, the desktop plug-in cannot be operated normally after completely exiting the APP. You can open the app and hide it in the background, which can be displayed normally.</string>
+    <string name="left_drawer_tip_share">Share</string>
+    <string name="left_drawer_tip_setting">App Setting</string>
+
+    <!-- advice -->
+    <string name="advice_title">Feedback</string>
+    <string name="advice_btn">Submit</string>
+    <string name="advice_hint_1">Your every suggestion is the direction of our product progress, thank you very much for your support.^^.</string>
+    <string name="advice_hint_2">If you like, please leave your contact information and we will give you timely feedback.</string>
+    <string name="advice_toast">Please write down your suggestion～</string>
+
+    <string name="advice_ques_tip">My doubts:</string>
+    <string name="advice_ques_1">1.What features do you want？</string>
+    <string name="advice_ques_2">2.What are the unsatisfactory places now？</string>
+
+    <!-- modify -->
+    <string name="modify_title">Edit Alarm</string>
+
+    <!-- about -->
+    <string name="about_me">About the version</string>
+    <string name="about_version_name_now">current version：%1$s</string>
+    <string name="about_version_name_new">Latest version：%1$s</string>
+    <string name="about_version_name_info">Update content：</string>
+
+    <!-- voice -->
+    <string name="voice_name">ring</string>
+
+    <!-- money -->
+    <string name="money_coin_name">%1$s%2$s = ></string>
+
+    <!-- home -->
+    <string name="home_city_action_tip_move">The first city is in the city and cannot move</string>
+    <string name="home_city_action_tip_remove">The first city is the city where it cannot be deleted.</string>
+
+    <!-- ratio -->
+    <string name="exchange_ratio_title">Conversion Rate</string>
+    <string name="exchange_ratio_tip_source_d">Input the conversion amount：</string>
+    <string name="exchange_ratio_tip_target_d">Converted amount：</string>
+    <string name="exchange_ratio_tip_source">Input the conversion amount：（%1$s）</string>
+    <string name="exchange_ratio_tip_target">Converted amount：（%1$s）</string>
+    <string name="exchange_ratio_choose">Choose</string>
+    <string name="exchange_ratio_request_fail">Failed to get the exchange rate, please try again later</string>
+
+    <string name="exchange_ratio_now">Current exchange rate：</string>
+    <string name="exchange_ratio_update_time">Update time：</string>
+
+    <!-- setting -->
+    <string name="setting_title">Setting</string>
+
+    <string name="setting_block_show">Display related</string>
+    <string name="setting_is_use_24">Enable 24-hour display</string>
+    <string name="setting_is_use_ratio">Exchange rate information display</string>
+
+    <string name="setting_block_language">App Language</string>
+    <string name="setting_language_china">Chinese</string>
+    <string name="setting_language_english">English</string>
+
+    <string name="setting_restart">Fully effective after reboot</string>
+
+</resources>

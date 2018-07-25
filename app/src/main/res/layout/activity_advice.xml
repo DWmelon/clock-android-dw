@@ -65,19 +65,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="本期求解:"/>
+            android:text="@string/advice_ques_tip"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_5"
-            android:text="1.你还想要什么功能？"/>
+            android:text="@string/advice_ques_1"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_5"
-            android:text="2.如果换个名字，叫啥好？"/>
+            android:text="@string/advice_ques_2"/>
 
     </LinearLayout>
 
@@ -91,11 +91,6 @@
         android:layout_alignParentBottom="true"
         android:gravity="center_horizontal"
         android:layout_marginBottom="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="客服扣扣号：3303847677"/>
 
     </LinearLayout>
 

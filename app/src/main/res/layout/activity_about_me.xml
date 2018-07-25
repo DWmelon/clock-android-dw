@@ -50,6 +50,17 @@
             android:textColor="@color/first_title_color"
             android:textSize="18sp"/>
 
+        <TextView
+            android:id="@+id/tv_update_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:background="@drawable/selector_btn_primary2"/>
 
     </LinearLayout>
 

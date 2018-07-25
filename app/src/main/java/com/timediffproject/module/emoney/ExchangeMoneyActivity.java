@@ -21,7 +21,7 @@ import com.timediffproject.module.money.EMoneyMapModel;
 import com.timediffproject.module.money.EMoneyResultModel;
 import com.timediffproject.module.set.OnSetCityChangeListener;
 import com.timediffproject.module.set.SetCityDialogAdapter;
-import com.timediffproject.util.SlidingUpDialog;
+import com.timediffproject.widgets.SlidingUpDialog;
 
 import java.util.ArrayList;
 import java.util.List;

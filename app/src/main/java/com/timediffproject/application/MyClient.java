@@ -14,7 +14,9 @@ import com.timediffproject.module.widget.WidgetManager;
 import com.timediffproject.network.HttpRequestManager;
 import com.timediffproject.network.IInterface;
 import com.timediffproject.network.IRequest;
+import com.timediffproject.oss.OSSManager;
 import com.timediffproject.storage.StorageManager;
+import com.timediffproject.util.DeviceInfoManager;
 
 import java.util.HashMap;
 
@@ -47,8 +49,8 @@ public class MyClient {
         }
         this.context = context;
 
-        StorageManager.getInstance().init(context);
-
+        getStorageManager().init();
+        DeviceInfoManager.getInstance().init();
         getSelectManager().init(context);
         getTimeManager().init(context);
         getMyAlarmManager().init(context);
@@ -83,6 +85,8 @@ public class MyClient {
     private MiscManager miscManager;
     private MoneyManager moneyManager;
     private DatabaseManager databaseManager;
+    private OSSManager ossManager;
+    private StorageManager storageManager;
 
     public synchronized SelectManager getSelectManager(){
         if (selectManager == null){
@@ -145,6 +149,20 @@ public class MyClient {
             databaseManager = new DatabaseManager(context);
         }
         return databaseManager;
+    }
+
+    public synchronized OSSManager getOssManager(){
+        if (ossManager == null){
+            ossManager = new OSSManager(context);
+        }
+        return ossManager;
+    }
+
+    public synchronized StorageManager getStorageManager(){
+        if (storageManager == null){
+            storageManager = new StorageManager(context);
+        }
+        return storageManager;
     }
 
 }

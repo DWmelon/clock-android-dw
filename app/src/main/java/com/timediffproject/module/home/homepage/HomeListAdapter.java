@@ -27,6 +27,7 @@ import com.timediffproject.module.set.SettingTimeActivity;
 import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.stat.StatCMConstant;
 import com.timediffproject.stat.StatManager;
+import com.timediffproject.util.CommonUtil;
 import com.timediffproject.util.DateUtil;
 import com.timediffproject.util.ImageUtil;
 
@@ -55,6 +56,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
     private Boolean isUseRatio = null;
 
+    private String language;
+
     public HomeListAdapter(Context context, SelectManager manager){
         this.mContext = context;
         this.manager = manager;
@@ -63,6 +66,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         DisplayMetrics metrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(metrics);
         width = metrics.widthPixels;
+        language = GlobalPreferenceManager.getString(mContext,GlobalPreferenceManager.KEY_LANGUAGE);
     }
 
     public void updateEMoneyMap(){
@@ -88,7 +92,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
 
         holder.countryIcon.setImageResource(ImageUtil.getResource(mContext,model.getLogo()));
 
-        holder.cityName.setText(model.getCityName());
+        holder.cityName.setText(CommonUtil.getCityNameByLanguage(language,model));
         holder.nationName.setText(model.getNationName());
 
         Date date = MyClient.getMyClient().getTimeManager().getTime(model.getDiffTime());
