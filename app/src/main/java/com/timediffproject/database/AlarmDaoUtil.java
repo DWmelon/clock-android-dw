@@ -25,6 +25,11 @@ public class AlarmDaoUtil {
         return dao.loadAll();
     }
 
+    public static AlarmModel loadAlarm(Long id){
+        checkDao();
+        return dao.load(id);
+    }
+
     public static void insertAlarm(AlarmModel model){
         checkDao();
         Long id = dao.insert(model);

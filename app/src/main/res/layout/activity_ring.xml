@@ -80,7 +80,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="稍后提醒"
+                    android:text="@string/ring_notify_after"
                     android:textColor="@color/primary_white"
                     android:textSize="20sp"
                     android:background="@drawable/bg_corner_ring"/>
@@ -92,7 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="向上滑动取消闹钟"
+            android:text="@string/ring_push_up_to_cancel"
             android:textColor="@color/primary_white"
             android:textSize="14sp"
             android:layout_above="@+id/iv_up_icon"

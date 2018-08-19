@@ -73,7 +73,7 @@
                 android:paddingLeft="@dimen/margin_10"
                 android:singleLine="true"
                 android:layout_gravity="center_vertical"
-                android:hint="输入地区关键字"
+                android:hint="@string/select_search_keyword"
                 android:textSize="16sp"
                 android:textColor="@color/first_title_color"
                 />

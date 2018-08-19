@@ -9,9 +9,11 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.timediffproject.R;
+import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.select.SelectManager;
+import com.timediffproject.util.CommonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,8 @@ public class SearchCountryAdapter extends BaseAdapter {
 
     private OnSearchClickListener listener;
 
+    private String language;
+
     public void setListener(OnSearchClickListener listener){
         this.listener = listener;
     }
@@ -37,6 +41,7 @@ public class SearchCountryAdapter extends BaseAdapter {
     public SearchCountryAdapter(Context context){
         this.mContext = context;
         selectManager = MyClient.getMyClient().getSelectManager();
+        language = GlobalPreferenceManager.getString(mContext,GlobalPreferenceManager.KEY_LANGUAGE);
     }
 
     public void setData(List<CountryModel> countryModels){
@@ -88,8 +93,8 @@ public class SearchCountryAdapter extends BaseAdapter {
             holder.mVSelectIcon.setSelected(false);
         }
 
-        holder.mTvCountryName.setText(model.getNationName());
-        holder.mTvCityName.setText(model.getCityName());
+        holder.mTvCountryName.setText(CommonUtil.getNationNameByLanguage(language,model));
+        holder.mTvCityName.setText(CommonUtil.getCityNameByLanguage(language,model));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

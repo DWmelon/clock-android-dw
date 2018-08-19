@@ -9,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.timediffproject.R;
+import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.select.SelectManager;
+import com.timediffproject.util.CommonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +32,13 @@ public class SetCityDialogAdapter extends RecyclerView.Adapter<SetCityDialogAdap
 
     private List<CountryModel> dataList = new ArrayList<>();
 
+    private String language;
+
     public SetCityDialogAdapter(Context context,List<CountryModel> modelList){
         this.mContext = context;
         manager = MyClient.getMyClient().getSelectManager();
         dataList = modelList;
+        language = GlobalPreferenceManager.getString(context,GlobalPreferenceManager.KEY_LANGUAGE);
     }
 
     public void setData(List<CountryModel> modelList){
@@ -53,8 +58,8 @@ public class SetCityDialogAdapter extends RecyclerView.Adapter<SetCityDialogAdap
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         CountryModel model = dataList.get(position);
-        holder.mTvCity.setText(model.getCityName());
-        holder.mTvNation.setText(mContext.getString(R.string.city_dialog_nation,model.getNationName()));
+        holder.mTvCity.setText(CommonUtil.getCityNameByLanguage(language,model));
+        holder.mTvNation.setText(mContext.getString(R.string.city_dialog_nation,CommonUtil.getNationNameByLanguage(language,model)));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

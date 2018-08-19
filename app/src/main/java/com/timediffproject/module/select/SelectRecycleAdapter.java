@@ -73,7 +73,7 @@ public class SelectRecycleAdapter extends RecyclerView.Adapter<SelectRecycleAdap
             holder.itemView.setTag(position);
 
             holder.cityName.setText(CommonUtil.getCityNameByLanguage(language,model));
-            holder.nationName.setText(model.getNationName());
+            holder.nationName.setText(CommonUtil.getNationNameByLanguage(language,model));
 
             if (manager.isUserSelected(model)){
                 holder.selectIcon.setSelected(true);

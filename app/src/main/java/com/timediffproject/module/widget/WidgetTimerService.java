@@ -15,9 +15,11 @@ import android.widget.RemoteViews;
 import com.timediffproject.R;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.constants.Constant;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.select.SelectManager;
 import com.timediffproject.origin.MainApplication;
+import com.timediffproject.util.CommonUtil;
 import com.timediffproject.util.DateUtil;
 
 import java.text.SimpleDateFormat;
@@ -41,6 +43,7 @@ public class WidgetTimerService extends Service {
     private HashMap<Integer,Integer> widgetIndexs;
 
     String[] weekDays = {"周日", "周一", "周二", "周三", "周四", "周五", "周六"};
+
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
@@ -76,6 +79,7 @@ public class WidgetTimerService extends Service {
         IntentFilter filter = new IntentFilter();
         filter.addAction(AppClockWidget.UPDATE_STATUS_FROM_WIDGET_START);
         registerReceiver(receiver, filter);
+
 
         // TODO: 2017/10/11 读取位置
         widgetIndexs = MyClient.getMyClient().getWidgetManager().getAppIdMapIndex();
@@ -138,12 +142,19 @@ public class WidgetTimerService extends Service {
     }
 
     private void updateContent(Context context,int appWidgetId,RemoteViews rv,CountryModel model){
+        String language = GlobalPreferenceManager.getString(MainApplication.getContext(),GlobalPreferenceManager.KEY_LANGUAGE);
+
         Date date = MyClient.getMyClient().getTimeManager().getTime(model.getDiffTime());
         model.setNowDate(date);
+
+        int resBg = CommonUtil.getWidgetBackStyleRes();
+        rv.setImageViewResource(R.id.iv_clock_widget_bg,resBg);
+
 
         boolean isUse24 = GlobalPreferenceManager.isUse24Hours(context);
         if (isUse24){
             rv.setTextViewText(R.id.tv_app_widget_time_small_ap, "");
+
         }else{
             rv.setTextViewText(R.id.tv_app_widget_time_small_ap, DateUtil.getTimeAP(date));
         }
@@ -162,11 +173,16 @@ public class WidgetTimerService extends Service {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
-        rv.setTextViewText(R.id.tv_app_widget_time_big, month+"月"+day+"日"+"-"+weekDays[calendar.get(Calendar.DAY_OF_WEEK)-1]);
+        String monthStr = CommonUtil.getMonthStr(language,calendar);
+        String dayOfWeekStr = CommonUtil.getDayOfWeekStr(language,calendar);
+        String dayOfMonthStr = CommonUtil.getDayOfMonthStr(language,calendar);
+        String devide = language == null||language.equals(Constant.LANGUAGE_CHINA)?"":" ";
+
+        rv.setTextViewText(R.id.tv_app_widget_time_big, monthStr+devide+dayOfMonthStr+"  "+dayOfWeekStr);
 
 
-        rv.setTextViewText(R.id.tv_app_widget_country_name, model.getNationName());
-        rv.setTextViewText(R.id.tv_app_widget_city_name, model.getCityName());
+        rv.setTextViewText(R.id.tv_app_widget_country_name, CommonUtil.getNationNameByLanguage(language,model));
+        rv.setTextViewText(R.id.tv_app_widget_city_name, CommonUtil.getCityNameByLanguage(language,model));
 
 
         Intent intent2 = new Intent();

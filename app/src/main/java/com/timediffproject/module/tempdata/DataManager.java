@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
+import com.timediffproject.model.NameMapModel;
 import com.timediffproject.network.IRequest;
 import com.timediffproject.network.IRequestCallback;
 import com.timediffproject.util.FileUtil;
@@ -32,101 +33,130 @@ public class DataManager {
     private static final String DATA_AMERICA = "america.txt";
     private static final String DATA_OCEANIA = "oceania.txt";
 
+    private static final String DATA_NAME_MAP = "name-map.json";
+
     private List<CountryModel> countryModelList = new ArrayList<>();
+
+    private NameMapModel nameMapModel;
 
     private Context context;
 
     public void init(Context context){
         this.context = context;
-//        loadData();
+        loadData();
     }
 
     private void loadData(){
-        countryModelList = new ArrayList<>();
+        nameMapModel = new NameMapModel();
         try {
-            InputStream in0 = context.getAssets().open(DATA_EUROPE);
-            String text0 = FileUtil.readStringFromInputStream(in0);
-
-            InputStream in1 = context.getAssets().open(DATA_AFRICA);
-            String text1 = FileUtil.readStringFromInputStream(in1);
-
-            InputStream in2 = context.getAssets().open(DATA_AMERICA);
-            String text2 = FileUtil.readStringFromInputStream(in2);
-
-            InputStream in3 = context.getAssets().open(DATA_ASIA);
-            String text3 = FileUtil.readStringFromInputStream(in3);
-
-            InputStream in4 = context.getAssets().open(DATA_OCEANIA);
-            String text4 = FileUtil.readStringFromInputStream(in4);
-
-
-            if (!TextUtils.isEmpty(text0)) {
-                JSONArray jsonArray = JSONArray.parseArray(text0);
-
-                for (int i = 0;i<jsonArray.size();i++){
-                    JSONObject object = jsonArray.getJSONObject(i);
-                    CountryModel model = new CountryModel();
-                    model.decode(object);
-                    model.setState("europe");
-                    countryModelList.add(model);
-
-                }
-            }
-
-
-            if (!TextUtils.isEmpty(text1)) {
-                JSONArray jsonArray1 = JSONArray.parseArray(text1);
-
-                for (int i = 0;i<jsonArray1.size();i++){
-                    JSONObject object = jsonArray1.getJSONObject(i);
-                    CountryModel model = new CountryModel();
-                    model.decode(object);
-                    model.setState("africa");
-                    countryModelList.add(model);
-                }
-            }
-
-            if (!TextUtils.isEmpty(text2)) {
-                JSONArray jsonArray = JSONArray.parseArray(text2);
-
-                for (int i = 0;i<jsonArray.size();i++){
-                    JSONObject object = jsonArray.getJSONObject(i);
-                    CountryModel model = new CountryModel();
-                    model.decode(object);
-                    model.setState("america");
-                    countryModelList.add(model);
-                }
-            }
-
-            if (!TextUtils.isEmpty(text3)) {
-                JSONArray jsonArray = JSONArray.parseArray(text3);
-
-                for (int i = 0;i<jsonArray.size();i++){
-                    JSONObject object = jsonArray.getJSONObject(i);
-                    CountryModel model = new CountryModel();
-                    model.decode(object);
-                    model.setState("asia");
-                    countryModelList.add(model);
-                }
-            }
-
-            if (!TextUtils.isEmpty(text4)) {
-                JSONArray jsonArray = JSONArray.parseArray(text4);
-
-                for (int i = 0;i<jsonArray.size();i++){
-                    JSONObject object = jsonArray.getJSONObject(i);
-                    CountryModel model = new CountryModel();
-                    model.decode(object);
-                    model.setState("oceania");
-                    countryModelList.add(model);
-                }
-            }
-
+            InputStream in1 = context.getAssets().open(DATA_NAME_MAP);
+            String json = FileUtil.readStringFromInputStream(in1);
+            nameMapModel.decode(json);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
+    public NameMapModel getNameMapModel() {
+        return nameMapModel;
+    }
+
+    public String getCityNameE(String cityName){
+        List<NameMapModel.NameItem> nameItemList = nameMapModel.getNameList();
+        for (NameMapModel.NameItem nameItem : nameItemList){
+            if (nameItem.getCityName().equals(cityName)){
+                return nameItem.getCityNameE();
+            }
+        }
+        return cityName;
+    }
+
+    //    private void loadData(){
+//        countryModelList = new ArrayList<>();
+//        try {
+//            InputStream in0 = context.getAssets().open(DATA_EUROPE);
+//            String text0 = FileUtil.readStringFromInputStream(in0);
+//
+//            InputStream in1 = context.getAssets().open(DATA_AFRICA);
+//            String text1 = FileUtil.readStringFromInputStream(in1);
+//
+//            InputStream in2 = context.getAssets().open(DATA_AMERICA);
+//            String text2 = FileUtil.readStringFromInputStream(in2);
+//
+//            InputStream in3 = context.getAssets().open(DATA_ASIA);
+//            String text3 = FileUtil.readStringFromInputStream(in3);
+//
+//            InputStream in4 = context.getAssets().open(DATA_OCEANIA);
+//            String text4 = FileUtil.readStringFromInputStream(in4);
+//
+//
+//            if (!TextUtils.isEmpty(text0)) {
+//                JSONArray jsonArray = JSONArray.parseArray(text0);
+//
+//                for (int i = 0;i<jsonArray.size();i++){
+//                    JSONObject object = jsonArray.getJSONObject(i);
+//                    CountryModel model = new CountryModel();
+//                    model.decode(object);
+//                    model.setState("europe");
+//                    countryModelList.add(model);
+//
+//                }
+//            }
+//
+//
+//            if (!TextUtils.isEmpty(text1)) {
+//                JSONArray jsonArray1 = JSONArray.parseArray(text1);
+//
+//                for (int i = 0;i<jsonArray1.size();i++){
+//                    JSONObject object = jsonArray1.getJSONObject(i);
+//                    CountryModel model = new CountryModel();
+//                    model.decode(object);
+//                    model.setState("africa");
+//                    countryModelList.add(model);
+//                }
+//            }
+//
+//            if (!TextUtils.isEmpty(text2)) {
+//                JSONArray jsonArray = JSONArray.parseArray(text2);
+//
+//                for (int i = 0;i<jsonArray.size();i++){
+//                    JSONObject object = jsonArray.getJSONObject(i);
+//                    CountryModel model = new CountryModel();
+//                    model.decode(object);
+//                    model.setState("america");
+//                    countryModelList.add(model);
+//                }
+//            }
+//
+//            if (!TextUtils.isEmpty(text3)) {
+//                JSONArray jsonArray = JSONArray.parseArray(text3);
+//
+//                for (int i = 0;i<jsonArray.size();i++){
+//                    JSONObject object = jsonArray.getJSONObject(i);
+//                    CountryModel model = new CountryModel();
+//                    model.decode(object);
+//                    model.setState("asia");
+//                    countryModelList.add(model);
+//                }
+//            }
+//
+//            if (!TextUtils.isEmpty(text4)) {
+//                JSONArray jsonArray = JSONArray.parseArray(text4);
+//
+//                for (int i = 0;i<jsonArray.size();i++){
+//                    JSONObject object = jsonArray.getJSONObject(i);
+//                    CountryModel model = new CountryModel();
+//                    model.decode(object);
+//                    model.setState("oceania");
+//                    countryModelList.add(model);
+//                }
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
     public List<CountryModel> getCountryList(){
         return countryModelList;

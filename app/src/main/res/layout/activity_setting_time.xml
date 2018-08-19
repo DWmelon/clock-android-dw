@@ -177,7 +177,7 @@
             android:layout_alignRight="@+id/wv_hour"
             android:paddingRight="30dp"
             android:paddingTop="5dp"
-            android:text="小时"
+            android:text="@string/set_alarm_hour"
             android:textSize="10sp"
             android:textColor="@color/white"/>
 
@@ -203,7 +203,7 @@
             android:layout_alignRight="@+id/wv_min"
             android:paddingRight="30dp"
             android:paddingTop="5dp"
-            android:text="分钟"
+            android:text="@string/set_alarm_minute"
             android:textSize="10sp"
             android:textColor="@color/white"/>
 
@@ -233,7 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_20"
-                android:text="时区城市"
+                android:text="@string/set_alarm_city"
                 android:textColor="@color/primary_white"
                 android:textSize="15sp"/>
 
@@ -247,7 +247,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_5"
-                android:text="城市"
+                android:text="@string/set_alarm_city1"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 />

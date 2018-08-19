@@ -76,5 +76,10 @@
     <!-- search -->
     <color name="corner_line_gray2">#E7E7E7</color>
 
+    <!-- widget_style -->
+    <color name="widget_blue">#7F84C4FF</color>
+    <color name="widget_green">#7F6DD09D</color>
+    <color name="widget_yellow">#7FFADC74</color>
+    <color name="widget_pink">#7Ff77370</color>
 
 </resources>

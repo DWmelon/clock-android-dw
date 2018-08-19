@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_color">
+
+    <include layout="@layout/layout_toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margin_20"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20"
+            android:paddingBottom="@dimen/margin_40"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_widget_style_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_corner_tran">
+
+                <include layout="@layout/layout_clock_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_widget_style_tran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_30">
+
+                <include layout="@layout/layout_clock_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_widget_style_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_corner_blue"
+                android:layout_marginTop="@dimen/margin_30">
+
+                <include layout="@layout/layout_clock_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_widget_style_yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_corner_yellow"
+                android:layout_marginTop="@dimen/margin_30">
+
+                <include layout="@layout/layout_clock_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_widget_style_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_corner_green"
+                android:layout_marginTop="@dimen/margin_30">
+
+                <include layout="@layout/layout_clock_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_widget_style_pink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_corner_pink"
+                android:layout_marginTop="@dimen/margin_30">
+
+                <include layout="@layout/layout_clock_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

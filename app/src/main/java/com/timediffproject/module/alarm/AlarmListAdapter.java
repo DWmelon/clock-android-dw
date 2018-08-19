@@ -23,6 +23,7 @@ import com.timediffproject.database.AlarmModel;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.set.SetAlarmUtil;
 import com.timediffproject.module.set.SettingTimeActivity;
+import com.timediffproject.util.CommonUtil;
 import com.timediffproject.util.DateUtil;
 import com.timediffproject.util.RandomUtil;
 import com.timediffproject.util.SpanUtil;
@@ -63,6 +64,8 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         final AlarmModel model = alarmModelList.get(position);
         CountryModel countryModel = MyClient.getMyClient().getSelectManager().getNationById(model.getCityId());
 
+        String language = GlobalPreferenceManager.getString(mContext,GlobalPreferenceManager.KEY_LANGUAGE);
+
         holder.mSbAlarmSet.setChecked(model.getUsing());
         holder.mSbAlarmSet.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
             @Override
@@ -98,7 +101,10 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
             holder.mTvAlarmTimeAP.setVisibility(View.VISIBLE);
         }
 
-        holder.mTvAlarmCity.setText(model.getCity());
+        CountryModel tempModel = new CountryModel();
+        tempModel.setCityName(model.getCity());
+        tempModel.setCityNameE(CommonUtil.getCityEByCityC(model.getCity()));
+        holder.mTvAlarmCity.setText(CommonUtil.getCityNameByLanguage(language,tempModel));
 
         Date localTimeDate = culLocalTime(model);
         SpannableString localTime = handleLocalTime(localTimeDate);

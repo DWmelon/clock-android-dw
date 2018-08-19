@@ -86,11 +86,23 @@
 
     <!-- alarm-->
     <string name="alarm_item_tip">%1$s时间：%2$s</string>
-
+    <string name="alarm_page_title">闹钟列表</string>
     <!-- set-->
     <string name="set_title">设置闹钟</string>
 
     <string name="city_dialog_nation">&#160;-&#160;%1$s</string>
+
+    <string name="set_alarm_map_count">请选择闹钟对应国家</string>
+    <string name="set_alarm_repeat_day">请选择重复日期</string>
+
+    <string name="set_alarm_will_ring">闹钟将在%1$d小时%2$d分钟后响铃</string>
+
+    <string name="set_alarm_hour">小时</string>
+    <string name="set_alarm_minute">分</string>
+    <string name="set_alarm_city">时区城市</string>
+    <string name="set_alarm_city1">城市</string>
+
+    <string name="set_alarm_choose_city">选择闹钟城市</string>
 
     <!-- left_drawer -->
     <string name="left_drawer_tip_advice">意见反馈</string>
@@ -124,6 +136,10 @@
 
     <!-- voice -->
     <string name="voice_name">铃声</string>
+    <string name="voice_level">音量</string>
+    <string name="voice_sound">声音</string>
+    <string name="voice_default">默认</string>
+
 
     <!-- money -->
     <string name="money_coin_name">%1$s%2$s = ></string>
@@ -155,6 +171,30 @@
     <string name="setting_language_china">中文</string>
     <string name="setting_language_english">英文</string>
 
+    <string name="setting_widget_style">插件样式</string>
+
+    <string name="setting_widget_style_black">经典黑</string>
+    <string name="setting_widget_style_empty">透明色</string>
+    <string name="setting_widget_style_blue">浅浅蓝</string>
+    <string name="setting_widget_style_yellow">浅浅黄</string>
+    <string name="setting_widget_style_green">浅浅绿</string>
+    <string name="setting_widget_style_pink">浅浅粉</string>
+
+    <string name="setting_widget_style_toast">已选择%1$s</string>
+
     <string name="setting_restart">重启后生效</string>
+
+    <!-- select search-->
+    <string name="select_search_keyword">输入地区关键字</string>
+    <string name="state_europe">欧洲</string>
+    <string name="state_asia">亚洲</string>
+    <string name="state_africa">非洲</string>
+    <string name="state_america">美洲</string>
+    <string name="state_oceania">大洋洲</string>
+
+    <!-- ring -->
+    <string name="ring_notify_after">稍后提醒</string>
+    <string name="ring_push_up_to_cancel">向上滑动取消闹钟</string>
+
 
 </resources>

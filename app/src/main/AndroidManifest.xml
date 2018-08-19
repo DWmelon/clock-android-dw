@@ -78,6 +78,9 @@
         <activity android:name=".module.setting.SettingActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
+        <activity android:name=".module.setting.WidgetStyleSelectActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
         <!-- 开机监听-->
         <receiver android:name=".open.BootCompleteReceiver">
             <intent-filter>

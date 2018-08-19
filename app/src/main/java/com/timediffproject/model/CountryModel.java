@@ -22,6 +22,8 @@ public class CountryModel implements Serializable {
 
     private static final String NATION_NAME = "nationName";
 
+    private static final String NATION_NAME_E = "nationNameE";
+
     private static final String FIRST_CHAR = "firstChar";
 
     private static final String DIFF_TIME = "diffTime";
@@ -44,6 +46,8 @@ public class CountryModel implements Serializable {
 
     private String nationName;
 
+    private String nationNameE;
+
     private String firstChar;
 
     private String nationNamePy;
@@ -65,6 +69,14 @@ public class CountryModel implements Serializable {
     private String zoneNum;
 
     private String coinName;
+
+    public String getNationNameE() {
+        return nationNameE;
+    }
+
+    public void setNationNameE(String nationNameE) {
+        this.nationNameE = nationNameE;
+    }
 
     public String getCoinName() {
         return coinName;
@@ -194,6 +206,7 @@ public class CountryModel implements Serializable {
         cityName = object.getString(CITY_NAME);
         cityNameE = object.getString(CITY_NAME_E);
         nationName = object.getString(NATION_NAME);
+        nationNameE = object.getString(NATION_NAME_E);
         setNationNamePy(CharUtil.cn2py(nationName));
         diffTime = object.getFloat(DIFF_TIME);
         logo = object.getString(LOGO);
@@ -210,6 +223,7 @@ public class CountryModel implements Serializable {
                 ", cityName='" + cityName + '\'' +
                 ", cityNameE='" + cityNameE + '\'' +
                 ", nationName='" + nationName + '\'' +
+                ", nationNameE='" + nationNameE + '\'' +
                 ", firstChar='" + firstChar + '\'' +
                 ", nationNamePy='" + nationNamePy + '\'' +
                 ", isFirstData=" + isFirstData +
@@ -231,6 +245,7 @@ public class CountryModel implements Serializable {
         model.setCityName(cityName);
         model.setCityNameE(cityNameE);
         model.setNationName(nationName);
+        model.setNationNameE(nationNameE);
         model.setFirstChar(firstChar);
         model.setNationNamePy(nationNamePy);
         model.setFirstData(isFirstData);

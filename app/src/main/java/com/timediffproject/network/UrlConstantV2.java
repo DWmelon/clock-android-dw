@@ -207,6 +207,7 @@ public class UrlConstantV2 {
         public static final int SEARCH_COUNTRY = 444;
 
         public static final int SELECT_COUNTRY = 555;
+        public static final int WIDGET_STYLE = 666;
     }
 
 

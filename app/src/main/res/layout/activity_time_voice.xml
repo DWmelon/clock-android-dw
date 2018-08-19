@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_20"
-                android:text="音量"
+                android:text="@string/voice_level"
                 android:textColor="@color/primary_white"
                 android:textSize="15sp"/>
 
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_20"
-                android:text="声音"
+                android:text="@string/voice_sound"
                 android:textColor="@color/primary_white"
                 android:textSize="15sp"/>
 
@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_25"
-                android:text="默认"
+                android:text="@string/voice_default"
                 android:textColor="@color/primary_white"
                 android:textSize="15sp"/>
 

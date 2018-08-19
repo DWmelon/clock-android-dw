@@ -18,6 +18,7 @@ import com.timediffproject.origin.MainApplication;
 import com.timediffproject.storage.StorageManager;
 import com.timediffproject.storage.TaskExecutor;
 import com.timediffproject.util.FileUtil;
+import com.timediffproject.util.RandomUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -215,18 +216,16 @@ public class MyAlarmManager {
      * 暂缓闹钟（10分钟）
      * @param context
      */
-    public void addPauseAlarm(Context context){
+    public void addPauseAlarm(Context context,long time){
 
         Intent intent = new Intent(context, RingReceiver.class);
+        intent.putExtra("id",0);
         PendingIntent sender = PendingIntent.getBroadcast(
-                context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, RandomUtil.getRandomInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // We want the alarm to go off 10 seconds from now.
         Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(new Date().getTime());
-        calendar.add(Calendar.MINUTE,10);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-        Log.i("addpauseAlarm",simpleDateFormat.format(calendar.getTime()));
+        calendar.setTimeInMillis(time);
 
         // Schedule the alarm!
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -235,6 +234,7 @@ public class MyAlarmManager {
         }else {
             am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
         }
+
 
     }
 

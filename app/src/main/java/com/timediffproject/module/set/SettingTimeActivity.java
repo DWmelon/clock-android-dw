@@ -24,6 +24,7 @@ import com.timediffproject.module.select.SelectManager;
 import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.stat.StatCMConstant;
 import com.timediffproject.stat.StatManager;
+import com.timediffproject.util.CommonUtil;
 import com.timediffproject.util.RandomUtil;
 import com.timediffproject.widgets.SlidingUpDialog;
 
@@ -141,7 +142,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
 
     private void initData(){
         if (cityModel != null){
-            mTvCity.setText(cityModel.getCityName());
+            mTvCity.setText(CommonUtil.getCityNameByLanguage(cityModel));
         }
 
         mToolbar = (Toolbar)findViewById(R.id.my_toolbar);
@@ -267,12 +268,12 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
         switch (item.getItemId()) {
             case R.id.action_right:
                 if (cityModel == null){
-                    Toast.makeText(this,"请选择闹钟对应国家",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,R.string.set_alarm_map_count,Toast.LENGTH_LONG).show();
                     dialog.show();
                     return true;
                 }
                 if (mSbRepeat.isChecked()&&repeatMap.isEmpty()){
-                    Toast.makeText(this,"请选择重复日期",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,R.string.set_alarm_repeat_day,Toast.LENGTH_LONG).show();
                     return true;
                 }
                 saveAlarm();
@@ -285,7 +286,7 @@ public class SettingTimeActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void onChangeCity(CountryModel model) {
         cityModel = model;
-        mTvCity.setText(cityModel.getCityName());
+        mTvCity.setText(CommonUtil.getCityNameByLanguage(cityModel));
         initAddData();
         if (dialog != null){
             dialog.dismiss();

@@ -3,6 +3,7 @@ package com.timediffproject.module.set;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.timediffproject.R;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.database.AlarmModel;
 import com.timediffproject.origin.MainApplication;
@@ -217,7 +218,7 @@ public class SetAlarmUtil {
     public static void toastRingTip(long diffMillis){
         int diffHour = (int) (diffMillis/1000/60/60);
         int diffMin = (int) (diffMillis/1000/60)-diffHour*60;
-        Toast.makeText(MainApplication.getContext(),"闹钟将在"+diffHour+"小时"+diffMin+"分钟后响铃",Toast.LENGTH_LONG).show();
+        Toast.makeText(MainApplication.getContext(),MainApplication.getContext().getString(R.string.set_alarm_will_ring,diffHour,diffMin),Toast.LENGTH_LONG).show();
     }
 
     /**

@@ -18,6 +18,7 @@ import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
+import com.timediffproject.constants.Constant;
 import com.timediffproject.constants.Constants;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.money.EMoneyMapModel;
@@ -93,7 +94,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         holder.countryIcon.setImageResource(ImageUtil.getResource(mContext,model.getLogo()));
 
         holder.cityName.setText(CommonUtil.getCityNameByLanguage(language,model));
-        holder.nationName.setText(model.getNationName());
+        holder.nationName.setText(CommonUtil.getNationNameByLanguage(language,model));
 
         Date date = MyClient.getMyClient().getTimeManager().getTime(model.getDiffTime());
         model.setNowDate(date);
@@ -114,7 +115,12 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
         String day = strTime1.split("-")[2];
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        holder.bigTime.setText(month+"月"+day+"日"+"-"+weekDays[calendar.get(Calendar.DAY_OF_WEEK)-1]);
+
+        String monthStr = CommonUtil.getMonthStr(language,calendar);
+        String dayOfWeekStr = CommonUtil.getDayOfWeekStr(language,calendar);
+        String dayOfMonthStr = CommonUtil.getDayOfMonthStr(language,calendar);
+        String devide = language.equals(Constant.LANGUAGE_CHINA)?"":" ";
+        holder.bigTime.setText(monthStr+devide+dayOfMonthStr+"  "+dayOfWeekStr);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

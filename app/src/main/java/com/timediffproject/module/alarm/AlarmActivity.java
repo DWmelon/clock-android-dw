@@ -52,7 +52,7 @@ public class AlarmActivity extends BaseActivity implements View.OnClickListener,
 
     private void initData(){
         mToolbar = (Toolbar)findViewById(R.id.my_toolbar);
-        mToolbar.setTitle("闹钟列表");
+        mToolbar.setTitle(R.string.alarm_page_title);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.icon_back_white);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

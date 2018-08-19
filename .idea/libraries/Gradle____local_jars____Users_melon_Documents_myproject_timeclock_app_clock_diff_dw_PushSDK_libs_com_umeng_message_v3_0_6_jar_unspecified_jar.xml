@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_jars__:/Users/melon/Documents/myproject/timeclock/app/clock-diff-dw/PushSDK/libs/com.umeng.message_v3.0.6.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PushSDK/libs/com.umeng.message_v3.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

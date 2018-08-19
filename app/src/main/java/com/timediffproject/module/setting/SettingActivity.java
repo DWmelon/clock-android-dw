@@ -1,10 +1,11 @@
 package com.timediffproject.module.setting;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.suke.widget.SwitchButton;
@@ -13,7 +14,7 @@ import com.timediffproject.application.BaseActivity;
 import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.constants.Constant;
 import com.timediffproject.eventbus.HomeEB;
-import com.timediffproject.module.home.MyMainActivity;
+import com.timediffproject.network.UrlConstantV2;
 import com.timediffproject.stat.StatCMConstant;
 import com.timediffproject.stat.StatManager;
 import com.timediffproject.util.CommonUtil;
@@ -21,6 +22,7 @@ import com.timediffproject.util.CommonUtil;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 import java.util.Locale;
 
@@ -53,6 +55,9 @@ public class SettingActivity extends BaseActivity {
     CheckBox mCbEnglish;
     boolean isUseEnglish;
 
+    @BindView(R.id.tv_setting_widget_style)
+    TextView mTvWidgetStyle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +89,7 @@ public class SettingActivity extends BaseActivity {
         mCbChina.setChecked(CommonUtil.judgeLanguage(Constant.LANGUAGE_CHINA));
         mCbEnglish.setChecked(CommonUtil.judgeLanguage(Constant.LANGUAGE_ENGLISH));
 
+        mTvWidgetStyle.setText(CommonUtil.getWidgetBackStyleStr());
     }
 
     @Override
@@ -127,4 +133,17 @@ public class SettingActivity extends BaseActivity {
         CommonUtil.changeAppLanguage(this, Locale.US);
     }
 
+    @OnClick(R.id.ll_setting_widget_style)
+    void handleIntentWidgetStyle(){
+        Intent intent = new Intent(this,WidgetStyleSelectActivity.class);
+        startActivityForResult(intent, UrlConstantV2.REQUEST.WIDGET_STYLE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == UrlConstantV2.REQUEST.WIDGET_STYLE){
+            mTvWidgetStyle.setText(CommonUtil.getWidgetBackStyleStr());
+        }
+    }
 }

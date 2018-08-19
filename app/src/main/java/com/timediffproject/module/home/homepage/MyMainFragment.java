@@ -81,7 +81,7 @@ public class MyMainFragment extends BaseFragment implements View.OnClickListener
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.icon_menu);
-        mToolbar.setTitle("");
+        mToolbar.setTitle(R.string.app_name);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

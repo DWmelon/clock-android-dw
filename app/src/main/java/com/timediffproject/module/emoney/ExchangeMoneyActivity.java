@@ -15,12 +15,14 @@ import android.widget.Toast;
 
 import com.timediffproject.R;
 import com.timediffproject.application.BaseActivity;
+import com.timediffproject.application.GlobalPreferenceManager;
 import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.money.EMoneyMapModel;
 import com.timediffproject.module.money.EMoneyResultModel;
 import com.timediffproject.module.set.OnSetCityChangeListener;
 import com.timediffproject.module.set.SetCityDialogAdapter;
+import com.timediffproject.util.CommonUtil;
 import com.timediffproject.widgets.SlidingUpDialog;
 
 import java.util.ArrayList;
@@ -82,6 +84,8 @@ public class ExchangeMoneyActivity extends BaseActivity implements OnSetCityChan
 
     private int mClickTarget = VALUE_TARGET_S;
 
+    private String language;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,9 +108,11 @@ public class ExchangeMoneyActivity extends BaseActivity implements OnSetCityChan
         });
         mToolbar.setTitle(R.string.exchange_ratio_title);
 
+        language = GlobalPreferenceManager.getString(this,GlobalPreferenceManager.KEY_LANGUAGE);
+
         if (MyClient.getMyClient().getSelectManager().getUserCountry().size()>0){
             mNationS = MyClient.getMyClient().getSelectManager().getUserCountry().get(0);
-            mTvNationS.setText(mNationS.getNationName());
+            mTvNationS.setText(CommonUtil.getNationNameByLanguage(language,mNationS));
             mTvCoinS.setVisibility(View.VISIBLE);
             mTvCoinS.setText(mNationS.getCoinName());
         }else{
@@ -154,7 +160,7 @@ public class ExchangeMoneyActivity extends BaseActivity implements OnSetCityChan
     private List<CountryModel> getDialogData(String alreadySelectNation){
         List<CountryModel> modelList = new ArrayList<>();
         for (CountryModel model : MyClient.getMyClient().getSelectManager().getUserCountry()){
-            if (!model.getNationName().equals(alreadySelectNation)){
+            if (!CommonUtil.getNationNameByLanguage(language,model).equals(alreadySelectNation)){
                 modelList.add(model);
             }
         }
@@ -205,12 +211,12 @@ public class ExchangeMoneyActivity extends BaseActivity implements OnSetCityChan
     public void onChangeCity(CountryModel model) {
         if (mClickTarget == VALUE_TARGET_S){
             mNationS = model;
-            mTvNationS.setText(mNationS.getNationName());
+            mTvNationS.setText(CommonUtil.getNationNameByLanguage(language,mNationS));
             mTvCoinS.setVisibility(View.VISIBLE);
             mTvCoinS.setText(mNationS.getCoinName());
         }else{
             mNationT = model;
-            mTvNationT.setText(mNationT.getNationName());
+            mTvNationT.setText(CommonUtil.getNationNameByLanguage(language,mNationT));
             mTvCoinT.setVisibility(View.VISIBLE);
             mTvCoinT.setText(mNationT.getCoinName());
         }

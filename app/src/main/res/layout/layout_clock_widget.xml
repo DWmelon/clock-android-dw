@@ -5,10 +5,16 @@
 
 
     <RelativeLayout
+        android:id="@+id/rl_clock_widget_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:background="@drawable/bg_corner_tran">
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_clock_widget_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -22,16 +28,20 @@
                 android:id="@+id/tv_app_widget_city_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="北京"
                 android:textColor="@color/white"
-                android:textSize="22sp"/>
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-light"/>
 
             <TextView
                 android:id="@+id/tv_app_widget_country_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5"
+                android:text="中国"
                 android:textColor="@color/white"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-light"/>
 
         </LinearLayout>
 
@@ -55,16 +65,20 @@
                     android:id="@+id/tv_app_widget_time_small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="06:30"
                     android:textColor="@color/primary_white"
-                    android:textSize="22sp"/>
+                    android:textSize="28sp"
+                    android:fontFamily="sans-serif-light"/>
 
                 <TextView
                     android:id="@+id/tv_app_widget_time_small_ap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_5"
-                    android:textColor="@color/primary_gray"
-                    android:textSize="12sp"/>
+                    android:text="PM"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-light"/>
 
             </LinearLayout>
 
@@ -72,9 +86,11 @@
                 android:id="@+id/tv_app_widget_time_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary_gray"
+                android:text="9月23日 周一"
+                android:textColor="@color/white"
                 android:textSize="12sp"
-                android:layout_marginTop="@dimen/margin_5"/>
+                android:layout_marginTop="@dimen/margin_5"
+                android:fontFamily="sans-serif-light"/>
 
         </LinearLayout>
 

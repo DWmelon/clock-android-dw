@@ -34,6 +34,10 @@ public class GlobalPreferenceManager {
 
     public static final String KEY_LANGUAGE = "use_language";
 
+    public static final String KEY_WIDGET_STYLE_INT = "widget_style_int";
+
+    public static final String KEY_APP_CHANNEL = "app_channel";
+
     public static void saveUserSelect(Context context, String id) {
         context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putString(KEY_USER_SELECT_CITY, id).apply();
     }
@@ -103,7 +107,7 @@ public class GlobalPreferenceManager {
     }
 
     public static boolean isUseRatio(Context context) {
-        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(KEY_IS_USE_RATIO,true);
+        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getBoolean(KEY_IS_USE_RATIO,false);
     }
 
     public static String getString(Context context,String key){
@@ -112,6 +116,14 @@ public class GlobalPreferenceManager {
 
     public static void setString(Context context,String key,String value){
         context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putString(key, value).apply();
+    }
+
+    public static int getInt(Context context,String key){
+        return context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).getInt(key,-1);
+    }
+
+    public static void setInt(Context context,String key,int value){
+        context.getSharedPreferences(PREFE_NAME, Context.MODE_PRIVATE).edit().putInt(key, value).apply();
     }
 
     public static boolean getBoolean(Context context,String key){

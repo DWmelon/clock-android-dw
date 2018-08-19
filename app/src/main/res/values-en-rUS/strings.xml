@@ -85,13 +85,25 @@
     <string name="dialog_msg_home">Whether to delete the time zone?\nThe alarm clock associated with the city will be deleted</string>
     <string name="dialog_msg_clock">Whether to delete the clock</string>
 
+    <string name="set_alarm_hour">H</string>
+    <string name="set_alarm_minute">M</string>
+    <string name="set_alarm_city">City</string>
+    <string name="set_alarm_city1"></string>
+
+    <string name="set_alarm_choose_city">Choose an alarm clock city</string>
+
     <!-- alarm-->
     <string name="alarm_item_tip">%1$s time %2$s</string>
-
+    <string name="alarm_page_title">Alarm List</string>
     <!-- set-->
     <string name="set_title">Add Alarm</string>
 
     <string name="city_dialog_nation">&#160;-&#160;%1$s</string>
+
+    <string name="set_alarm_map_count">Select the country corresponding to the alarm</string>
+    <string name="set_alarm_repeat_day">Select a repeat date</string>
+
+    <string name="set_alarm_will_ring">The alarm will ring after %1$d hours %2$d minutes</string>
 
     <!-- left_drawer -->
     <string name="left_drawer_tip_advice">Feedback</string>
@@ -100,7 +112,7 @@
     <string name="left_drawer_tip_widget_1">Attention</string>
     <string name="left_drawer_tip_widget_2">Due to the protection of the mobile phone system, the desktop plug-in cannot be operated normally after completely exiting the APP. You can open the app and hide it in the background, which can be displayed normally.</string>
     <string name="left_drawer_tip_share">Share</string>
-    <string name="left_drawer_tip_setting">App Setting</string>
+    <string name="left_drawer_tip_setting">Setting</string>
 
     <!-- advice -->
     <string name="advice_title">Feedback</string>
@@ -117,13 +129,16 @@
     <string name="modify_title">Edit Alarm</string>
 
     <!-- about -->
-    <string name="about_me">About the version</string>
+    <string name="about_me">Version</string>
     <string name="about_version_name_now">current version：%1$s</string>
     <string name="about_version_name_new">Latest version：%1$s</string>
     <string name="about_version_name_info">Update content：</string>
 
     <!-- voice -->
-    <string name="voice_name">ring</string>
+    <string name="voice_name">Ring</string>
+    <string name="voice_level">Volume</string>
+    <string name="voice_sound">Sound</string>
+    <string name="voice_default">Default</string>
 
     <!-- money -->
     <string name="money_coin_name">%1$s%2$s = ></string>
@@ -155,6 +170,29 @@
     <string name="setting_language_china">Chinese</string>
     <string name="setting_language_english">English</string>
 
+    <string name="setting_widget_style">Plugin style</string>
+
+    <string name="setting_widget_style_black">Classic Black</string>
+    <string name="setting_widget_style_empty">Transparent Color</string>
+    <string name="setting_widget_style_blue">Light Blue</string>
+    <string name="setting_widget_style_yellow">Light Yellow</string>
+    <string name="setting_widget_style_green">Light Green</string>
+    <string name="setting_widget_style_pink">Light Pink</string>
+
+    <string name="setting_widget_style_toast">chosen %1$s</string>
+
     <string name="setting_restart">Fully effective after reboot</string>
+
+    <!-- select search-->
+    <string name="select_search_keyword">Input regional keywords</string>
+    <string name="state_europe">Europe</string>
+    <string name="state_asia">Asia</string>
+    <string name="state_africa">Africa</string>
+    <string name="state_america">America</string>
+    <string name="state_oceania">Oceania</string>
+
+    <!-- ring -->
+    <string name="ring_notify_after">Remind Later</string>
+    <string name="ring_push_up_to_cancel">Swipe up to cancel the alarm</string>
 
 </resources>
