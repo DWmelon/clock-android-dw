@@ -103,8 +103,8 @@ public class CommonUtil {
                 return R.drawable.bg_corner_pink;
             }
             default:
-                GlobalPreferenceManager.setInt(MainApplication.getContext(),GlobalPreferenceManager.KEY_WIDGET_STYLE_INT, Constant.WIDGET_BLACK);
-                return R.drawable.bg_corner_tran;
+                GlobalPreferenceManager.setInt(MainApplication.getContext(),GlobalPreferenceManager.KEY_WIDGET_STYLE_INT, Constant.WIDGET_TRAN);
+                return R.drawable.bg_empty;
         }
 
 

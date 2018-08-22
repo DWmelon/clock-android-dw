@@ -100,7 +100,7 @@ public class UpdateActivity extends BaseActivity implements OnGetUploadConfigLis
 
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N){
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            Uri contentUri = FileProvider.getUriForFile(MainApplication.getContext(),"com.easyads.fileprovider.update",apkFile);
+            Uri contentUri = FileProvider.getUriForFile(MainApplication.getContext(),getPackageName() + ".fileprovider.update",apkFile);
             intent.setDataAndType(contentUri,"application/vnd.android.package-archive");
         }else {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

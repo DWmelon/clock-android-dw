@@ -34,7 +34,7 @@ import java.util.Date;
 
 public class RingActivity extends BaseActivity implements RingCancelListener {
 
-    private static final long RING_NEXT_TIME = 2 * 60 * 1000;//10分钟后响铃
+    private static final long RING_NEXT_TIME = 10 * 60 * 1000;//10分钟后响铃
 
     private RingService ringService;
 
@@ -44,8 +44,6 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
     private TextView mTvDate;
     private TextView mTvWeek;
     private TextView mTvCity;
-
-    private PowerManager.WakeLock wakeLock;
 
     //闹钟类型（正常，暂缓）
     private String type;
@@ -175,10 +173,6 @@ public class RingActivity extends BaseActivity implements RingCancelListener {
         }
         unbindService(serviceConnection);
         super.onDestroy();
-//        if (wakeLock != null){
-//            wakeLock.release();
-//            wakeLock=null;
-//        }
     }
 
     @Override

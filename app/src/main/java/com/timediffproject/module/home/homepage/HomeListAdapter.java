@@ -136,13 +136,15 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
             holder.mVLine.setVisibility(View.GONE);
         }
 
+        //定位icon
+        holder.locIcon.setVisibility(position == 0?View.VISIBLE:View.GONE);
+
         //汇率
         if (isUseRatio == null){
             isUseRatio = GlobalPreferenceManager.isUseRatio(mContext);
         }
         if (position == 0 || !isUseRatio){
             holder.mLlSubContent.setVisibility(View.GONE);
-            holder.locIcon.setVisibility(View.VISIBLE);
         }else{
             if (mEMoneyMap.containsKey(model.getNationName()) && !TextUtils.isEmpty(mSCoin)){
                 holder.mLlSubContent.setVisibility(View.VISIBLE);
@@ -172,7 +174,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.ViewHo
             }else {
                 holder.mLlSubContent.setVisibility(View.GONE);
             }
-            holder.locIcon.setVisibility(View.GONE);
+
         }
 
 

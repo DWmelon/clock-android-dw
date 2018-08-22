@@ -45,10 +45,13 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
 
     private List<AlarmModel> alarmModelList = new ArrayList<>();
 
+    String language;
+
     public AlarmListAdapter(Context context, MyAlarmManager manager){
         this.mContext = context;
         this.manager = manager;
         alarmModelList = manager.getAlarmModelList();
+        language = GlobalPreferenceManager.getString(mContext,GlobalPreferenceManager.KEY_LANGUAGE);
     }
 
     @Override
@@ -63,8 +66,6 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final AlarmModel model = alarmModelList.get(position);
         CountryModel countryModel = MyClient.getMyClient().getSelectManager().getNationById(model.getCityId());
-
-        String language = GlobalPreferenceManager.getString(mContext,GlobalPreferenceManager.KEY_LANGUAGE);
 
         holder.mSbAlarmSet.setChecked(model.getUsing());
         holder.mSbAlarmSet.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
@@ -106,9 +107,9 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         tempModel.setCityNameE(CommonUtil.getCityEByCityC(model.getCity()));
         holder.mTvAlarmCity.setText(CommonUtil.getCityNameByLanguage(language,tempModel));
 
-        Date localTimeDate = culLocalTime(model);
-        SpannableString localTime = handleLocalTime(localTimeDate);
-        if (localTime == null || model.getCity().equals(mContext.getString(R.string.beijing))){
+        Date localTimeDate = culLocalTime(date,model.getCityId());
+        SpannableString localTime = handleLocalTime(date,localTimeDate);
+        if (localTime == null || isLocalCity(model.getCityId())){
             holder.mLlExchange.setVisibility(View.GONE);
         }else{
             holder.mLlExchange.setVisibility(View.VISIBLE);
@@ -157,56 +158,75 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.View
         });
     }
 
-    private Date culLocalTime(AlarmModel alarmModel){
+    private Date culLocalTime(Date ringDate,Long cityId){
         List<CountryModel> countryModelList = MyClient.getMyClient().getSelectManager().getUserCountry();
         if (countryModelList == null || countryModelList.isEmpty()){
             return null;
         }
 
 
-//        CountryModel myCountry = countryModelList.get(0);
-        CountryModel alarmCountry = MyClient.getMyClient().getSelectManager().getNationById(alarmModel.getCityId());
+        CountryModel myCountry = countryModelList.get(0);
+        CountryModel alarmCountry = MyClient.getMyClient().getSelectManager().getNationById(cityId);
 
-//        if (myCountry.getId().equals(alarmCountry.getId())){
-//            return null;
-//        }
+        if (myCountry.getId().equals(alarmCountry.getId())){
+            return null;
+        }
 
-//        float diffHour = 0 - alarmCountry.getDiffTime();
+        float diffHour = myCountry.getDiffTime() - alarmCountry.getDiffTime();
 
-        Calendar calendarNow = Calendar.getInstance();
-        calendarNow.setTime(new Date(SetAlarmUtil.geiBeijingAlarmTime(alarmModel.getAlarmTime())));
+//        Calendar calendarNow = Calendar.getInstance();
+//        calendarNow.setTime(new Date(SetAlarmUtil.geiBeijingAlarmTime(alarmModel.getAlarmTime())));
 
 //        int hour = (int)diffHour;
-//        int min = (int) ((diffHour - hour)*60);
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.setTime(calendarNow.getTime());
-//        if (min != 0){
-//            calendarNow.add(Calendar.MINUTE,min);
-//        }
-//        calendarNow.add(Calendar.HOUR_OF_DAY,hour);
+        int millis = (int) (diffHour*60*60*1000);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(ringDate.getTime()+millis);
 
-//        String dayTip = "";
-//        if (calendar.compareTo(calendarNow)<0){
-//            if (calendar.get(Calendar.DAY_OF_MONTH)!=calendarNow.get(Calendar.DAY_OF_MONTH)){
-//                dayTip = "昨天";
-//            }
-//        }else{
-//            if (calendar.get(Calendar.DAY_OF_MONTH)!=calendarNow.get(Calendar.DAY_OF_MONTH)){
-//                dayTip = "明天";
-//            }
-//        }
-
-        return calendarNow.getTime();
+        return calendar.getTime();
 
     }
 
-    private SpannableString handleLocalTime(Date date){
-        String time = DateUtil.getHourFormat(mContext,date);
-        String localTime = mContext.getString(R.string.alarm_item_tip,mContext.getString(R.string.beijing),time);
+    private SpannableString handleLocalTime(Date AlarmDate,Date targetDate){
+        if (targetDate == null){
+            return null;
+        }
+        String city = mContext.getString(R.string.beijing);
+        List<CountryModel> countryModelList = MyClient.getMyClient().getSelectManager().getUserCountry();
+        if (countryModelList != null && !countryModelList.isEmpty()){
+            city = CommonUtil.getCityNameByLanguage(language,countryModelList.get(0));
+        }
+
+        Calendar calendarT = Calendar.getInstance();
+        calendarT.setTime(targetDate);
+        Calendar calendarS = Calendar.getInstance();
+        calendarS.setTime(AlarmDate);
+        String dayTip = "";
+        if (calendarT.compareTo(calendarS)<0){
+            if (calendarT.get(Calendar.DAY_OF_MONTH)!=calendarS.get(Calendar.DAY_OF_MONTH)){
+                dayTip = "(昨)";
+            }
+        }else{
+            if (calendarT.get(Calendar.DAY_OF_MONTH)!=calendarS.get(Calendar.DAY_OF_MONTH)){
+                dayTip = "(明)";
+            }
+        }
+
+        String time = DateUtil.getHourFormat(mContext,targetDate);
+        String localTime = mContext.getString(R.string.alarm_item_tip,city,time,dayTip);
+        int index = localTime.indexOf("：");
         SpannableString span = SpanUtil.getSpannableString(localTime,
-                new ForegroundColorSpan(mContext.getResources().getColor(R.color.white)),localTime.length()-6,localTime.length());
-        span = SpanUtil.getSpannableString(span,new RelativeSizeSpan(1.2f),localTime.length()-6,localTime.length());
+                new ForegroundColorSpan(mContext.getResources().getColor(R.color.white)),index+1,index+6);
+        span = SpanUtil.getSpannableString(span,new RelativeSizeSpan(1.2f),index+1,index+6);
         return span;
+    }
+
+    private boolean isLocalCity(Long cityId){
+        List<CountryModel> countryModelList = MyClient.getMyClient().getSelectManager().getUserCountry();
+        if (countryModelList == null || countryModelList.isEmpty()){
+            return true;
+        }
+        CountryModel model = countryModelList.get(0);
+        return cityId.equals(model.getId());
     }
 
     @Override

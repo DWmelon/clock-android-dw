@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="06:30"
                     android:textColor="@color/primary_white"
-                    android:textSize="28sp"
+                    android:textSize="26sp"
                     android:fontFamily="sans-serif-light"/>
 
                 <TextView
@@ -89,7 +89,7 @@
                 android:text="9月23日 周一"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                android:layout_marginTop="@dimen/margin_5"
+                android:layout_marginTop="@dimen/margin_2"
                 android:fontFamily="sans-serif-light"/>
 
         </LinearLayout>

@@ -205,6 +205,9 @@ public class SelectManager {
 
         userCountry.set(position,model);
 
+        userCountryMap.remove(userCountry.get(position).getId());
+        userCountryMap.put(model.getId(),model);
+
         String str = GlobalPreferenceManager.getUserSelect(context);
         str = str.replace(id,String.valueOf(model.getId()));
         saveUserSelectToFile(str);

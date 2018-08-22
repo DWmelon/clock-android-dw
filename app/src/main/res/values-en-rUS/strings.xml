@@ -93,7 +93,7 @@
     <string name="set_alarm_choose_city">Choose an alarm clock city</string>
 
     <!-- alarm-->
-    <string name="alarm_item_tip">%1$s time %2$s</string>
+    <string name="alarm_item_tip">%1$s时间：%2$s&#160;%3$s</string>
     <string name="alarm_page_title">Alarm List</string>
     <!-- set-->
     <string name="set_title">Add Alarm</string>

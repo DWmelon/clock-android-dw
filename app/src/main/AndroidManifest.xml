@@ -117,6 +117,17 @@
         <meta-data android:value="8fd1559878e9c978f37121d89abfb0b0" android:name="UMENG_MESSAGE_SECRET"/>
         <meta-data android:value="${UMENG_CHANNEL_VALUE}" android:name="UMENG_CHANNEL"/>
 
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.timediffproject.fileprovider.update"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
     </application>
 
 </manifest>

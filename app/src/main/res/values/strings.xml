@@ -85,7 +85,7 @@
     <string name="dialog_msg_clock">是否删除该时钟</string>
 
     <!-- alarm-->
-    <string name="alarm_item_tip">%1$s时间：%2$s</string>
+    <string name="alarm_item_tip">%1$s时间：%2$s&#160;%3$s</string>
     <string name="alarm_page_title">闹钟列表</string>
     <!-- set-->
     <string name="set_title">设置闹钟</string>

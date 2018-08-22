@@ -22,10 +22,23 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/ll_widget_style_tran"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/layout_clock_widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/ll_widget_style_black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_30"
                 android:background="@drawable/bg_corner_tran">
 
                 <include layout="@layout/layout_clock_widget"
@@ -35,18 +48,7 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/ll_widget_style_tran"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="@dimen/margin_30">
 
-                <include layout="@layout/layout_clock_widget"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_widget_style_blue"
