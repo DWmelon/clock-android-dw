@@ -18,7 +18,6 @@ import com.timediffproject.constants.Constant;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.splash.SplashActivity;
 import com.timediffproject.origin.MainApplication;
-import com.umeng.message.common.Const;
 
 import java.util.Calendar;
 import java.util.Locale;

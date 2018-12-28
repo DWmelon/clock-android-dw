@@ -4,8 +4,8 @@ apply plugin: 'org.greenrobot.greendao'
 import com.android.build.OutputFile
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
 
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -25,12 +25,13 @@ android {
     defaultConfig {
         applicationId "com.timediffproject"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 15
         versionName "1.5.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        flavorDimensions "versionCode"
     }
 
     signingConfigs {
@@ -97,35 +98,35 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile project(':PushSDK')
-    compile project(':volley')
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.alibaba:fastjson:1.2.23'
-    compile 'com.android.support:design:25.1.0'
+    implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    compile 'com.github.zcweng:switch-button:0.0.2@aar'
+    implementation project(':volley')
+    implementation 'com.android.support:appcompat-v7:25.1.0'
+    implementation 'com.alibaba:fastjson:1.2.23'
+    implementation 'com.android.support:design:25.1.0'
 
-    compile 'com.umeng.sdk:common:latest.integration'
-    compile 'com.umeng.sdk:analytics:latest.integration'
+    implementation 'com.github.zcweng:switch-button:0.0.2@aar'
 
-    compile 'com.facebook.fresco:fresco:0.12.0'
-    compile 'com.jakewharton:butterknife:8.8.1'
-    compile 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.umeng.sdk:common:latest.integration'
+    implementation 'com.umeng.sdk:analytics:latest.integration'
 
-    compile 'org.greenrobot:greendao:3.2.2'
+    implementation 'com.facebook.fresco:fresco:0.12.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'org.greenrobot:eventbus:3.1.1'
 
-    compile 'com.aliyun.dpa:oss-android-sdk:2.8.2'
+    implementation 'org.greenrobot:greendao:3.2.2'
 
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
+    implementation 'com.aliyun.dpa:oss-android-sdk:2.8.2'
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
+    implementation 'com.google.code.gson:gson:2.6.2'//Gson 库
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'//导入retrofit
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'//转换器，请求结果转换成Model
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'//配合Rxjava 使用
+
+
+    implementation("com.squareup.okhttp3:okhttp:3.12.0")
 
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-}
-
-// Run this once to be able to run the application with BUCK
-// puts all compile dependencies into folder libs for BUCK to use
-task copyDownloadableDepsToLibs(type: Copy) {
-    from configurations.compile
-    into 'libs'
 }

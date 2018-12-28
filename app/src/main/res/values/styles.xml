@@ -20,10 +20,10 @@
 
     <style name="day_of_week_label_condensed" />
 
-    <style name="dialog_anim_style" parent="android:Animation">
-        <item name="@android:windowEnterAnimation">@anim/dialog_in</item>
-        <item name="@android:windowExitAnimation">@anim/dialog_out</item>
-    </style>
+    <!--<style name="dialog_anim_style" parent="android:Animation">-->
+        <!--<item name="@android:windowEnterAnimation">@anim/dialog_in</item>-->
+        <!--<item name="@android:windowExitAnimation">@anim/dialog_out</item>-->
+    <!--</style>-->
 
 
     <style name="set_circular_text" parent="android:Widget.TextView">

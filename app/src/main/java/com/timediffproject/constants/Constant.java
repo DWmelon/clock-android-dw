@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Constant {
 
-    public static final String MAIN_URL = "http://119.23.222.106/timediff";
+    public static final String MAIN_URL = "http://119.23.222.106/timediff/";
 //    public static final String MAIN_URL = "http://192.168.1.225:12344";
 
     public static final String LANGUAGE_CHINA = "china";

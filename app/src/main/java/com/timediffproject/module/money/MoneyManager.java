@@ -9,11 +9,23 @@ import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.emoney.OnGetExchangeMoneyListener;
 import com.timediffproject.network.IRequest;
 import com.timediffproject.network.IRequestCallback;
+import com.timediffproject.network2.MoneyRatioService;
+import com.timediffproject.network2.MoneyRatioServiceImpl;
+import com.timediffproject.network2.RetrofitManager;
 import com.timediffproject.util.V2ArrayUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by melon on 2017/12/13.
@@ -57,63 +69,38 @@ public class MoneyManager {
     }
 
     public void requestEMoney(String sourceNation, List<String> targetNationList, final OnGetExchangeMoneyListener listener) {
-
-        final IRequest request = (IRequest) MyClient.getMyClient().getService(MyClient.SERVICE_HTTP_REQUEST);
-        if (request == null) {
-            return;
-        }
-
         HashMap<String,String> map = new HashMap<>();
-
         map.put("sourceNation",sourceNation);
         map.put("targetNationList", V2ArrayUtil.getJsonArrData(targetNationList));
-
-        request.sendRequestForPostWithJson(URL_GET_EMONEY_BY_CITYS, map, new IRequestCallback() {
-
-            private void dispatch(boolean isSuccess,EMoneyResultModel model){
-                if (listener == null && onGetEMoneyListener == null){
-                    return;
-                }
-                if (listener == null){
-                    onGetEMoneyListener.onGetEMoneyFinish(isSuccess);
-                }else{
-                    listener.onGetExchangeMoneyFinish(isSuccess,model);
-                }
-            }
+        Disposable subscribe = MoneyRatioServiceImpl.getNationMoneyRatio(map).subscribe(new Consumer<EMoneyResultModel2>() {
 
             @Override
-            public void onResponseSuccess(JSONObject jsonObject) {
+            public void accept(EMoneyResultModel2 eMoneyResultModel) throws Exception {
                 if (onGetEMoneyListener == null && listener == null) {
                     return;
                 }
 
-                if (jsonObject == null) {
-                    dispatch(false,null);
-                    return;
+                boolean isSuccess = true;
+                if (eMoneyResultModel == null) {
+                    isSuccess = false;
                 }
 
-                EMoneyResultModel model = new EMoneyResultModel();
-                model.decode(jsonObject);
-                if (model.getCode() == 0){
-                    mEMoneyResultModel = model;
-                    dispatch(true,model);
+                if (listener == null){
+                    onGetEMoneyListener.onGetEMoneyFinish(isSuccess);
                 }else{
-                    dispatch(false,null);
+                    listener.onGetExchangeMoneyFinish(isSuccess,eMoneyResultModel);
                 }
-
             }
-
+        }, new Consumer<Throwable>() {
             @Override
-            public void onResponseSuccess(String str) {
-
-            }
-
-            @Override
-            public void onResponseError(int code) {
-                dispatch(false,null);
+            public void accept(Throwable throwable) throws Exception {
+                if (listener == null){
+                    onGetEMoneyListener.onGetEMoneyFinish(false);
+                }else{
+                    listener.onGetExchangeMoneyFinish(false,null);
+                }
             }
         });
-
 
     }
 

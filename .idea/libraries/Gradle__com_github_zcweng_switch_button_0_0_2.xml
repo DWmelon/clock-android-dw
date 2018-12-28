@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.zcweng:switch-button-0.0.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/d900ed94c61f930a37c7617fbe5f740d2f82b01c/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/d900ed94c61f930a37c7617fbe5f740d2f82b01c/output/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/switch-button-0.0.2.aar/a08225acd68a9d6f78efa9e72519ed8f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/switch-button-0.0.2.aar/a08225acd68a9d6f78efa9e72519ed8f/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

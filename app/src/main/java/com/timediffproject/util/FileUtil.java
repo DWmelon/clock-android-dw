@@ -18,8 +18,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import anet.channel.util.StringUtils;
-
 /**
  * Created by melon on 2017/1/4.
  */
@@ -238,7 +236,7 @@ public class FileUtil {
     }
 
     public static boolean writeStreamToFile(InputStream inStream,String newPath){
-        if (StringUtils.isBlank(newPath)){
+        if (TextUtils.isEmpty(newPath)){
             return false;
         }
 

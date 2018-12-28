@@ -20,6 +20,7 @@ import com.timediffproject.application.MyClient;
 import com.timediffproject.model.CountryModel;
 import com.timediffproject.module.money.EMoneyMapModel;
 import com.timediffproject.module.money.EMoneyResultModel;
+import com.timediffproject.module.money.EMoneyResultModel2;
 import com.timediffproject.module.set.OnSetCityChangeListener;
 import com.timediffproject.module.set.SetCityDialogAdapter;
 import com.timediffproject.util.CommonUtil;
@@ -74,7 +75,7 @@ public class ExchangeMoneyActivity extends BaseActivity implements OnSetCityChan
     private final int VALUE_TARGET_S = 1;
     private final int VALUE_TARGET_T = 2;
 
-    private EMoneyResultModel mResultModel;
+    private EMoneyResultModel2 mResultModel;
 
     private SlidingUpDialog mNationDialog;
     private SetCityDialogAdapter mCityAdapter;
@@ -186,7 +187,7 @@ public class ExchangeMoneyActivity extends BaseActivity implements OnSetCityChan
             return;
         }
         float valueF = Float.parseFloat(valueS);
-        mTvValue.setText(String.valueOf(valueF*mResultModel.getModelList().get(0).getValue()));
+        mTvValue.setText(String.valueOf(valueF*mResultModel.getData().getMoneyRatioList().get(0).getValue()));
     }
 
     @OnClick(R.id.ll_exchange_source)
@@ -231,27 +232,27 @@ public class ExchangeMoneyActivity extends BaseActivity implements OnSetCityChan
     }
 
     @Override
-    public void onGetExchangeMoneyFinish(boolean isSuccess, EMoneyResultModel model) {
+    public void onGetExchangeMoneyFinish(boolean isSuccess, EMoneyResultModel2 model) {
         hideProgress();
         if (!isSuccess || model == null){
             Toast.makeText(this,R.string.exchange_ratio_request_fail,Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (model.getModelList().isEmpty()){
+        if (model.getData().getMoneyRatioList().isEmpty()){
             return;
         }
 
-        EMoneyMapModel targetModel = model.getModelList().get(0);
-        if (!mNationS.getNationName().equals(model.getSourceNation()) || !mNationT.getNationName().equals(targetModel.getCoinNation())){
+        EMoneyResultModel2.DataModel.MoneyRatioModel targetModel = model.getData().getMoneyRatioList().get(0);
+        if (!mNationS.getNationName().equals(model.getData().getSourceNation()) || !mNationT.getNationName().equals(targetModel.getCoinNation())){
             return;
         }
 
         mResultModel = model;
 
         mTvCurrRatio.setText(String.valueOf(targetModel.getValue()));
-        mTvCurrTime.setText(model.getUpdateTime());
-        mTvExchangeTipS.setText(getString(R.string.exchange_ratio_tip_source,model.getSourceCoin()));
+        mTvCurrTime.setText(model.getData().getUpdateTime());
+        mTvExchangeTipS.setText(getString(R.string.exchange_ratio_tip_source,model.getData().getSourceCoin()));
         mTvExchangeTipT.setText(getString(R.string.exchange_ratio_tip_target,targetModel.getCoinName()));
 
     }

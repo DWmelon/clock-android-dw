@@ -170,7 +170,7 @@ public class TimePickerDialog extends DialogFragment implements RadialPickerLayo
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        getDialog().getWindow().setWindowAnimations(R.style.dialog_anim_style);
+//        getDialog().getWindow().setWindowAnimations(R.style.dialog_anim_style);
         View view = inflater.inflate(R.layout.time_picker_dialogs, container);
         KeyboardListener keyboardListener = new KeyboardListener();
         LinearLayout ly =(LinearLayout) view.findViewById(R.id.picker_dialog);

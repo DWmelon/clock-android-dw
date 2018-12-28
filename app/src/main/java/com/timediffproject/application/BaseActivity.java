@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -17,9 +18,6 @@ import com.timediffproject.origin.MainApplication;
 import com.timediffproject.util.ProgressBarUtil;
 import com.timediffproject.widgets.MaterialDialog;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.message.PushAgent;
-
-import anet.channel.util.StringUtils;
 
 /**
  * Created by melon on 2017/1/3.
@@ -35,7 +33,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        PushAgent.getInstance(this).onAppStart();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
@@ -176,7 +173,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (!StringUtils.isBlank(umengPage)){
+        if (!TextUtils.isEmpty(umengPage)){
             MobclickAgent.onPageStart(umengPage);
         }
         MobclickAgent.onResume(this);
@@ -185,7 +182,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (!StringUtils.isBlank(umengPage)){
+        if (!TextUtils.isEmpty(umengPage)){
             MobclickAgent.onPageEnd(umengPage);
         }
         MobclickAgent.onPause(this);
